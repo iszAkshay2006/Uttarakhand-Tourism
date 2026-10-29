@@ -1,0 +1,89 @@
+
+/* =================================
+   ACCOMMODATION DETAILS PAGE
+   Uttarakhand Explorer
+================================= */
+
+.page-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 75px 7% 100px;
+}
+
+.page-wrap h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.06em;
+    margin: 0 0 20px;
+}
+
+.page-wrap > p:not(.eyebrow) {
+    color: #657571;
+    max-width: 650px;
+    line-height: 1.8;
+}
+
+.page-wrap .eyebrow {
+    color: #55785f;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    margin-bottom: 18px;
+}
+
+/* Accommodation information box */
+
+.notice {
+    margin-top: 30px;
+    background: #e6edda;
+    padding: 22px;
+    border-radius: 18px;
+    color: #294b38;
+    line-height: 1.7;
+}
+
+.notice strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.notice p {
+    color: #526457;
+    margin-top: 8px;
+}
+
+/* Back button */
+
+.page-wrap .button {
+    display: inline-block;
+    margin-top: 25px;
+    transition: transform 0.25s ease;
+}
+
+.page-wrap .button:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    .page-wrap {
+        padding: 55px 6% 75px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-wrap {
+        padding: 40px 6% 60px;
+    }
+
+    .page-wrap h1 {
+        font-size: 2.5rem;
+    }
+
+    .notice {
+        padding: 18px;
+        border-radius: 14px;
+    }
+}

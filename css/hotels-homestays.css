@@ -1,0 +1,564 @@
+
+/* =========================================
+   UTTARAKHAND EXPLORER
+   HOTELS & HOMESTAYS - PREMIUM CSS
+========================================= */
+
+:root {
+    --stay-primary: #246b4b;
+    --stay-primary-dark: #174b35;
+    --stay-heading: #203b32;
+    --stay-text: #64736b;
+    --stay-bg: #f6f8f4;
+    --stay-white: #ffffff;
+    --stay-border: #e3e9e1;
+    --stay-soft-green: #e8f0e4;
+    --stay-shadow: 0 8px 30px rgba(27, 65, 44, 0.08);
+    --stay-shadow-hover: 0 18px 40px rgba(27, 65, 44, 0.15);
+}
+
+/* Base page */
+
+.stay-page {
+    display: block;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0 80px;
+    color: var(--stay-heading);
+}
+
+.stay-page * {
+    box-sizing: border-box;
+}
+
+.stay-page a {
+    text-decoration: none;
+}
+
+/* =========================================
+   HERO SECTION
+========================================= */
+
+.stay-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 78px 55px;
+    margin: 35px 0 65px;
+    border: 1px solid #e0e9dc;
+    border-radius: 28px;
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(165, 195, 143, 0.35),
+            transparent 32%
+        ),
+        linear-gradient(135deg, #edf4e9, #f9faf5 70%);
+}
+
+.stay-hero::after {
+    content: "🏔️";
+    position: absolute;
+    right: 45px;
+    bottom: 15px;
+    font-size: clamp(90px, 15vw, 190px);
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+.stay-page .eyebrow {
+    position: relative;
+    z-index: 1;
+    margin: 0 0 17px;
+    color: var(--stay-primary);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+    line-height: 1.7;
+}
+
+.stay-hero h1 {
+    position: relative;
+    z-index: 1;
+    max-width: 780px;
+    margin: 0 0 22px;
+    color: var(--stay-heading);
+    font-size: clamp(40px, 6vw, 70px);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -2.8px;
+}
+
+.hero-description {
+    position: relative;
+    z-index: 1;
+    max-width: 620px;
+    margin: 0;
+    color: var(--stay-text);
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+/* Hero buttons */
+
+.hero-buttons {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.stay-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 48px;
+    padding: 13px 23px;
+    border: 1px solid var(--stay-primary);
+    border-radius: 10px;
+    background: var(--stay-primary);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-align: center;
+    cursor: pointer;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.stay-button:hover {
+    background: var(--stay-primary-dark);
+    border-color: var(--stay-primary-dark);
+    color: #ffffff;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(36, 107, 75, 0.18);
+}
+
+.stay-button-light {
+    background: #ffffff;
+    color: var(--stay-primary);
+    border-color: #cbd9cc;
+}
+
+.stay-button-light:hover {
+    background: var(--stay-soft-green);
+    color: var(--stay-primary-dark);
+    border-color: #a9c5ae;
+}
+
+/* =========================================
+   SECTION HEADINGS
+========================================= */
+
+.stay-section {
+    display: block;
+    padding: 15px 0 40px;
+}
+
+.stay-section h2,
+.online-section h2 {
+    margin: 0 0 15px;
+    color: var(--stay-heading);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -1.3px;
+}
+
+.section-description {
+    max-width: 720px;
+    margin: 0 0 32px;
+    color: var(--stay-text);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* =========================================
+   ACCOMMODATION CARDS
+========================================= */
+
+.stay-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+.stay-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 290px;
+    padding: 28px 25px;
+    overflow: hidden;
+    border: 1px solid var(--stay-border);
+    border-radius: 20px;
+    background: var(--stay-white);
+    box-shadow: var(--stay-shadow);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.stay-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        #246b4b,
+        #9abf86
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.stay-card:hover {
+    transform: translateY(-7px);
+    border-color: #cbdcc9;
+    box-shadow: var(--stay-shadow-hover);
+}
+
+.stay-card:hover::before {
+    transform: scaleX(1);
+}
+
+/* Card icon */
+
+.stay-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+    margin-bottom: 23px;
+    border: 1px solid #e0eadb;
+    border-radius: 17px;
+    background: linear-gradient(135deg, #edf5e8, #f7f9f3);
+    font-size: 31px;
+    transition:
+        transform 0.3s ease,
+        border-radius 0.3s ease;
+}
+
+.stay-card:hover .stay-icon {
+    transform: scale(1.07) rotate(-3deg);
+    border-radius: 20px;
+}
+
+/* Card title */
+
+.stay-card h3 {
+    display: block;
+    margin: 0 0 12px;
+    color: var(--stay-heading);
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+/* Card description */
+
+.stay-card p {
+    flex-grow: 1;
+    margin: 0 0 24px;
+    color: var(--stay-text);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* Card links */
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: auto;
+    color: var(--stay-primary);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.7;
+    transition: gap 0.25s ease, color 0.25s ease;
+}
+
+.card-link:hover {
+    gap: 12px;
+    color: var(--stay-primary-dark);
+}
+
+/* =========================================
+   ONLINE BOOKING SECTION
+========================================= */
+
+.online-section {
+    position: relative;
+    overflow: hidden;
+    margin-top: 25px;
+    padding: 40px;
+    border: 1px solid #dce7d6;
+    border-radius: 24px;
+    background:
+        radial-gradient(
+            circle at 100% 0,
+            rgba(183, 207, 162, 0.3),
+            transparent 35%
+        ),
+        linear-gradient(135deg, #e8f0e4, #f4f7ef);
+}
+
+.online-content {
+    position: relative;
+    z-index: 1;
+    max-width: 850px;
+}
+
+.online-section h2 {
+    margin-bottom: 15px;
+}
+
+.online-section p:not(.eyebrow) {
+    max-width: 750px;
+    margin: 0;
+    color: #526457;
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+/* Booking links */
+
+.booking-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 27px;
+}
+
+.booking-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    padding: 11px 17px;
+    border: 1px solid #d4e0d0;
+    border-radius: 9px;
+    background: #ffffff;
+    color: var(--stay-primary);
+    font-size: 13px;
+    font-weight: 800;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.booking-links a:hover {
+    transform: translateY(-2px);
+    border-color: #a9c5ae;
+    background: #f8fbf5;
+}
+
+/* =========================================
+   TRAVEL NOTE
+========================================= */
+
+.stay-note {
+    margin-top: 25px;
+    padding: 20px 23px;
+    border: 1px solid var(--stay-border);
+    border-left: 4px solid var(--stay-primary);
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--stay-text);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.stay-note strong {
+    color: var(--stay-heading);
+}
+
+/* Back home */
+
+.back-home {
+    display: block;
+    margin-top: 30px;
+}
+
+/* Keyboard accessibility */
+
+.stay-page a:focus-visible {
+    outline: 3px solid #90b99b;
+    outline-offset: 4px;
+}
+
+/* =========================================
+   TABLET RESPONSIVE
+========================================= */
+
+@media (max-width: 950px) {
+    .stay-hero {
+        padding: 60px 35px;
+    }
+
+    .stay-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .stay-card {
+        min-height: 275px;
+    }
+
+    .online-section {
+        padding: 32px;
+    }
+}
+
+/* =========================================
+   MOBILE RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+    .stay-page {
+        width: 91%;
+        padding-bottom: 50px;
+    }
+
+    .stay-hero {
+        padding: 40px 23px;
+        margin: 22px 0 42px;
+        border-radius: 20px;
+    }
+
+    .stay-hero::after {
+        right: 8px;
+        bottom: 10px;
+        font-size: 100px;
+    }
+
+    .stay-page .eyebrow {
+        font-size: 10px;
+        letter-spacing: 1.8px;
+    }
+
+    .stay-hero h1 {
+        max-width: 100%;
+        font-size: clamp(35px, 10vw, 46px);
+        letter-spacing: -1.7px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .hero-buttons {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 11px;
+    }
+
+    .hero-buttons .stay-button {
+        width: 100%;
+    }
+
+    .stay-section {
+        padding: 10px 0 30px;
+    }
+
+    .stay-section h2,
+    .online-section h2 {
+        font-size: 29px;
+        letter-spacing: -0.8px;
+    }
+
+    .section-description {
+        margin-bottom: 23px;
+        font-size: 14px;
+    }
+
+    .stay-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 17px;
+    }
+
+    .stay-card {
+        min-height: 0;
+        padding: 24px;
+        border-radius: 17px;
+    }
+
+    .stay-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 18px;
+        font-size: 27px;
+    }
+
+    .stay-card h3 {
+        font-size: 20px;
+    }
+
+    .stay-card p {
+        margin-bottom: 20px;
+    }
+
+    .online-section {
+        margin-top: 20px;
+        padding: 26px 21px;
+        border-radius: 18px;
+    }
+
+    .booking-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .booking-links a {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .stay-note {
+        padding: 16px;
+        font-size: 13px;
+    }
+
+    .back-home .stay-button {
+        width: 100%;
+    }
+}
+
+/* Reduced motion preference */
+
+@media (prefers-reduced-motion: reduce) {
+    .stay-card,
+    .stay-card::before,
+    .stay-icon,
+    .stay-button,
+    .card-link,
+    .booking-links a {
+        transition: none;
+    }
+
+    .stay-card:hover,
+    .stay-button:hover,
+    .booking-links a:hover {
+        transform: none;
+    }
+}

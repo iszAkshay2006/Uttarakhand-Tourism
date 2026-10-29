@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your Uttarakhand Explorer profile and travel preferences.">
+
+  <title>Your Profile | Uttarakhand Explorer</title>
+
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="../index.html">🏔️ Uttarakhand Explorer</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="trip-planner.html">Trip Planner</a>
+    </nav>
+  </header>
+
+  <main class="profile-page">
+
+    <section class="profile-hero">
+      <p class="eyebrow">UTTARAKHAND • DEV BHOOMI</p>
+      <h1>Your profile,<br><span>your journey.</span></h1>
+      <p>Manage your personal details and make your travel experience your own.</p>
+    </section>
+
+    <div class="profile-layout">
+
+      <aside class="profile-sidebar">
+        <div class="avatar-wrap">
+          <img id="avatarPreview" alt="Profile photo preview" hidden>
+          <div id="avatarFallback" class="avatar-fallback">👤</div>
+          <label for="photoInput" class="avatar-edit" title="Upload profile photo">📷</label>
+        </div>
+
+        <h2 id="sidebarName">Your Name</h2>
+        <p id="sidebarUsername">@yourusername</p>
+
+        <label class="upload-label" for="photoInput">Change photo</label>
+        <input id="photoInput" type="file" accept="image/png,image/jpeg,image/webp" hidden>
+
+        <p class="sidebar-note">JPG, PNG or WebP · Max 2 MB</p>
+
+        <div class="sidebar-divider"></div>
+
+        <a href="#personal-details">👤 Personal Details</a>
+        <a href="#travel-details">🧭 Travel Preferences</a>
+        <a href="#security">🔒 Account Security</a>
+      </aside>
+
+      <div class="profile-content">
+
+        <section class="profile-section" id="personal-details">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">YOUR INFORMATION</p>
+              <h2>Personal Details</h2>
+              <p>Keep your profile information up to date.</p>
+            </div>
+            <span class="section-icon">👤</span>
+          </div>
+
+          <form id="profileForm">
+            <div class="form-grid">
+
+              <div class="form-field">
+                <label for="fullName">Full name</label>
+                <input id="fullName" name="fullName" type="text"
+                  placeholder="Enter your full name" maxlength="80" required>
+              </div>
+
+              <div class="form-field">
+                <label for="username">Username</label>
+                <input id="username" name="username" type="text"
+                  value="yourusername" readonly aria-describedby="usernameHelp">
+                <small id="usernameHelp">Username cannot be changed.</small>
+              </div>
+
+              <div class="form-field">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email"
+                  placeholder="you@example.com" maxlength="254">
+                <small>Email changes may require verification.</small>
+              </div>
+
+              <div class="form-field">
+                <label for="phone">Phone number</label>
+                <input id="phone" name="phone" type="tel"
+                  placeholder="Enter phone number" maxlength="20">
+              </div>
+
+              <div class="form-field">
+                <label for="city">City</label>
+                <input id="city" name="city" type="text"
+                  placeholder="Your city" maxlength="80">
+              </div>
+
+              <div class="form-field">
+                <label for="state">State</label>
+                <input id="state" name="state" type="text"
+                  placeholder="Your state" maxlength="80">
+              </div>
+
+              <div class="form-field full-width">
+                <label for="bio">About me</label>
+                <textarea id="bio" name="bio" rows="4" maxlength="400"
+                  placeholder="Tell us a little about yourself..."></textarea>
+              </div>
+
+            </div>
+
+            <div class="form-actions">
+              <button class="profile-btn profile-btn-primary" type="submit">
+                Save Changes
+              </button>
+              <button class="profile-btn profile-btn-secondary" type="reset">
+                Cancel
+              </button>
+            </div>
+
+            <p id="profileMessage" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="profile-section" id="travel-details">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">EXPLORE YOUR WAY</p>
+              <h2>Travel Preferences</h2>
+              <p>Tell us what kind of trips you enjoy.</p>
+            </div>
+            <span class="section-icon">🧭</span>
+          </div>
+
+          <form id="travelForm">
+            <div class="form-grid">
+
+              <div class="form-field">
+                <label for="travelStyle">Preferred travel style</label>
+                <select id="travelStyle" name="travelStyle">
+                  <option value="">Select travel style</option>
+                  <option value="adventure">Adventure & Trekking</option>
+                  <option value="nature">Nature & Wildlife</option>
+                  <option value="spiritual">Spiritual & Pilgrimage</option>
+                  <option value="relaxation">Relaxation & Leisure</option>
+                  <option value="culture">Culture & Heritage</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="travelGroup">Who do you travel with?</label>
+                <select id="travelGroup" name="travelGroup">
+                  <option value="">Select travel group</option>
+                  <option value="solo">Solo</option>
+                  <option value="family">Family</option>
+                  <option value="friends">Friends</option>
+                  <option value="partner">Partner</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="budget">Preferred budget per trip</label>
+                <select id="budget" name="budget">
+                  <option value="">Select budget</option>
+                  <option value="budget">Budget-friendly</option>
+                  <option value="moderate">Moderate</option>
+                  <option value="premium">Premium</option>
+                </select>
+              </div>
+
+              <div class="form-field">
+                <label for="season">Favourite travel season</label>
+                <select id="season" name="season">
+                  <option value="">Select season</option>
+                  <option value="spring">Spring</option>
+                  <option value="summer">Summer</option>
+                  <option value="monsoon">Monsoon</option>
+                  <option value="autumn">Autumn</option>
+                  <option value="winter">Winter</option>
+                </select>
+              </div>
+
+            </div>
+
+            <div class="form-actions">
+              <button class="profile-btn profile-btn-primary" type="submit">
+                Save Preferences
+              </button>
+            </div>
+
+            <p id="travelMessage" class="form-message" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+
+        <section class="profile-section security-section" id="security">
+          <div class="section-title">
+            <div>
+              <p class="eyebrow">KEEP YOUR ACCOUNT SAFE</p>
+              <h2>Account Security</h2>
+              <p>Manage your password and account access.</p>
+            </div>
+            <span class="section-icon">🔒</span>
+          </div>
+
+          <div class="security-row">
+            <div class="security-symbol">🔑</div>
+            <div class="security-copy">
+              <h3>Password reset</h3>
+              <p>Request a password reset link using your registered email address.</p>
+            </div>
+            <button type="button" id="resetPasswordBtn"
+              class="profile-btn profile-btn-secondary">
+              Reset Password
+            </button>
+          </div>
+
+          <p id="securityMessage" class="form-message" role="status" aria-live="polite"></p>
+
+          <div class="security-info">
+            <strong>Username stays fixed</strong>
+            <p>Your username is read-only on this page. A real account system must also enforce this restriction on the server.</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Uttarakhand Explorer</span>
+    <span>Travel thoughtfully 🏔️</span>
+  </footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/profile.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Saved Places | Uttarakhand Explorer</title>
+
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/destination.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="../index.html">🏔️ Uttarakhand Explorer</a>
+    <nav aria-label="Main navigation">
+      <a href="../index.html">Home</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="favorites.html" aria-current="page">Favorites</a>
+      <a href="trip-planner.html">Trip Planner</a>
+    </nav>
+  </header>
+
+  <main class="page-wrap">
+    <div class="section-title">
+      <p class="eyebrow">YOUR COLLECTION</p>
+      <h1>My <span>Saved Places</span></h1>
+      <p>Your favourite Uttarakhand destinations in one place.</p>
+      <p id="favoritesCount" aria-live="polite">0 saved places</p>
+    </div>
+
+    <div id="favoritesGrid" class="destination-grid"></div>
+
+    <div id="favoritesEmpty" class="destination-empty" hidden>
+      <h2>No saved places yet</h2>
+      <p>Visit the destinations page and press “Save Place” to add favourites.</p>
+      <a href="destinations.html" class="button">Explore Destinations →</a>
+    </div>
+  </main>
+
+  <footer>
+    <span>© 2026 Uttarakhand Explorer</span>
+    <span>Travel thoughtfully • Respect nature 🏔️</span>
+  </footer>
+<script type="module" src="../js/common.js"></script>
+<script src="../js/pages/favorites.js"></script>
+</body>Uncaught SyntaxError: Cannot use import statement outside a module (at common.js:2:1)
+</html>
+
+</body>
+</html>

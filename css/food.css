@@ -1,0 +1,368 @@
+
+/* ==============================
+   FOOD PAGE - UTTARAKHAND EXPLORER
+   ============================== */
+
+:root {
+    --food-green: #123c2d;
+    --food-dark: #0b241b;
+    --food-gold: #d6ad60;
+    --food-cream: #f8f4e9;
+    --food-white: #ffffff;
+    --food-text: #333b35;
+    --food-muted: #6c756e;
+}
+
+/* General Styling */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--food-cream);
+    color: var(--food-text);
+    line-height: 1.7;
+}
+
+img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Navigation */
+
+.site-header {
+    background-color: var(--food-dark);
+    padding: 16px 6%;
+    position: relative;
+    z-index: 10;
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    color: var(--food-gold);
+    font-size: 23px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 22px;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links a {
+    color: var(--food-white);
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus {
+    color: var(--food-gold);
+}
+
+/* Hero Section */
+
+.food-hero {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    padding: 70px 8%;
+    color: var(--food-white);
+    background:
+        linear-gradient(
+            90deg,
+            rgba(5, 28, 19, 0.93),
+            rgba(5, 28, 19, 0.45)
+        ),
+        url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1800&q=85")
+        center/cover no-repeat;
+}
+
+.hero-content {
+    max-width: 720px;
+}
+
+.eyebrow {
+    color: var(--food-gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 0 12px;
+}
+
+.hero-content h1 {
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.15;
+    margin: 0 0 20px;
+}
+
+.hero-content > p:not(.eyebrow) {
+    font-size: 17px;
+    max-width: 620px;
+    color: #f0eee7;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    background-color: var(--food-gold);
+    color: var(--food-dark);
+    padding: 12px 25px;
+    border: 2px solid var(--food-gold);
+    border-radius: 5px;
+    font-weight: bold;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: transparent;
+    color: var(--food-gold);
+    transform: translateY(-2px);
+}
+
+/* Intro Section */
+
+.food-intro {
+    max-width: 950px;
+    margin: auto;
+    padding: 65px 25px 35px;
+    text-align: center;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-heading .eyebrow {
+    color: #98702c;
+}
+
+.section-heading h2,
+.food-note h2 {
+    color: var(--food-green);
+    font-size: clamp(28px, 4vw, 38px);
+    line-height: 1.25;
+    margin: 8px 0 12px;
+}
+
+.food-intro > p {
+    color: var(--food-muted);
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+/* Food Cards Section */
+
+.food-section {
+    padding: 55px 6% 80px;
+    max-width: 1450px;
+    margin: auto;
+}
+
+.section-heading > p:last-child {
+    color: var(--food-muted);
+    margin-top: 5px;
+}
+
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.food-card {
+    background-color: var(--food-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(15, 44, 31, 0.09);
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.food-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 12px 28px rgba(15, 44, 31, 0.16);
+}
+
+.food-card img {
+    height: 230px;
+    transition: transform 0.4s ease;
+}
+
+.food-card:hover img {
+    transform: scale(1.04);
+}
+
+.food-card-content {
+    padding: 22px 23px 25px;
+}
+
+.food-card-content h3 {
+    color: var(--food-green);
+    font-size: 23px;
+    margin: 0 0 5px;
+}
+
+.food-tag {
+    display: inline-block;
+    color: #78591f;
+    background-color: #f8eed7;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 5px 0 12px;
+}
+
+.food-card-content > p:last-child {
+    color: var(--food-muted);
+    font-size: 15px;
+    margin: 8px 0 0;
+}
+
+/* Closing Section */
+
+.food-note {
+    margin: 0 6% 75px;
+    padding: 50px 25px;
+    text-align: center;
+    background-color: #e9e3d3;
+    border-top: 4px solid var(--food-gold);
+    border-radius: 10px;
+}
+
+.food-note h2 {
+    margin-top: 0;
+}
+
+.food-note p {
+    color: var(--food-muted);
+    max-width: 700px;
+    margin: 0 auto 25px;
+}
+
+/* Footer */
+
+.site-footer {
+    background-color: var(--food-dark);
+    color: var(--food-white);
+    text-align: center;
+    padding: 22px 15px;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Tablet Responsive */
+
+@media (max-width: 1000px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px 20px;
+    }
+
+    .food-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 600px) {
+    .site-header {
+        padding: 16px 5%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links {
+        gap: 8px 14px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+    }
+
+    .food-hero {
+        min-height: 420px;
+        padding: 55px 6%;
+        background-position: center;
+    }
+
+    .hero-content h1 {
+        font-size: 36px;
+    }
+
+    .hero-content > p:not(.eyebrow) {
+        font-size: 15px;
+    }
+
+    .food-intro {
+        padding: 45px 20px 25px;
+    }
+
+    .food-section {
+        padding: 40px 5% 55px;
+    }
+
+    .food-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .food-card img {
+        height: 220px;
+    }
+
+    .food-note {
+        margin: 0 5% 50px;
+        padding: 35px 20px;
+    }
+}

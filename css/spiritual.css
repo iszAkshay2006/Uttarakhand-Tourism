@@ -1,0 +1,487 @@
+```css
+/* ==============================
+   UTTARAKHAND EXPLORER
+   SIGNUP PAGE CSS
+================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+.signup-page {
+  --primary: #246b4b;
+  --primary-dark: #194d36;
+  --text: #203b32;
+  --muted: #718078;
+  --border: #dfe8e1;
+  --surface: #ffffff;
+  --background: #f4f8f4;
+
+  min-height: 100vh;
+  padding: 45px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(91, 155, 112, 0.13),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 90% 90%,
+      rgba(36, 107, 75, 0.12),
+      transparent 30%
+    ),
+    var(--background);
+  color: var(--text);
+  font-family: "Poppins", "Segoe UI", Arial, sans-serif;
+}
+
+/* Main layout */
+
+.signup-container {
+  width: 100%;
+  max-width: 1000px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  overflow: hidden;
+  border: 1px solid rgba(223, 232, 225, 0.9);
+  border-radius: 24px;
+  background: var(--surface);
+  box-shadow: 0 20px 60px rgba(32, 59, 50, 0.10);
+}
+
+/* Left introduction panel */
+
+.signup-intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 48px 38px;
+  overflow: hidden;
+  color: #ffffff;
+  background: linear-gradient(145deg, #194d36, #2f8059);
+}
+
+.signup-intro::before,
+.signup-intro::after {
+  content: "";
+  position: absolute;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.signup-intro::before {
+  width: 260px;
+  height: 260px;
+  right: -120px;
+  top: -100px;
+}
+
+.signup-intro::after {
+  width: 210px;
+  height: 210px;
+  left: -120px;
+  bottom: -100px;
+}
+
+.signup-intro h1 {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 18px;
+  font-size: clamp(28px, 3vw, 39px);
+  line-height: 1.25;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+
+.signup-intro p {
+  position: relative;
+  z-index: 1;
+  max-width: 350px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.83);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.signup-intro .brand {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  margin-bottom: 38px;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.signup-benefits {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 16px;
+  margin-top: 35px;
+}
+
+.signup-benefits p {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  font-size: 14px;
+}
+
+.signup-benefits span {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  color: #194d36;
+  background: #e5f4e8;
+  font-weight: 800;
+}
+
+/* Signup form card */
+
+.signup-card {
+  width: 100%;
+  padding: 44px 42px;
+  background: #ffffff;
+}
+
+.form-heading {
+  margin-bottom: 28px;
+}
+
+.form-heading h2 {
+  margin: 0 0 9px;
+  color: var(--text);
+  font-size: 29px;
+  line-height: 1.3;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.form-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Form fields */
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-field label {
+  color: #30483c;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-height: 49px;
+  padding: 13px 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  color: var(--text);
+  background: #fbfdfb;
+  font: inherit;
+  font-size: 14px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.form-field input::placeholder {
+  color: #a0aaa3;
+}
+
+.form-field input:hover,
+.form-field select:hover {
+  border-color: #a9c7b1;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: var(--primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 4px rgba(36, 107, 75, 0.10);
+}
+
+/* Two fields in one row */
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+/* Password field wrapper */
+
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  padding-right: 48px;
+}
+
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  padding: 5px;
+  transform: translateY(-50%);
+  border: none;
+  color: var(--primary);
+  background: transparent;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* Terms checkbox */
+
+.terms-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 1px;
+  color: #637269;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.terms-row input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 3px;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+.terms-row a,
+.signup-prompt a,
+.login-prompt a {
+  color: var(--primary);
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.terms-row a:hover,
+.signup-prompt a:hover,
+.login-prompt a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Signup button */
+
+.signup-submit {
+  width: 100%;
+  min-height: 50px;
+  margin-top: 4px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #246b4b, #31845b);
+  box-shadow: 0 7px 17px rgba(36, 107, 75, 0.18);
+  cursor: pointer;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 750;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.signup-submit:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #194d36, #246b4b);
+  box-shadow: 0 10px 23px rgba(36, 107, 75, 0.25);
+}
+
+.signup-submit:active {
+  transform: translateY(0);
+}
+
+.signup-submit:focus-visible,
+.password-toggle:focus-visible {
+  outline: 3px solid rgba(36, 107, 75, 0.3);
+  outline-offset: 3px;
+}
+
+/* Login link below signup */
+
+.login-prompt,
+.signup-prompt {
+  margin: 23px 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Error and success messages */
+
+.form-message {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.form-message.error {
+  color: #b42318;
+}
+
+.form-message.success {
+  color: #197447;
+}
+
+/* Tablet */
+
+@media (max-width: 800px) {
+  .signup-container {
+    max-width: 580px;
+    grid-template-columns: 1fr;
+  }
+
+  .signup-intro {
+    padding: 30px;
+  }
+
+  .signup-intro .brand {
+    margin-bottom: 22px;
+  }
+
+  .signup-intro h1 {
+    font-size: 30px;
+  }
+
+  .signup-intro p {
+    max-width: 100%;
+  }
+
+  .signup-benefits {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 23px;
+  }
+
+  .signup-card {
+    padding: 35px 30px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 480px) {
+  .signup-page {
+    min-height: 100vh;
+    padding: 16px 12px;
+    align-items: flex-start;
+  }
+
+  .signup-container {
+    border-radius: 17px;
+  }
+
+  .signup-intro {
+    padding: 25px 22px;
+  }
+
+  .signup-intro .brand {
+    margin-bottom: 19px;
+    font-size: 15px;
+  }
+
+  .signup-intro h1 {
+    margin-bottom: 10px;
+    font-size: 26px;
+  }
+
+  .signup-intro p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .signup-benefits {
+    grid-template-columns: 1fr;
+    gap: 9px;
+    margin-top: 18px;
+  }
+
+  .signup-benefits p {
+    font-size: 12px;
+  }
+
+  .signup-card {
+    padding: 27px 21px;
+  }
+
+  .form-heading {
+    margin-bottom: 22px;
+  }
+
+  .form-heading h2 {
+    font-size: 25px;
+  }
+
+  .signup-form {
+    gap: 15px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .form-field input,
+  .form-field select {
+    min-height: 47px;
+    font-size: 14px;
+  }
+
+  .signup-submit {
+    min-height: 48px;
+  }
+}
+
+/* Reduced motion accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+```

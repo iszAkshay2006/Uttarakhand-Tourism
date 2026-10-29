@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f8f3">
+  <title>Weather Forecast | Uttarakhand Explorer</title>
+
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/weather.css">
+
+  <script src="../js/weather.js" defer></script>
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="../index.html">🏔️ Uttarakhand Explorer</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="trip-planner.html">Trip Planner</a>
+    </nav>
+  </header>
+
+  <main class="weather-page">
+
+    <section class="weather-hero">
+      <p class="eyebrow">UTTARAKHAND • DEV BHOOMI</p>
+
+      <h1>Mountain Weather <span>Forecast</span></h1>
+
+      <p class="hero-description">
+        Plan your Uttarakhand journey with current weather conditions
+        and a 7-day forecast for 10 popular travel destinations.
+      </p>
+
+      <div class="hero-meta">
+        <span>🌦️ Live weather API</span>
+        <span>📍 10 destinations</span>
+        <span>📅 7-day forecast</span>
+      </div>
+    </section>
+
+    <section class="weather-toolbar">
+      <div>
+        <p class="eyebrow">WEATHER DASHBOARD</p>
+        <h2>Explore the Forecast</h2>
+        <p class="muted">
+          Temperature in °C · Rain probability in %
+        </p>
+      </div>
+
+      <button
+        class="refresh-button"
+        id="refreshWeather"
+        type="button">
+        ↻ Refresh Weather
+      </button>
+    </section>
+
+    <div
+      class="weather-status"
+      id="weatherStatus"
+      role="status"
+      aria-live="polite">
+      Loading weather forecasts...
+    </div>
+
+    <section
+      class="weather-grid"
+      id="weatherGrid"
+      aria-label="Weather forecasts for Uttarakhand destinations">
+    </section>
+
+    <section class="weather-note">
+      <h2>🏔️ Travel Weather Safety</h2>
+      <p>
+        Mountain weather can change quickly. Check official weather warnings,
+        road conditions and local advisories before travelling. Forecasts
+        are estimates and cannot guarantee conditions at a particular trail
+        or summit.
+      </p>
+    </section>
+
+    <p class="weather-credit">
+      Weather data provided by
+      <a href="https://open-meteo.com/"
+         target="_blank"
+         rel="noopener noreferrer">Open-Meteo</a>.
+    </p>
+
+    <div class="back-link">
+      <a class="button" href="../index.html">← Back to home</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Uttarakhand Explorer</span>
+    <span>Travel thoughtfully 🏔️</span>
+  </footer>
+
+  <script src="../js/common.js"></script>
+</body>
+</html>

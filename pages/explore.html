@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore the mountains, valleys, spiritual towns and hidden destinations of Uttarakhand.">
+    <meta name="theme-color" content="#10251f">
+    <title>Explore Places | Uttarakhand Explorer</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Explore page styles: self-contained so the page works with your existing stylesheet -->
+    <style>
+        :root {
+            --explore-ink: #f7f8f4;
+            --explore-muted: #c5d0c9;
+            --explore-accent: #e6b66a;
+            --explore-panel: #152b24;
+            --explore-panel-2: #1b352c;
+            --explore-line: rgba(255,255,255,.12);
+        }
+
+        body.inner-page.explore-page {
+            margin: 0;
+            color: var(--explore-ink);
+            background: #0d1c17;
+            font-family: "DM Sans", sans-serif;
+        }
+
+        .explore-page *,
+        .explore-page *::before,
+        .explore-page *::after { box-sizing: border-box; }
+
+        .explore-page a { color: inherit; }
+        .explore-page .page-main { min-width: 0; }
+
+        .explore-page .top-bar {
+            gap: 24px;
+        }
+
+        .explore-page .mobile-brand a {
+            color: var(--explore-ink);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .explore-page .top-search {
+            max-width: 560px;
+            margin-inline: auto;
+        }
+
+        /* Login button in the top bar */
+        .explore-page .login-nav-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            flex: 0 0 auto;
+            padding: 11px 20px;
+            border: 1px solid rgba(230, 182, 106, .55);
+            border-radius: 999px;
+            background: var(--explore-accent);
+            color: #17251e !important;
+            font-size: .92rem;
+            font-weight: 700;
+            text-decoration: none;
+            white-space: nowrap;
+            box-shadow: 0 8px 22px rgba(0, 0, 0, .16);
+            transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+        }
+
+        .explore-page .login-nav-btn:hover {
+            transform: translateY(-2px);
+            background: #f0c982;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, .22);
+        }
+
+        .explore-page .login-nav-btn:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 3px;
+        }
+
+        .explore-page .login-nav-icon {
+            font-size: 1.05rem;
+            line-height: 1;
+        }
+
+        @media (max-width: 700px) {
+            .explore-page .top-bar { gap: 12px; }
+            .explore-page .login-nav-btn { padding: 10px 14px; font-size: .85rem; }
+            .explore-page .login-nav-label { display: none; }
+        }
+
+        .explore-page .explore-hero {
+            position: relative;
+            min-height: clamp(440px, 60vh, 700px);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            padding: clamp(36px, 7vw, 100px);
+            background:
+                linear-gradient(90deg, rgba(5,18,14,.88), rgba(5,18,14,.48) 56%, rgba(5,18,14,.12)),
+                url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=90") center 48% / cover;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .explore-page .explore-hero-content {
+            width: min(100%, 780px);
+            position: relative;
+            z-index: 1;
+        }
+
+        .explore-page .eyebrow {
+            margin: 0 0 14px;
+            color: var(--explore-accent);
+            font-size: .76rem;
+            font-weight: 700;
+            letter-spacing: .18em;
+            line-height: 1.6;
+        }
+
+        .explore-page .explore-hero h1 {
+            margin: 0 0 22px;
+            font: 700 clamp(2.8rem, 6.8vw, 5.7rem)/1.04 "Playfair Display", serif;
+            letter-spacing: -.035em;
+            text-wrap: balance;
+        }
+
+        .explore-page .explore-hero-description {
+            max-width: 590px;
+            margin: 0;
+            color: #edf1ed;
+            font-size: clamp(1rem, 1.5vw, 1.15rem);
+            line-height: 1.9;
+        }
+
+        .explore-page .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            margin-top: 28px;
+            padding: 10px 15px;
+            border: 1px solid rgba(255,255,255,.28);
+            border-radius: 999px;
+            color: #fff;
+            background: rgba(255,255,255,.08);
+            backdrop-filter: blur(8px);
+            font-size: .85rem;
+        }
+
+        .explore-page .hero-tag::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--explore-accent);
+        }
+
+        .explore-page .explore-section {
+            width: min(100%, 1600px);
+            margin-inline: auto;
+            padding: clamp(56px, 7vw, 100px) clamp(20px, 5vw, 76px);
+        }
+
+        .explore-page .section-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 28px;
+            margin-bottom: 36px;
+        }
+
+        .explore-page .section-heading h2,
+        .explore-page .explore-cta h2 {
+            margin: 0;
+            font: 700 clamp(2rem, 3.6vw, 3.3rem)/1.18 "Playfair Display", serif;
+            letter-spacing: -.025em;
+            text-wrap: balance;
+        }
+
+        .explore-page .section-description {
+            max-width: 390px;
+            margin: 0 0 4px;
+            color: var(--explore-muted);
+            font-size: 1rem;
+            line-height: 1.85;
+        }
+
+        .explore-page .destination-count {
+            display: inline-block;
+            margin-top: 16px;
+            color: var(--explore-muted);
+            font-size: .88rem;
+        }
+
+        .explore-page .explore-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .explore-page .explore-card {
+            position: relative;
+            isolation: isolate;
+            display: flex;
+            min-height: 360px;
+            align-items: flex-end;
+            overflow: hidden;
+            padding: 26px;
+            border: 1px solid rgba(255,255,255,.10);
+            border-radius: 22px;
+            color: #fff;
+            background-color: #29443a;
+            background-image: var(--card-image);
+            background-size: cover;
+            background-position: center;
+            text-decoration: none;
+            box-shadow: 0 12px 32px rgba(0,0,0,.18);
+            transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+        }
+
+        .explore-page .explore-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, rgba(3,12,9,.02) 12%, rgba(3,12,9,.26) 44%, rgba(3,12,9,.91) 100%);
+            transition: opacity .3s ease;
+        }
+
+        .explore-page .explore-card-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,.18) 52%, rgba(0,0,0,.38));
+        }
+
+        .explore-page .explore-card-video {
+            position: absolute;
+            inset: 0;
+            z-index: -2;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity .35s ease;
+        }
+
+        .explore-page .explore-card.video-playing .explore-card-video {
+            opacity: 1;
+        }
+
+        .explore-page .explore-card-content {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .explore-page .explore-card-content small {
+            display: inline-block;
+            margin-bottom: 12px;
+            color: #f4cf8e;
+            font-size: .7rem;
+            font-weight: 700;
+            letter-spacing: .16em;
+        }
+
+        .explore-page .explore-card h3 {
+            margin: 0 0 10px;
+            font: 700 clamp(1.55rem, 2vw, 2rem)/1.2 "Playfair Display", serif;
+        }
+
+        .explore-page .explore-card p {
+            max-width: 340px;
+            margin: 0 0 19px;
+            color: rgba(255,255,255,.86);
+            font-size: .94rem;
+            line-height: 1.7;
+        }
+
+        .explore-page .explore-card .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: .86rem;
+            font-weight: 700;
+        }
+
+        .explore-page .explore-card .card-link span {
+            display: inline-block;
+            transition: transform .25s ease;
+        }
+
+        .explore-page .explore-card:focus-visible {
+            outline: 3px solid var(--explore-accent);
+            outline-offset: 4px;
+        }
+
+        .explore-page .experience-section {
+            padding-top: 24px;
+        }
+
+        .explore-page .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .explore-page .experience-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            min-height: 150px;
+            padding: 24px 20px;
+            border: 1px solid var(--explore-line);
+            border-radius: 18px;
+            background: linear-gradient(145deg, var(--explore-panel-2), var(--explore-panel));
+            text-decoration: none;
+            transition: transform .25s ease, border-color .25s ease, background .25s ease;
+        }
+
+        .explore-page .experience-icon {
+            display: grid;
+            flex: 0 0 44px;
+            width: 44px;
+            height: 44px;
+            place-items: center;
+            border-radius: 14px;
+            color: #f6d59b;
+            background: rgba(230,182,106,.13);
+            font-size: 1.45rem;
+        }
+
+        .explore-page .experience-card h3 {
+            margin: 1px 0 8px;
+            font-size: 1rem;
+        }
+
+        .explore-page .experience-card p {
+            margin: 0;
+            color: var(--explore-muted);
+            font-size: .87rem;
+            line-height: 1.7;
+        }
+
+        .explore-page .experience-arrow {
+            margin-left: auto;
+            color: var(--explore-accent);
+            font-size: 1.15rem;
+        }
+
+        .explore-page .explore-cta {
+            padding-top: 24px;
+            padding-bottom: clamp(60px, 8vw, 110px);
+        }
+
+        .explore-page .explore-cta-inner {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(32px, 6vw, 76px);
+            border: 1px solid var(--explore-line);
+            border-radius: 26px;
+            background:
+                linear-gradient(90deg, rgba(4,16,13,.95), rgba(4,16,13,.68), rgba(4,16,13,.35)),
+                url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=90") center / cover;
+        }
+
+        .explore-page .explore-cta-content { max-width: 700px; }
+
+        .explore-page .explore-cta p:not(.eyebrow) {
+            max-width: 560px;
+            margin: 18px 0 26px;
+            color: #e2e9e4;
+            line-height: 1.85;
+        }
+
+        .explore-page .explore-cta .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 12px 22px;
+            border-radius: 999px;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .explore-page .site-footer {
+            border-top: 1px solid var(--explore-line);
+        }
+
+
+        /* Enhanced top navigation */
+        .explore-page .explore-topbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 2vw, 28px);
+            min-height: 82px;
+            padding: 13px clamp(18px, 3.5vw, 52px);
+            background: rgba(10, 27, 21, .94);
+            border-bottom: 1px solid rgba(255,255,255,.10);
+            box-shadow: 0 10px 32px rgba(0,0,0,.15);
+            backdrop-filter: blur(18px);
+        }
+        .explore-page .topbar-brand { display:flex; align-items:center; gap:11px; flex:0 0 auto; text-decoration:none; }
+        .explore-page .topbar-brand-mark { display:grid; place-items:center; width:43px; height:43px; border-radius:14px; background:var(--explore-accent); color:#15251e; font-weight:800; letter-spacing:-.06em; box-shadow:0 6px 18px rgba(230,182,106,.18); }
+        .explore-page .topbar-brand-copy { display:flex; flex-direction:column; line-height:1.1; }
+        .explore-page .topbar-brand-copy strong { font:700 1rem "Playfair Display",serif; }
+        .explore-page .topbar-brand-copy small { margin-top:5px; color:var(--explore-accent); font-size:.62rem; font-weight:700; letter-spacing:.22em; }
+        .explore-page .topbar-links { display:flex; align-items:center; gap:5px; flex:0 0 auto; }
+        .explore-page .topbar-link { padding:10px 13px; border-radius:999px; color:#d3ddd6; text-decoration:none; font-size:.86rem; font-weight:600; transition:background .2s ease,color .2s ease; }
+        .explore-page .topbar-link:hover,.explore-page .topbar-link.active { color:#fff; background:rgba(255,255,255,.09); }
+        .explore-page .topbar-link.active { box-shadow:inset 0 -2px 0 var(--explore-accent); }
+        .explore-page .top-search { flex:1 1 260px; width:auto; min-width:120px; max-width:430px; }
+        .explore-page .top-search input { width:100%; }
+        .explore-page .login-nav-btn { padding:12px 19px; }
+        /* Rich multi-column footer */
+        .explore-page .explore-footer { padding:0; background:linear-gradient(180deg,#10241c,#091710); }
+        .explore-page .explore-footer-inner { display:grid; grid-template-columns:1.5fr .8fr .9fr 1.2fr; gap:clamp(24px,4vw,60px); width:min(100%,1600px); margin:auto; padding:clamp(44px,6vw,78px) clamp(20px,5vw,76px); }
+        .explore-page .footer-logo { display:inline-flex; align-items:center; gap:10px; font:700 1.15rem "Playfair Display",serif; text-decoration:none; }
+        .explore-page .footer-logo span { display:grid; place-items:center; width:38px; height:38px; border-radius:12px; background:var(--explore-accent); color:#15251e; font:800 .8rem "DM Sans",sans-serif; }
+        .explore-page .explore-footer-brand p,.explore-page .footer-feature p { max-width:350px; color:var(--explore-muted); font-size:.9rem; line-height:1.85; }
+        .explore-page .footer-responsible { display:inline-flex; gap:8px; align-items:center; margin-top:8px; color:#e8c98e; font-size:.82rem; }
+        .explore-page .footer-column { display:flex; flex-direction:column; align-items:flex-start; gap:13px; }
+        .explore-page .footer-column h3 { margin:0 0 5px; color:#fff; font:700 1.05rem "Playfair Display",serif; }
+        .explore-page .footer-column a { color:var(--explore-muted); text-decoration:none; font-size:.88rem; transition:color .2s ease,transform .2s ease; }
+        .explore-page .footer-column a:hover { color:var(--explore-accent); transform:translateX(3px); }
+        .explore-page .footer-kicker { color:var(--explore-accent); font-size:.68rem; font-weight:800; letter-spacing:.17em; }
+        .explore-page .footer-feature h3 { margin-top:0; font-size:1.45rem; }
+        .explore-page .footer-cta { display:inline-flex; align-items:center; gap:12px; margin-top:8px; padding:11px 16px; border:1px solid rgba(230,182,106,.45); border-radius:999px; color:#f5d49a!important; font-weight:700; }
+        .explore-page .footer-bottom { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:20px clamp(20px,5vw,76px); border-top:1px solid var(--explore-line); color:#aebdb3; font-size:.78rem; }
+        .explore-page .explore-footer-bottom div { display:flex; gap:20px; }
+        .explore-page .explore-footer-bottom a { color:#c7d2ca; text-decoration:none; }
+        .explore-page .explore-footer-bottom a:hover { color:var(--explore-accent); }
+        @media (max-width: 1150px) {
+            .explore-page .topbar-links { display:none; }
+            .explore-page .explore-footer-inner { grid-template-columns:1.3fr 1fr 1fr; }
+            .explore-page .footer-feature { grid-column:1 / -1; padding-top:8px; }
+        }
+        @media (max-width: 700px) {
+            .explore-page .explore-topbar { min-height:70px; gap:10px; padding:10px 14px; }
+            .explore-page .topbar-brand { gap:8px; }
+            .explore-page .topbar-brand-mark { width:36px; height:36px; border-radius:11px; font-size:.85rem; }
+            .explore-page .topbar-brand-copy strong { font-size:.83rem; }
+            .explore-page .topbar-brand-copy small { font-size:.54rem; }
+            .explore-page .top-search { flex-basis:36px; min-width:36px; max-width:none; }
+            .explore-page .top-search input { min-width:0; padding-inline:32px 8px; font-size:.75rem; }
+            .explore-page .top-search .search-shortcut { display:none; }
+            .explore-page .login-nav-btn { padding:10px 12px; }
+            .explore-page .login-nav-label { display:inline; font-size:.78rem; }
+            .explore-page .login-nav-icon { display:none; }
+            .explore-page .explore-footer-inner { grid-template-columns:repeat(2,minmax(0,1fr)); gap:30px 22px; }
+            .explore-page .explore-footer-brand,.explore-page .footer-feature { grid-column:1 / -1; }
+            .explore-page .footer-bottom { flex-direction:column; align-items:flex-start; gap:12px; }
+            .explore-page .explore-footer-bottom div { flex-wrap:wrap; gap:14px; }
+        }
+        @media (max-width: 420px) {
+            .explore-page .topbar-brand-copy { display:none; }
+            .explore-page .top-search input { width:100%; }
+            .explore-page .login-nav-btn { padding:9px 10px; }
+            .explore-page .explore-footer-inner { grid-template-columns:1fr 1fr; }
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            .explore-page .explore-card:hover {
+                transform: translateY(-6px);
+                border-color: rgba(230,182,106,.55);
+                box-shadow: 0 22px 44px rgba(0,0,0,.28);
+            }
+
+            .explore-page .explore-card:hover .card-link span { transform: translateX(5px); }
+
+            .explore-page .experience-card:hover {
+                transform: translateY(-4px);
+                border-color: rgba(230,182,106,.5);
+                background: #203c31;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .explore-page .explore-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .explore-page .experience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .explore-page .explore-card { min-height: 340px; }
+        }
+
+        @media (max-width: 700px) {
+            .explore-page .explore-hero {
+                min-height: 500px;
+                padding: 40px 24px;
+                background-position: center;
+                border-radius: 0 0 22px 22px;
+            }
+
+            .explore-page .section-heading {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 16px;
+                margin-bottom: 26px;
+            }
+
+            .explore-page .explore-grid { gap: 16px; }
+            .explore-page .explore-card { min-height: 320px; padding: 22px; border-radius: 18px; }
+            .explore-page .explore-card p { font-size: .88rem; }
+            .explore-page .explore-section { padding-inline: 20px; }
+            .explore-page .experience-card { padding: 19px 16px; }
+        }
+
+        @media (max-width: 480px) {
+            .explore-page .explore-grid,
+            .explore-page .experience-grid { grid-template-columns: minmax(0, 1fr); }
+
+            .explore-page .explore-hero { min-height: 460px; }
+            .explore-page .explore-hero h1 { font-size: clamp(2.65rem, 12vw, 3.7rem); }
+            .explore-page .explore-card { min-height: 330px; }
+            .explore-page .experience-card { min-height: 120px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .explore-page *,
+            .explore-page *::before,
+            .explore-page *::after {
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+                animation-duration: .01ms !important;
+            }
+        }
+    </style>
+
+<style id="online-image-fallback-styles">
+.explore-page .place-search-tools{margin:0 0 24px;display:grid;gap:12px}.explore-page #placeSearch{width:100%;padding:14px 16px;border:1px solid rgba(255,255,255,.18);border-radius:12px;background:rgba(255,255,255,.96);color:#18352a;font:inherit}.explore-page .place-filter-buttons{display:flex;gap:9px;flex-wrap:wrap}.explore-page .place-filter{border:1px solid rgba(28,60,43,.22);border-radius:999px;padding:9px 15px;background:#fff;color:#18352a;font:inherit;cursor:pointer}.explore-page .place-filter.active,.explore-page .place-filter:hover{background:#1c4934;color:#fff}.explore-page .explore-card[hidden]{display:none!important}.explore-page .explore-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.explore-page .explore-card{background-color:#29443a;background-size:cover;background-position:center}.explore-page .explore-card-video{background:#29443a}@media(max-width:900px){.explore-page .explore-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:560px){.explore-page .explore-grid{grid-template-columns:1fr}.explore-page .explore-card{min-height:320px}}
+</style>
+
+
+<style id="explore-image-visibility-fix">
+.explore-page .explore-grid .explore-card{position:relative!important;isolation:isolate!important;overflow:hidden!important;background-color:#29443a!important;background-size:cover!important;background-position:center!important}
+.explore-page .explore-grid .explore-card .explore-card-image{position:absolute!important;inset:0!important;display:block!important;width:100%!important;height:100%!important;object-fit:cover!important;opacity:1!important;z-index:-2!important;pointer-events:none!important}
+.explore-page .explore-grid .explore-card .explore-card-video{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;object-fit:cover!important;z-index:-1!important}
+.explore-page .explore-grid .explore-card .explore-card-overlay,.explore-page .explore-grid .explore-card::before{z-index:0!important;pointer-events:none!important}
+.explore-page .explore-grid .explore-card .explore-card-content{position:relative!important;z-index:1!important}
+</style>
+
+</head>
+
+<body class="inner-page explore-page">
+    <!-- TOP BAR -->
+    <header class="top-bar explore-topbar">
+        <a class="topbar-brand" href="../index.html" aria-label="Uttarakhand Explorer home">
+            <span class="topbar-brand-mark">UE</span>
+            <span class="topbar-brand-copy"><strong>Uttarakhand</strong><small>EXPLORER</small></span>
+        </a>
+        <nav class="topbar-links" aria-label="Quick links">
+            <a class="topbar-link active" href="explore.html">Explore</a>
+            <a class="topbar-link" href="adventure.html">Adventure</a>
+            <a class="topbar-link" href="trip-planner.html">Plan a trip</a>
+        </nav>
+        <div class="top-search">
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input type="search" id="globalSearch" placeholder="Search places, experiences..." autocomplete="off" aria-label="Search places, experiences and routes">
+            <span class="search-shortcut" aria-hidden="true">/</span>
+        </div>
+         <a href="login.html" class="login-nav-btn" aria-label="Go to login page">
+    <span class="login-nav-icon" aria-hidden="true">↗</span>
+    <span class="login-nav-label">Login</span>
+</a>
+    </header>
+
+    <main class="page-main">
+        <!-- HERO -->
+        <section class="explore-hero">
+            <div class="explore-hero-content">
+                <p class="eyebrow">DISCOVER UTTARAKHAND</p>
+                <h1>Find your place<br>in the mountains.</h1>
+                <p class="explore-hero-description">From quiet Himalayan villages to sacred valleys, discover destinations worth slowing down for.</p>
+                <span class="hero-tag">42+ destinations · One unforgettable region</span>
+            </div>
+        </section>
+
+        <!-- DESTINATIONS -->
+        <section class="explore-section explore-intro">
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">EXPLORE BY EXPERIENCE</p>
+                    <h2>There is a different<br>Uttarakhand for everyone.</h2>
+                    <span class="destination-count">Choose a place and preview its scenery.</span>
+                </div>
+                <p class="section-description">Choose a destination by the feeling you want to take home with you. Hover over a card on desktop to preview its local video.</p>
+            </div>
+
+
+            <div class="place-search-tools" aria-label="Filter destinations">
+                <input id="placeSearch" type="search" placeholder="Search places, lakes, temples, forests..." aria-label="Search destinations">
+                <div class="place-filter-buttons">
+                    <button type="button" class="place-filter active" data-filter="all">All places</button>
+                    <button type="button" class="place-filter" data-filter="mountain">Mountains</button>
+                    <button type="button" class="place-filter" data-filter="spiritual">Spiritual</button>
+                    <button type="button" class="place-filter" data-filter="lake">Lakes</button>
+                    <button type="button" class="place-filter" data-filter="nature">Nature</button>
+                </div>
+            </div>
+            <div class="explore-grid">
+                <!-- DEHRADUN: image assets/images/places/dehradun.jpg | video assets/videos/places/dehradun.mp4 -->
+                <a href="place.html?place=dehradun" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Dehradun" data-place="dehradun dehradun">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/dehradun.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>GATEWAY</small><h3>Dehradun</h3><p>A relaxed valley city surrounded by forested hills.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- MUSSOORIE: image assets/images/places/mussoorie.jpg | video assets/videos/places/mussoorie.mp4 -->
+                <a href="place.html?place=mussoorie" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Mussoorie" data-place="mussoorie mussoorie">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/mussoorie.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>HILL STATION</small><h3>Mussoorie</h3><p>Colonial charm, pine forests and sweeping valley views.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- RISHIKESH: image assets/images/places/rishikesh.jpg | video assets/videos/places/rishikesh.mp4 -->
+                <a href="place.html?place=rishikesh" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Rishikesh" data-place="rishikesh rishikesh">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/rishikesh.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>RIVER &amp; SPIRIT</small><h3>Rishikesh</h3><p>Where the Ganga, yoga and adventure meet.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- AULI: image assets/images/places/auli.jpg | video assets/videos/places/auli.mp4 -->
+                <a href="place.html?place=auli" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Auli" data-place="auli auli">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/auli.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>HIGH HIMALAYAS</small><h3>Auli</h3><p>Alpine landscapes, skiing and spectacular mountain views.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- NAINITAL: image assets/images/places/nainital.jpg | video assets/videos/places/nainital.mp4 -->
+                <a href="place.html?place=nainital" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Nainital" data-place="nainital nainital">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/nainital.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>LAKE DISTRICT</small><h3>Nainital</h3><p>A mountain lake wrapped in forests and old-world charm.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- JIM CORBETT: image assets/images/places/jim-corbett.jpg | video assets/videos/places/jim-corbett.mp4 -->
+                <a href="place.html?place=corbett" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Jim Corbett" data-place="corbett jim corbett">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/jim-corbett.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>WILDERNESS</small><h3>Jim Corbett</h3><p>Forest trails, wildlife and the thrill of the wild.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- KEDARNATH: image assets/images/places/kedarnath.jpg | video assets/videos/places/kedarnath.mp4 -->
+                <a href="place.html?place=kedarnath" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Kedarnath" data-place="kedarnath kedarnath">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/kedarnath.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>SACRED HIMALAYAS</small><h3>Kedarnath</h3><p>A powerful pilgrimage journey beneath the high Himalayas.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- MUNSIYARI: image assets/images/places/munsiyari.jpg | video assets/videos/places/munsiyari.mp4 -->
+                <a href="place.html?place=munsiyari" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Munsiyari" data-place="munsiyari munsiyari">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/munsiyari.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>REMOTE ESCAPE</small><h3>Munsiyari</h3><p>Remote valleys, dramatic peaks and slower mountain days.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- ADDITIONAL DESTINATIONS: add matching .jpg and .mp4 files in the places folders -->
+                <!-- CHOPTA: image assets/images/places/chopta.jpg | video assets/videos/places/chopta.mp4 -->
+                <a href="place.html?place=chopta" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Chopta" data-place="chopta chopta">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/chopta.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>MEADOWS & TREKS</small><h3>Chopta</h3><p>Green meadows, forest trails and beautiful Himalayan views.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- VALLEY OF FLOWERS: image assets/images/places/valley-of-flowers.jpg | video assets/videos/places/valley-of-flowers.mp4 -->
+                <a href="place.html?place=valley-of-flowers" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Valley of Flowers" data-place="valley-of-flowers valley of flowers">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/valley-of-flowers.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>ALPINE BLOOMS</small><h3>Valley of Flowers</h3><p>A seasonal alpine valley filled with colourful wildflowers.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- HARIDWAR: image assets/images/places/haridwar.jpg | video assets/videos/places/haridwar.mp4 -->
+                <a href="place.html?place=haridwar" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Haridwar" data-place="haridwar haridwar">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/haridwar.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>SACRED RIVER</small><h3>Haridwar</h3><p>Experience the Ganga ghats, evening aarti and spiritual energy.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- TEHRI LAKE: image assets/images/places/tehri-lake.jpg | video assets/videos/places/tehri-lake.mp4 -->
+                <a href="place.html?place=tehri-lake" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Tehri Lake" data-place="tehri-lake tehri lake">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/tehri-lake.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>WATER & ADVENTURE</small><h3>Tehri Lake</h3><p>A striking blue lake for scenic views and water activities.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- LANSDOWNE: image assets/images/places/lansdowne.jpg | video assets/videos/places/lansdowne.mp4 -->
+                <a href="place.html?place=lansdowne" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Lansdowne" data-place="lansdowne lansdowne">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/lansdowne.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>QUIET HILL TOWN</small><h3>Lansdowne</h3><p>Pine forests, colonial-era charm and peaceful mountain air.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- CHAKRATA: image assets/images/places/chakrata.jpg | video assets/videos/places/chakrata.mp4 -->
+                <a href="place.html?place=chakrata" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Chakrata" data-place="chakrata chakrata">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/chakrata.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>OFFBEAT HIDEAWAY</small><h3>Chakrata</h3><p>Forest roads, waterfalls and uncrowded Himalayan scenery.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- BINSAR: image assets/images/places/binsar.jpg | video assets/videos/places/binsar.mp4 -->
+                <a href="place.html?place=binsar" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Binsar" data-place="binsar binsar">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/binsar.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>FOREST & VIEWS</small><h3>Binsar</h3><p>Oak forests and wide views of the snow-covered Himalayan range.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- PITHORAGARH: image assets/images/places/pithoragarh.jpg | video assets/videos/places/pithoragarh.mp4 -->
+                <a href="place.html?place=pithoragarh" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Pithoragarh" data-place="pithoragarh pithoragarh">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/pithoragarh.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>HIMALAYAN VALLEY</small><h3>Pithoragarh</h3><p>A beautiful valley town surrounded by dramatic mountain ranges.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- BADRINATH: online image fallback; optional local video at ../assets/videos/places/badrinath.mp4 -->
+                <a href="place.html?place=badrinath" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Badrinath" data-place="badrinath badrinath sacred himalayas a revered himalayan shrine surrounded by towering peaks.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/badrinath.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>SACRED HIMALAYAS</small><h3>Badrinath</h3><p>A revered Himalayan shrine surrounded by towering peaks.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- GANGOTRI: online image fallback; optional local video at ../assets/videos/places/gangotri.mp4 -->
+                <a href="place.html?place=gangotri" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Gangotri" data-place="gangotri gangotri sacred river a sacred mountain town and gateway to high himalayan scenery.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/gangotri.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>SACRED RIVER</small><h3>Gangotri</h3><p>A sacred mountain town and gateway to high Himalayan scenery.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- YAMUNOTRI: online image fallback; optional local video at ../assets/videos/places/yamunotri.mp4 -->
+                <a href="place.html?place=yamunotri" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Yamunotri" data-place="yamunotri yamunotri pilgrimage a high-altitude pilgrimage through rugged mountain landscapes.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/yamunotri.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>PILGRIMAGE</small><h3>Yamunotri</h3><p>A high-altitude pilgrimage through rugged mountain landscapes.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- CHOPTA: online image fallback; optional local video at ../assets/videos/places/chopta.mp4 -->
+                <a href="place.html?place=chopta" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Chopta" data-place="chopta chopta meadows &amp; treks green meadows, forest trails and sweeping himalayan panoramas.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/chopta.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>MEADOWS &amp; TREKS</small><h3>Chopta</h3><p>Green meadows, forest trails and sweeping Himalayan panoramas.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- TUNGNATH: online image fallback; optional local video at ../assets/videos/places/tungnath.mp4 -->
+                <a href="place.html?place=tungnath" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Tungnath" data-place="tungnath tungnath mountain temple a scenic uphill walk to one of the region’s celebrated shrines.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/tungnath.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>MOUNTAIN TEMPLE</small><h3>Tungnath</h3><p>A scenic uphill walk to one of the region’s celebrated shrines.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- VALLEY OF FLOWERS: online image fallback; optional local video at ../assets/videos/places/valley-of-flowers.mp4 -->
+                <a href="place.html?place=valley-of-flowers" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Valley of Flowers" data-place="valley-of-flowers valley of flowers alpine blooms a seasonal alpine valley known for colourful wildflowers.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/valley-of-flowers.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>ALPINE BLOOMS</small><h3>Valley of Flowers</h3><p>A seasonal alpine valley known for colourful wildflowers.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- HEMKUND SAHIB: online image fallback; optional local video at ../assets/videos/places/hemkund-sahib.mp4 -->
+                <a href="place.html?place=hemkund-sahib" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Hemkund Sahib" data-place="hemkund-sahib hemkund sahib sacred lake a serene high-altitude lake and revered place of worship.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/hemkund-sahib.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>SACRED LAKE</small><h3>Hemkund Sahib</h3><p>A serene high-altitude lake and revered place of worship.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- HARIDWAR: online image fallback; optional local video at ../assets/videos/places/haridwar.mp4 -->
+                <a href="place.html?place=haridwar" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Haridwar" data-place="haridwar haridwar ganga &amp; culture riverfront rituals, historic temples and lively local streets.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/haridwar.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>GANGA &amp; CULTURE</small><h3>Haridwar</h3><p>Riverfront rituals, historic temples and lively local streets.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- DEVPRAYAG: online image fallback; optional local video at ../assets/videos/places/devprayag.mp4 -->
+                <a href="place.html?place=devprayag" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Devprayag" data-place="devprayag devprayag river confluence watch sacred rivers meet amid dramatic mountain scenery.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/devprayag.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>RIVER CONFLUENCE</small><h3>Devprayag</h3><p>Watch sacred rivers meet amid dramatic mountain scenery.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- TEHRI LAKE: online image fallback; optional local video at ../assets/videos/places/tehri-lake.mp4 -->
+                <a href="place.html?place=tehri-lake" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Tehri Lake" data-place="tehri-lake tehri lake lake adventure blue water, mountain scenery and outdoor activities.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/tehri-lake.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>LAKE ADVENTURE</small><h3>Tehri Lake</h3><p>Blue water, mountain scenery and outdoor activities.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- KANATAL: online image fallback; optional local video at ../assets/videos/places/kanatal.mp4 -->
+                <a href="place.html?place=kanatal" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Kanatal" data-place="kanatal kanatal quiet retreat peaceful forest roads, campsites and refreshing mountain air.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/kanatal.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>QUIET RETREAT</small><h3>Kanatal</h3><p>Peaceful forest roads, campsites and refreshing mountain air.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- DHANAULTI: online image fallback; optional local video at ../assets/videos/places/dhanaulti.mp4 -->
+                <a href="place.html?place=dhanaulti" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Dhanaulti" data-place="dhanaulti dhanaulti forest escape deodar forests and quiet viewpoints away from the crowds.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/dhanaulti.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>FOREST ESCAPE</small><h3>Dhanaulti</h3><p>Deodar forests and quiet viewpoints away from the crowds.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- CHAKRATA: online image fallback; optional local video at ../assets/videos/places/chakrata.mp4 -->
+                <a href="place.html?place=chakrata" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Chakrata" data-place="chakrata chakrata offbeat hills waterfalls, cedar forests and tranquil mountain roads.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/chakrata.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>OFFBEAT HILLS</small><h3>Chakrata</h3><p>Waterfalls, cedar forests and tranquil mountain roads.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- LANSDOWNE: online image fallback; optional local video at ../assets/videos/places/lansdowne.mp4 -->
+                <a href="place.html?place=lansdowne" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Lansdowne" data-place="lansdowne lansdowne colonial hills a peaceful hill town with pine-covered slopes and quiet walks.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/lansdowne.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>COLONIAL HILLS</small><h3>Lansdowne</h3><p>A peaceful hill town with pine-covered slopes and quiet walks.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- ALMORA: online image fallback; optional local video at ../assets/videos/places/almora.mp4 -->
+                <a href="place.html?place=almora" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Almora" data-place="almora almora kumaon culture traditional bazaars, local flavours and himalayan views.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/almora.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>KUMAON CULTURE</small><h3>Almora</h3><p>Traditional bazaars, local flavours and Himalayan views.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- RANIKHET: online image fallback; optional local video at ../assets/videos/places/ranikhet.mp4 -->
+                <a href="place.html?place=ranikhet" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Ranikhet" data-place="ranikhet ranikhet pine country quiet meadows, pine forests and distant snow peaks.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/ranikhet.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>PINE COUNTRY</small><h3>Ranikhet</h3><p>Quiet meadows, pine forests and distant snow peaks.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- KAUSANI: online image fallback; optional local video at ../assets/videos/places/kausani.mp4 -->
+                <a href="place.html?place=kausani" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Kausani" data-place="kausani kausani panoramic views a peaceful hill town known for broad himalayan horizons.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/kausani.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>PANORAMIC VIEWS</small><h3>Kausani</h3><p>A peaceful hill town known for broad Himalayan horizons.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- JAGESHWAR: online image fallback; optional local video at ../assets/videos/places/jageshwar.mp4 -->
+                <a href="place.html?place=jageshwar" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Jageshwar" data-place="jageshwar jageshwar temple forest ancient stone temples nestled among tall deodar trees.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/jageshwar.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>TEMPLE FOREST</small><h3>Jageshwar</h3><p>Ancient stone temples nestled among tall deodar trees.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- MUKTESHWAR: online image fallback; optional local video at ../assets/videos/places/mukteshwar.mp4 -->
+                <a href="place.html?place=mukteshwar" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Mukteshwar" data-place="mukteshwar mukteshwar hill getaway orchards, forest paths and clear-day mountain views.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/mukteshwar.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>HILL GETAWAY</small><h3>Mukteshwar</h3><p>Orchards, forest paths and clear-day mountain views.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- BHIMTAL: online image fallback; optional local video at ../assets/videos/places/bhimtal.mp4 -->
+                <a href="place.html?place=bhimtal" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Bhimtal" data-place="bhimtal bhimtal lakeside break a relaxed lakeside destination surrounded by wooded hills.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/bhimtal.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>LAKESIDE BREAK</small><h3>Bhimtal</h3><p>A relaxed lakeside destination surrounded by wooded hills.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- SATTAL: online image fallback; optional local video at ../assets/videos/places/sattal.mp4 -->
+                <a href="place.html?place=sattal" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Sattal" data-place="sattal sattal lake &amp; birdlife a cluster of forest lakes ideal for nature lovers.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/sattal.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>LAKE &amp; BIRDLIFE</small><h3>Sattal</h3><p>A cluster of forest lakes ideal for nature lovers.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- NAUKUCHIATAL: online image fallback; optional local video at ../assets/videos/places/naukuchiatal.mp4 -->
+                <a href="place.html?place=naukuchiatal" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Naukuchiatal" data-place="naukuchiatal naukuchiatal nine-cornered lake a calm lakeside escape for boating and slow travel.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/naukuchiatal.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>NINE-CORNERED LAKE</small><h3>Naukuchiatal</h3><p>A calm lakeside escape for boating and slow travel.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- PATAL BHUVANESHWAR: online image fallback; optional local video at ../assets/videos/places/patal-bhuvaneshwar.mp4 -->
+                <a href="place.html?place=patal-bhuvaneshwar" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Patal Bhuvaneshwar" data-place="patal-bhuvaneshwar patal bhuvaneshwar cave discovery explore a remarkable limestone cave and nearby villages.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/patal-bhuvaneshwar.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>CAVE DISCOVERY</small><h3>Patal Bhuvaneshwar</h3><p>Explore a remarkable limestone cave and nearby villages.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- MILAM GLACIER: online image fallback; optional local video at ../assets/videos/places/milam-glacier.mp4 -->
+                <a href="place.html?place=milam-glacier" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Milam Glacier" data-place="milam-glacier milam glacier remote trek a challenging high-himalayan trek for prepared adventurers.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/milam-glacier.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>REMOTE TREK</small><h3>Milam Glacier</h3><p>A challenging high-Himalayan trek for prepared adventurers.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- GWALDAM: online image fallback; optional local video at ../assets/videos/places/gwaldam.mp4 -->
+                <a href="place.html?place=gwaldam" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Gwaldam" data-place="gwaldam gwaldam quiet mountains orchards, forests and peaceful views across the hills.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/gwaldam.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>QUIET MOUNTAINS</small><h3>Gwaldam</h3><p>Orchards, forests and peaceful views across the hills.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+
+                <!-- LOHAGHAT: online image fallback; optional local video at ../assets/videos/places/lohaghat.mp4 -->
+                <a href="place.html?place=lohaghat" class="explore-card" style="--card-image:url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85')" aria-label="Explore Lohaghat" data-place="lohaghat lohaghat heritage &amp; hills a laid-back hill town with forest trails and local history.">
+<img class="explore-card-image" src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" alt="" loading="lazy" aria-hidden="true" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1400&q=80';">
+                    <div class="explore-card-overlay"></div>
+                    <video class="explore-card-video" muted loop playsinline preload="none" poster="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1400&q=85" aria-hidden="true" tabindex="-1"><source src="../assets/videos/places/lohaghat.mp4" type="video/mp4"></video>
+                    <div class="explore-card-content"><small>HERITAGE &amp; HILLS</small><h3>Lohaghat</h3><p>A laid-back hill town with forest trails and local history.</p><span class="card-link">Explore place <span>→</span></span></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE LINKS -->
+        <section class="explore-section experience-section explore-experience">
+            <div class="section-heading">
+                <div><p class="eyebrow">FIND YOUR WAY</p><h2>What are you<br>looking for?</h2></div>
+                <p class="section-description">Explore Uttarakhand through adventure, spirituality, stays and local food.</p>
+
+            </div>
+            <div class="experience-links">
+                <a class="experience-link" href="adventure.html"><span>Adventure</span><span aria-hidden="true">→</span></a>
+                <a class="experience-link" href="temples.html"><span>Temples &amp; Spirituality</span><span aria-hidden="true">→</span></a>
+                <a class="experience-link" href="stays.html"><span>Stays</span><span aria-hidden="true">→</span></a>
+                <a class="experience-link" href="food.html"><span>Local Food</span><span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© <span id="currentYear"></span> Uttarakhand Explorer. Explore responsibly.</p>
+    </footer>
+
+    <script>
+    // Send the current page as returnUrl when the Login link is clicked.
+    document.addEventListener("DOMContentLoaded", function () {
+        const loginLink = document.querySelector(
+            'a.login-nav-btn[href*="login.html"]'
+        );
+
+        if (loginLink) {
+            loginLink.addEventListener("click", function (event) {
+                event.preventDefault();
+
+                const returnUrl =
+                    window.location.pathname +
+                    window.location.search +
+                    window.location.hash;
+
+                const loginUrl = new URL("login.html", window.location.href);
+                loginUrl.searchParams.set("returnUrl", returnUrl);
+                window.location.href = loginUrl.href;
+            });
+        }
+
+        const year = document.getElementById("currentYear");
+        if (year) year.textContent = new Date().getFullYear();
+
+        // Keep the existing page layout and make both search boxes filter
+        // the destination cards on this page without changing other files.
+        const placeSearch = document.getElementById("placeSearch");
+        const globalSearch = document.getElementById("globalSearch");
+        const destinationCards = Array.from(document.querySelectorAll(".explore-card"));
+
+        function filterDestinations(value) {
+            const query = (value || "").trim().toLowerCase();
+            destinationCards.forEach(function (card) {
+                const searchableText = [
+                    card.textContent || "",
+                    card.getAttribute("data-place") || "",
+                    card.getAttribute("aria-label") || "",
+                    card.getAttribute("href") || ""
+                ].join(" ").toLowerCase();
+                card.hidden = query !== "" && !searchableText.includes(query);
+            });
+        }
+
+        if (placeSearch) {
+            placeSearch.addEventListener("input", function () {
+                filterDestinations(placeSearch.value);
+                if (globalSearch && globalSearch.value !== placeSearch.value) {
+                    globalSearch.value = placeSearch.value;
+                }
+            });
+        }
+
+        if (globalSearch) {
+            globalSearch.addEventListener("input", function () {
+                filterDestinations(globalSearch.value);
+                if (placeSearch && placeSearch.value !== globalSearch.value) {
+                    placeSearch.value = globalSearch.value;
+                }
+            });
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+/* Camping page — Uttarakhand Explorer */
+:root {
+  --camp-bg: #0b1914;
+  --camp-section: #10251a;
+  --camp-card: #14291f;
+  --camp-gold: #e7c878;
+  --camp-text: #f1f4ec;
+  --camp-muted: #b5c2b8;
+  --camp-border: rgba(231, 200, 120, .22);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--camp-bg);
+  color: var(--camp-text);
+  font-family: Arial, sans-serif;
+  line-height: 1.65;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Header */
+.site-header {
+  position: relative;
+  z-index: 10;
+  background: #0d2017;
+  border-bottom: 1px solid var(--camp-border);
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.site-header .brand {
+  color: var(--camp-gold) !important;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.site-header nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+.site-header nav a {
+  color: var(--camp-text);
+  transition: color .2s ease;
+}
+.site-header nav a:hover,
+.site-header nav a:focus-visible { color: var(--camp-gold); }
+
+.content-wrap { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+.camping-hero {
+  padding: 100px 0 90px;
+  background: radial-gradient(ellipse at 70% 0%, #294b32 0%, transparent 58%);
+}
+.camping-hero .content-wrap { max-width: 950px; }
+.eyebrow {
+  margin: 0 0 14px;
+  color: var(--camp-gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.camping-hero h1 {
+  max-width: 850px;
+  margin: 0 0 22px;
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1.08;
+  letter-spacing: -2px;
+}
+.camping-hero h1 span { color: var(--camp-gold); }
+.hero-copy {
+  max-width: 720px;
+  margin: 0 0 30px;
+  color: var(--camp-muted);
+  font-size: 18px;
+}
+.gold-button {
+  display: inline-block;
+  padding: 12px 19px;
+  border: 1px solid var(--camp-gold);
+  border-radius: 8px;
+  background: var(--camp-gold);
+  color: #142319;
+  font-weight: 800;
+  transition: transform .2s ease, background .2s ease;
+}
+.gold-button:hover { transform: translateY(-2px); background: #f0d994; }
+.camping-section { padding: 70px 0 85px; background: var(--camp-section); }
+.camping-section h2, .camping-cta h2 {
+  margin: 0 0 14px;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.2;
+}
+.section-intro { max-width: 820px; margin: 0 0 34px; color: var(--camp-muted); }
+.camp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.camp-card {
+  overflow: hidden;
+  border: 1px solid var(--camp-border);
+  border-radius: 16px;
+  background: var(--camp-card);
+  transition: transform .25s ease, border-color .25s ease;
+}
+.camp-card:hover { transform: translateY(-5px); border-color: var(--camp-gold); }
+.camp-card > img { display: block; width: 100%; height: 220px; object-fit: cover; }
+.camp-card-body { padding: 22px; }
+.place-label {
+  margin: 0 0 7px;
+  color: var(--camp-gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.camp-card h3 { margin: 0 0 10px; font-size: 23px; line-height: 1.3; }
+.camp-card-body > p:not(.place-label) { min-height: 112px; margin: 0 0 16px; color: var(--camp-muted); font-size: 14px; }
+.tags { display: flex; flex-wrap: wrap; gap: 7px; margin: 0 0 20px; }
+.tags span { padding: 4px 9px; border: 1px solid var(--camp-border); border-radius: 30px; color: var(--camp-muted); font-size: 11px; }
+.text-link { color: var(--camp-gold); font-size: 14px; font-weight: 800; }
+.text-link:hover { text-decoration: underline; }
+.tips-section { background: var(--camp-bg); }
+.tips-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: start; }
+.tips-grid p:not(.eyebrow) { color: var(--camp-muted); }
+.camping-checklist { margin: 0; padding-left: 22px; color: var(--camp-muted); }
+.camping-checklist li { margin: 0 0 13px; padding-left: 6px; }
+.camping-checklist li::marker { color: var(--camp-gold); }
+.camping-cta { padding: 70px 0; text-align: center; background: radial-gradient(ellipse at center, #23432d, var(--camp-bg) 72%); }
+.camping-cta p { margin: 0 auto 24px; color: var(--camp-muted); }
+footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 28px;
+  padding: 25px 15px;
+  background: #08130f;
+  border-top: 1px solid var(--camp-border);
+  color: var(--camp-muted);
+  font-size: 13px;
+}
+@media (max-width: 900px) {
+  .camp-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .camp-card-body > p:not(.place-label) { min-height: auto; }
+  .tips-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 700px) {
+  .header-inner { flex-direction: column; align-items: flex-start; gap: 12px; padding: 15px 18px; }
+  .site-header nav { justify-content: flex-start; gap: 12px 18px; }
+  .camping-hero { padding: 70px 0 60px; }
+  .camping-hero h1 { letter-spacing: -1px; }
+  .hero-copy { font-size: 16px; }
+  .camping-section { padding: 55px 0; }
+}
+@media (max-width: 560px) {
+  .content-wrap { width: calc(100% - 30px); }
+  .camp-grid { grid-template-columns: 1fr; }
+  .camp-card > img { height: 230px; }
+}

@@ -1,0 +1,1898 @@
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <meta name="theme-color" content="#0b1914">
+            <meta name="description" content="Explore Uttarakhand's sacred temples, Himalayan destinations, wildlife, culture and adventures.">
+            <title>Uttarakhand Explorer</title>
+            <link rel="icon" href="./favicon.ico" type="image/x-icon">
+            <link rel="stylesheet" href="css/common.css">
+            <link rel="stylesheet" href="css/home.css">
+
+            <style>
+              :root {
+                --page-bg: #0b1914;
+                --section-bg: #10251a;
+                --card-bg: #14291f;
+                --border-color: #2d4538;
+                --text-color: #f1f4ec;
+                --muted-color: #b5c2b8;
+                --gold: #e7c878;
+              }
+
+              body {
+                background: var(--page-bg);
+                color: var(--text-color);
+              }
+
+              main {
+                background: var(--page-bg);
+              }
+
+              .home-extra {
+                padding: 3.5rem max(5%, calc((100% - 1180px) / 2));
+                background: var(--page-bg);
+                color: var(--text-color);
+                scroll-margin-top: 100px;
+              }
+
+              .home-extra:nth-of-type(even) {
+                background: var(--section-bg);
+              }
+
+              .home-extra .section-heading {
+                margin-bottom: 1.5rem;
+              }
+
+              .home-extra h2 {
+                margin-bottom: 0.5rem;
+                color: var(--text-color);
+              }
+
+              .home-extra h3 {
+                color: var(--text-color);
+              }
+
+              .home-extra .intro {
+                max-width: 760px;
+                color: var(--muted-color);
+                line-height: 1.7;
+                margin: 0 0 1.5rem;
+              }
+
+              .extra-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1rem;
+              }
+
+              .extra-card {
+                min-width: 0;
+                background: var(--card-bg);
+                color: var(--text-color);
+                border: 1px solid var(--border-color);
+                border-radius: 16px;
+                padding: 1.25rem;
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+                transition: transform 0.2s, border-color 0.2s;
+              }
+
+              .extra-card:hover {
+                transform: translateY(-3px);
+                border-color: #a58a4c;
+              }
+
+              .extra-card .emoji {
+                font-size: 1.8rem;
+                margin-bottom: 0.5rem;
+              }
+
+              .extra-card h3 {
+                margin: 0.25rem 0 0.5rem;
+              }
+
+              .extra-card p {
+                color: var(--muted-color);
+                line-height: 1.6;
+                margin: 0.35rem 0;
+              }
+
+              .extra-card a {
+                display: inline-block;
+                margin-top: 0.5rem;
+                color: var(--gold);
+                font-weight: 700;
+              }
+
+              .extra-card a:hover {
+                color: #f5dfa0;
+              }
+
+              .quick-links {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.65rem;
+                margin-top: 1.25rem;
+              }
+
+              .quick-links a,
+              .pill {
+                display: inline-block;
+                padding: 0.55rem 0.85rem;
+                border-radius: 999px;
+                background: #24382a;
+                color: var(--gold);
+                border: 1px solid var(--border-color);
+                font-weight: 600;
+                text-decoration: none;
+              }
+
+              .search-row {
+                display: flex;
+                gap: 0.75rem;
+                flex-wrap: wrap;
+                margin: 1rem 0 1.5rem;
+              }
+
+              .search-row input {
+                flex: 1;
+                min-width: 220px;
+                padding: 0.85rem 1rem;
+                background: var(--card-bg);
+                color: var(--text-color);
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                font: inherit;
+              }
+
+              .search-row input::placeholder {
+                color: var(--muted-color);
+              }
+
+              .planner-band {
+                background: #18382a;
+                color: var(--text-color);
+                border: 1px solid var(--border-color);
+                border-radius: 20px;
+                padding: 2rem;
+                display: flex;
+                gap: 1rem;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+              }
+
+              .planner-band h2 {
+                color: var(--text-color);
+              }
+
+              .planner-band p {
+                max-width: 650px;
+                line-height: 1.7;
+                color: var(--muted-color);
+              }
+
+              .planner-band a {
+                background: var(--gold);
+                color: #102016;
+                padding: 0.75rem 1rem;
+                border-radius: 999px;
+                text-decoration: none;
+                font-weight: 700;
+              }
+
+              .feedback-form {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+                gap: 1rem;
+                max-width: 850px;
+              }
+
+              .feedback-form label {
+                display: grid;
+                gap: 0.4rem;
+                font-weight: 600;
+                color: var(--text-color);
+              }
+
+              .feedback-form input,
+              .feedback-form select,
+              .feedback-form textarea {
+                width: 100%;
+                padding: 0.75rem;
+                background: var(--card-bg);
+                color: var(--text-color);
+                border: 1px solid var(--border-color);
+                border-radius: 9px;
+                font: inherit;
+              }
+
+              .feedback-form option {
+                background: var(--card-bg);
+                color: var(--text-color);
+              }
+
+              .feedback-form textarea {
+                min-height: 120px;
+              }
+
+              .feedback-form .full {
+                grid-column: 1 / -1;
+              }
+
+              .feedback-form button {
+                justify-self: start;
+                border: 0;
+                cursor: pointer;
+              }
+
+              #feedback-status {
+                color: var(--gold);
+              }
+
+              .feature-band {
+                background: #18382a;
+                color: var(--text-color);
+              }
+
+              .feature-band h2 {
+                color: var(--text-color);
+              }
+
+              .feature-band > p {
+                color: var(--muted-color);
+              }
+
+              @media (max-width: 650px) {
+                .home-extra {
+                  padding: 2.5rem 1rem;
+                }
+
+                .planner-band {
+                  padding: 1.35rem;
+                }
+              }
+            
+              /* Left slide-out navigation: added without changing existing page links or scripts */
+              .ue-menu-toggle{position:fixed;top:18px;left:18px;z-index:1200;width:46px;height:46px;border:1px solid var(--border-color);border-radius:12px;background:#14291f;color:var(--text-color);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.22)}
+              .ue-menu-toggle span{display:block;width:21px;height:2px;background:currentColor;border-radius:2px}
+              .ue-menu-overlay{position:fixed;inset:0;background:rgba(0,0,0,.58);z-index:1198;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
+              .ue-sidebar{position:fixed;inset:0 auto 0 0;width:min(330px,86vw);padding:22px 18px 28px;background:#0e2118;color:#f1f4ec;z-index:1199;transform:translateX(-105%);transition:transform .25s ease;overflow-y:auto;border-right:1px solid #2d4538;box-shadow:12px 0 35px rgba(0,0,0,.28)}
+              body.ue-menu-open .ue-sidebar{transform:translateX(0)}
+              body.ue-menu-open .ue-menu-overlay{opacity:1;visibility:visible}
+              .ue-sidebar-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:5px 2px 18px;border-bottom:1px solid #2d4538;margin-bottom:12px}
+              .ue-sidebar-title{font-size:1.12rem;font-weight:800;color:#e7c878}
+              .ue-menu-close{border:1px solid #2d4538;background:#14291f;color:#f1f4ec;border-radius:9px;width:38px;height:38px;font-size:1.5rem;cursor:pointer}
+              .ue-sidebar-label{margin:18px 8px 7px;color:#aebfb3;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+              .ue-sidebar nav{display:grid;gap:4px}
+              .ue-sidebar nav a{display:flex;align-items:center;gap:11px;padding:10px 12px;color:#edf3ec;text-decoration:none;border-radius:9px;font-size:.94rem;border:1px solid transparent}
+              .ue-sidebar nav a:hover,.ue-sidebar nav a:focus-visible{background:#1b3829;border-color:#385541;color:#e7c878;outline:none}
+              .ue-sidebar nav a .ue-link-icon{width:22px;text-align:center;flex:0 0 22px}
+              html.ue-menu-open,body.ue-menu-open{overflow:hidden!important;overscroll-behavior:none;touch-action:none}
+              body.ue-menu-open .ue-menu-toggle{opacity:0;visibility:hidden;pointer-events:none}
+              body.ue-menu-open .ue-sidebar{touch-action:pan-y;overscroll-behavior:contain}
+              @media(max-width:600px){.ue-menu-toggle{top:12px;left:12px;width:42px;height:42px}.ue-sidebar{padding-top:16px}}
+
+            </style>
+            
+<style>
+  #loginForm #email,
+  #loginForm #password,
+  #loginForm #email:focus,
+  #loginForm #password:focus {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-text-fill-color: #000000 !important;
+    caret-color: #000000 !important;
+    opacity: 1 !important;
+  }
+
+  #loginForm #email::placeholder,
+  #loginForm #password::placeholder {
+    color: #666666 !important;
+    -webkit-text-fill-color: #666666 !important;
+    opacity: 1 !important;
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Uttarakhand Explorer | Explore Uttarakhand</title>
+  <link rel="stylesheet" href="../css/login.css">
+
+  <style>
+    #loginForm #email,
+    #loginForm #password,
+    #loginForm #email:focus,
+    #loginForm #password:focus {
+      background-color: #ffffff !important;
+      color: #000000 !important;
+      -webkit-text-fill-color: #000000 !important;
+      caret-color: #000000 !important;
+      opacity: 1 !important;
+    }
+
+    #loginForm #email::placeholder,
+    #loginForm #password::placeholder {
+      color: #666666 !important;
+      -webkit-text-fill-color: #666666 !important;
+      opacity: 1 !important;
+    }
+  </style>
+</head>
+
+</head>
+
+          </head>
+
+          <body>
+            <!-- Left hamburger menu: links only to pages present in the project folder -->
+            <button class="ue-menu-toggle" id="ue-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="ue-sidebar" aria-expanded="false">
+              <span></span><span></span><span></span>
+            </button>
+            <div class="ue-menu-overlay" id="ue-menu-overlay" aria-hidden="true"></div>
+            <aside class="ue-sidebar" id="ue-sidebar" aria-label="Additional website pages" aria-hidden="true">
+            
+        <div class="ue-sidebar-head">
+          <div class="ue-sidebar-title">
+            <img
+              class="ue-sidebar-logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV5Ftm_aDj9gbRa3ejqcWW9DaEdf_DaPErF3TPbtJhfg&s=10"
+              alt="Uttarakhand Explorer Logo"
+            >
+            <span>Uttarakhand Explorer</span>
+          </div>
+
+          <button
+            class="ue-menu-close"
+            id="ue-menu-close"
+            type="button"
+            aria-label="Close navigation menu"
+          >×</button>
+        </div>
+
+              <div class="ue-sidebar-label">Main pages</div>
+              <nav>
+                <a href="index.html"><span class="ue-link-icon">⌂</span>Home</a>
+                <a href="pages/explore.html"><span class="ue-link-icon">🧭</span>Explore Uttarakhand</a>
+                <a href="pages/destinations.html"><span class="ue-link-icon">🏞️</span>All Destinations</a>
+                <a href="pages/trip-planner.html"><span class="ue-link-icon">🗺️</span>Trip Planner</a>
+                <a href="pages/itinerary.html"><span class="ue-link-icon">📅</span>Itinerary</a>
+                <a href="pages/search.html"><span class="ue-link-icon">🔎</span>Search</a>
+              </nav>
+              <div class="ue-sidebar-label">Discover</div>
+              <nav>
+                <a href="pages/hill-stations.html"><span class="ue-link-icon">⛰️</span>Hill Stations</a>
+                <a href="pages/lakes.html"><span class="ue-link-icon">🌊</span>Lakes &amp; Rivers</a>
+                <a href="pages/waterfalls.html"><span class="ue-link-icon">💧</span>Waterfalls</a>
+                <a href="pages/wildlife.html"><span class="ue-link-icon">🌲</span>Wildlife &amp; National Parks</a>
+                <a href="pages/temples.html"><span class="ue-link-icon">🛕</span>Temples</a>
+                <a href="pages/spiritual.html"><span class="ue-link-icon">🙏</span>Spiritual Places</a>
+                <a href="pages/trekking.html"><span class="ue-link-icon">🥾</span>Trekking</a>
+                <a href="pages/adventure.html"><span class="ue-link-icon">🧗</span>Adventure</a>
+                <a href="pages/camping.html"><span class="ue-link-icon">⛺</span>Camping</a>
+                <a href="pages/culture.html"><span class="ue-link-icon">🎭</span>Culture &amp; Heritage</a>
+                <a href="pages/events.html"><span class="ue-link-icon">🎉</span>Events &amp; Festivals</a>
+                <a href="pages/food.html"><span class="ue-link-icon">🍲</span>Local Food</a>
+                <a href="pages/hotels.html"><span class="ue-link-icon">🏨</span>Hotels &amp; Stays</a>
+                <a href="pages/shopping.html"><span class="ue-link-icon">🛍️</span>Shopping &amp; Markets</a>
+                <a href="pages/weather.html"><span class="ue-link-icon">🌦️</span>Weather</a>
+                <a href="pages/live-updates.html"><span class="ue-link-icon">📡</span>Live Updates</a>
+                <a href="pages/travel-guide.html"><span class="ue-link-icon">🧳</span>Travel Guide</a>
+                <a href="pages/gallery.html"><span class="ue-link-icon">🖼️</span>Gallery</a>
+                <a href="pages/favorites.html"><span class="ue-link-icon">❤️</span>Favorites / Wishlist</a>
+              </nav>
+              <div class="ue-sidebar-label">Account &amp; help</div>
+              <nav>
+                <a href="pages/about.html"><span class="ue-link-icon">ℹ️</span>About Us</a>
+                <a href="pages/contact.html"><span class="ue-link-icon">✉️</span>Contact</a>
+                <a href="pages/faq.html"><span class="ue-link-icon">❔</span>FAQ</a>
+                <a href="pages/login.html"><span class="ue-link-icon">🔐</span>Login</a>
+                <a href="pages/signup.html"><span class="ue-link-icon">👤</span>Sign Up</a>
+                <a href="pages/profile.html"><span class="ue-link-icon">🪪</span>Profile</a>
+                <a href="pages/terms.html"><span class="ue-link-icon">📄</span>Terms &amp; Conditions</a>
+                <a href="pages/privacy-policy.html"><span class="ue-link-icon">🔒</span>Privacy Policy</a>
+              </nav>
+            </aside>
+
+        <header class="site-header">
+          <a class="brand" href="index.html">
+            <img
+              class="site-logo"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRV5Ftm_aDj9gbRa3ejqcWW9DaEdf_DaPErF3TPbtJhfg&s=10"
+              alt="Uttarakhand Explorer Logo"
+            >
+            <span>Uttarakhand Explorer</span>
+          </a>
+
+          <nav aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="pages/explore.html">Explore</a>
+            <a href="pages/destinations.html">Destinations</a>
+            <a href="pages/gallery.html">Gallery</a>
+            <a href="pages/trip-planner.html">Trip Planner</a>
+            <a href="pages/about.html">About</a>
+            <a href="pages/login.html">Login</a>
+          </nav>
+        </header>
+
+            <main>
+
+          <!-- HERO -->
+          <section class="hero" id="home">
+            <div class="hero-content">
+              <p class="eyebrow">DEV BHOOMI • THE LAND OF GODS</p>
+
+              <h1>Find your next <span>mountain escape.</span></h1>
+
+              <p>
+                Explore Himalayan landscapes, sacred places, local flavours
+                and unforgettable adventures across Uttarakhand.
+              </p>
+
+              <div class="hero-actions">
+                <a class="button" href="pages/destinations.html">
+                  Explore destinations
+                </a>
+                <a class="button button-outline" href="pages/trip-planner.html">
+                  Plan your trip
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-art">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuqAX1P5R7b40wEBjVHXyVEHkJgKRUlUL1uSGrHsA1SA&s=10"
+                alt="Beautiful Himalayan mountain landscape"
+                loading="lazy"
+              >
+            </div>
+          </section>
+
+
+
+          <!-- POPULAR PLACES -->
+          <section class="section">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">START EXPLORING</p>
+                <h2>Places worth the journey</h2>
+              </div>
+              <a href="pages/destinations.html">View all →</a>
+            </div>
+
+            <div class="cards">
+              <article class="place-card">
+                <img
+                  class="card-visual nainital"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmO32ssBu2MxN4_PPSjfut5NIEDFxZfTQ9P57d_MX9Mg&s=10"
+                  alt="Nainital lake and surrounding hills"
+                  loading="lazy"
+                >
+                <div class="card-body">
+                  <span class="tag">Lake town</span>
+                  <h3>Nainital</h3>
+                  <p>A peaceful lake, forested hills and lively mountain streets.</p>
+                  <a href="pages/destination-detail.html?place=nainital">Discover place →</a>
+                </div>
+              </article>
+
+              <article class="place-card">
+                <img
+                  class="card-visual mussoorie"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwJ0fs7khsjGs-SzNMQ3eynFkMJOkPHdO6wafW2HTf_w&s=10"
+                  alt="Mussoorie hill station and forested hills"
+                  loading="lazy"
+                >
+                <div class="card-body">
+                  <span class="tag">Hill station</span>
+                  <h3>Mussoorie</h3>
+                  <p>Misty viewpoints, waterfalls and walks above the Doon Valley.</p>
+                  <a href="pages/destination-detail.html?place=mussoorie">Discover place →</a>
+                </div>
+              </article>
+
+              <article class="place-card">
+                <img
+                  class="card-visual rishikesh"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJGdT7f0-oy6_C9S8fVIkiD5EknsKSzkMJ02sn79S07A&s=10"
+                  alt="Rishikesh and the Ganges river"
+                  loading="lazy"
+                >
+                <div class="card-body">
+                  <span class="tag">Adventure & spirit</span>
+                  <h3>Rishikesh</h3>
+                  <p>River adventures, yoga, ashrams and evening Ganga aarti.</p>
+                  <a href="pages/destination-detail.html?place=rishikesh">Discover place →</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+              <!-- QUICK LINKS -->
+              <section class="home-extra" aria-label="Quick links">
+                <div class="section-heading">
+                  <div>
+                    <p class="eyebrow">PLAN YOUR JOURNEY</p>
+                    <h2>Explore Uttarakhand your way</h2>
+                  </div>
+                </div>
+                <p class="intro">Spiritual journeys, mountain escapes, local culture and outdoor adventures—all in one place.</p>
+                <div class="quick-links">
+                  <a href="#char-dham">Char Dham</a>
+                  <a href="#panch-kedar">Panch Kedar</a>
+                  <a href="#panch-badri">Panch Badri</a>
+                  <a href="#panch-prayag">Panch Prayag</a>
+                  <a href="#nature">Nature & Wildlife</a>
+                  <a href="#adventure">Adventure</a>
+                  <a href="#food">Local Food</a>
+                  <a href="pages/trip-planner.html">Trip Planner</a>
+                </div>
+              </section>
+              <!-- CHAR DHAM -->
+          <section class="home-extra" id="char-dham">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">SACRED CIRCUIT</p>
+                <h2>Char Dham Yatra</h2>
+              </div>
+            </div>
+
+            <p class="intro">
+              Uttarakhand’s four revered Himalayan pilgrimage sites. Check seasonal
+              opening dates, weather and road conditions before travelling.
+            </p>
+
+            <div class="extra-grid">
+
+              <!-- Yamunotri -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+          <source src="assets/videos/yamunotri.mp4" type="video/mp4">
+          Your browser does not support this video.
+        </video>
+
+                <h3>Yamunotri</h3>
+                <p>Source region of the Yamuna, surrounded by high Himalayan scenery.</p>
+                <a href="pages/yamunotri.html">Explore Yamunotri →</a>
+              </article>
+
+              <!-- Gangotri -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/gangotri.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+
+                <h3>Gangotri</h3>
+                <p>A sacred destination associated with the origin of the Ganga.</p>
+                <a href="pages/gangotri.html">Explore Gangotri →</a>
+              </article>
+
+              <!-- Kedarnath -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/kedarnath.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+
+                <h3>Kedarnath</h3>
+                <p>A revered Shiva temple set among dramatic mountain peaks.</p>
+                <a href="pages/kedarnath.html">Explore Kedarnath →</a>
+              </article>
+
+              <!-- Badrinath -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/badrinath.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+
+                <h3>Badrinath</h3>
+                <p>A major Vishnu pilgrimage site in the Alaknanda valley.</p>
+                <a href="pages/badrinath.html">Explore Badrinath →</a>
+              </article>
+
+            </div>
+          </section>
+
+          <!-- PANCH KEDAR -->
+          <section class="home-extra" id="panch-kedar">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">SHIVA PILGRIMAGE</p>
+                <h2>Panch Kedar</h2>
+              </div>
+            </div>
+
+            <p class="intro">
+              Explore the five sacred Shiva temples nestled in the beautiful Himalayas
+              of Uttarakhand.
+            </p>
+
+            <div class="extra-grid">
+
+              <!-- Kedarnath -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/kedarnath.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Kedarnath</h3>
+                <p>The best-known shrine in the Panch Kedar tradition.</p>
+                <a href="pages/kedarnath.html">Explore Kedarnath →</a>
+              </article>
+
+              <!-- Tungnath -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/tungnath.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Tungnath</h3>
+                <p>A high-altitude temple reached by a popular mountain trek.</p>
+                <a href="pages/tungnath.html">Explore Tungnath →</a>
+              </article>
+
+              <!-- Rudranath -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/rudranath.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Rudranath</h3>
+                <p>A sacred shrine set amid beautiful Himalayan landscapes.</p>
+                <a href="pages/rudranath.html">Explore Rudranath →</a>
+              </article>
+
+              <!-- Madhyamaheshwar -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/madhyamaheshwar.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Madhyamaheshwar</h3>
+                <p>A pilgrimage destination surrounded by mountain scenery.</p>
+                <a href="pages/madhyamaheshwar.html">
+                  Explore Madhyamaheshwar →
+                </a>
+              </article>
+
+              <!-- Kalpeshwar -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/kalpeshwar.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Kalpeshwar</h3>
+                <p>A revered temple in the Urgam valley.</p>
+                <a href="pages/kalpeshwar.html">Explore Kalpeshwar →</a>
+              </article>
+            </div>
+          </section>
+            
+          <!-- PANCH BADRI -->
+          <section class="home-extra" id="panch-badri">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">VISHNU SHRINES</p>
+                <h2>Panch Badri</h2>
+              </div>
+            </div>
+
+            <p class="intro">
+              Discover the five sacred shrines of Lord Vishnu in the beautiful
+              Himalayan region of Uttarakhand.
+            </p>
+
+            <div class="extra-grid">
+
+              <!-- Badrinath -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/badrinath.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Badrinath</h3>
+                <p>The principal shrine of the group.</p>
+                <a href="pages/badrinath.html">Explore Badrinath →</a>
+              </article>
+
+              <!-- Adi Badri -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/adi-badri.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Adi Badri</h3>
+                <p>A historic temple complex in the region.</p>
+                <a href="pages/adi-badri.html">Explore Adi Badri →</a>
+              </article>
+
+              <!-- Vridha Badri -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/vridha-badri.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Vridha Badri</h3>
+                <p>A traditional pilgrimage stop near Joshimath.</p>
+                <a href="pages/vridha-badri.html">Explore Vridha Badri →</a>
+              </article>
+
+              <!-- Bhavishya Badri -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/bhavishya-badri.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Bhavishya Badri</h3>
+                <p>A sacred site associated with local religious tradition.</p>
+                <a href="pages/bhavishya-badri.html">
+                  Explore Bhavishya Badri →
+                </a>
+              </article>
+
+
+          <!-- Yogadhyan Badri -->
+          <article class="extra-card">
+            <img
+              class="card-image"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvQ8-wBfYzgO0Xn7px0Ku2y7oV__AjX0Fgsqip-YTTayvD2LDfq7FNWcE&s=10"
+              alt="Yogadhyan Badri Temple at Pandukeshwar"
+              loading="lazy"
+            >
+
+            <h3>Yogadhyan Badri</h3>
+            <p>A sacred temple located at Pandukeshwar.</p>
+            <a href="pages/yogadhyan-badri.html">
+              Explore Yogadhyan Badri →
+            </a>
+          </article>
+
+
+            </div>
+          </section>
+
+          <!-- PANCH PRAYAG -->
+          <section class="home-extra" id="panch-prayag">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">RIVER CONFLUENCES</p>
+                <h2>Panch Prayag</h2>
+              </div>
+            </div>
+
+            <p class="intro">
+              Discover Uttarakhand's five sacred river confluences surrounded by
+              the magnificent Himalayan landscape.
+            </p>
+
+            <div class="extra-grid">
+
+              <!-- Vishnuprayag -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/vishnuprayag.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Vishnuprayag</h3>
+                <p>Confluence of the Alaknanda and Dhauliganga.</p>
+                <a href="pages/vishnuprayag.html">Explore Vishnuprayag →</a>
+              </article>
+
+              <!-- Nandaprayag -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/nandaprayag.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Nandaprayag</h3>
+                <p>Confluence of the Alaknanda and Nandakini.</p>
+                <a href="pages/nandaprayag.html">Explore Nandaprayag →</a>
+              </article>
+
+              <!-- Karnaprayag -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/karnaprayag.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Karnaprayag</h3>
+                <p>Confluence of the Alaknanda and Pindar.</p>
+                <a href="pages/karnaprayag.html">Explore Karnaprayag →</a>
+              </article>
+
+              <!-- Rudraprayag -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/rudraprayag.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Rudraprayag</h3>
+                <p>Confluence of the Alaknanda and Mandakini.</p>
+                <a href="pages/rudraprayag.html">Explore Rudraprayag →</a>
+              </article>
+
+              <!-- Devprayag -->
+              <article class="extra-card">
+                <video class="card-video" autoplay muted loop playsinline preload="metadata">
+                  <source src="assets/videos/devprayag.mp4" type="video/mp4">
+                  Your browser does not support this video.
+                </video>
+                <h3>Devprayag</h3>
+                <p>Where the Bhagirathi and Alaknanda meet to form the Ganga.</p>
+                <a href="pages/devprayag.html">Explore Devprayag →</a>
+              </article>
+
+            </div>
+          </section>
+
+          <!-- POPULAR DESTINATIONS -->
+          <section class="home-extra" id="destinations">
+
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">FIND YOUR PLACE</p>
+                <h2>Explore Uttarakhand</h2>
+              </div>
+              <a href="pages/destinations.html">View All →</a>
+            </div>
+
+            <p class="intro">
+              Discover Uttarakhand's beautiful hill stations, sacred temples,
+              lakes, waterfalls, Himalayan treks, wildlife and heritage sites.
+            </p>
+
+            <!-- Search -->
+            <div class="search-row">
+              <input
+                id="destination-search"
+                type="search"
+                placeholder="Search destinations, temples, lakes..."
+                aria-label="Search destinations"
+              >
+            </div>
+
+            <!-- Destination Grid -->
+            <div class="extra-grid" id="destination-grid">
+
+
+          <!-- 1. Nainital -->
+          <article class="extra-card" data-search="nainital lake family boating">
+            <img
+              class="card-video"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTb66XbjlGbSJnGJtfkCyYSzvWiftmtxrK5aOkVFjG4Q&s=10"
+              alt="Uttarakhand destination"
+              loading="lazy"
+            >
+            <h3>Nainital</h3>
+            <p>Famous lake, boating, forested hills and lively mountain streets.</p>
+            <a href="pages/nainital.html">Explore Nainital →</a>
+          </article>
+
+          <!-- 2. Mussoorie -->
+          <article class="extra-card" data-search="mussoorie hill station waterfall mall road">
+            <img
+              class="card-image"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7OANupnfKVzcPRmuy0WRR7e7QbK7jLMtq8ukejxFzCw&s=10"
+              alt="Mussoorie hill station wallpaper"
+              loading="lazy"
+            >
+            <h3>Mussoorie</h3>
+            <p>Misty viewpoints, waterfalls and walks above the Doon Valley.</p>
+            <a href="pages/mussoorie.html">Explore Mussoorie →</a>
+          </article>
+
+
+
+          <!-- 3. Rishikesh -->
+          <article class="extra-card" data-search="rishikesh river yoga rafting ganga aarti">
+            <img
+              class="card-video"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo52MQgKk5Qey3krpfV8oWWsNhR-sLwXpLYeGr4skL4A&s=10"
+              alt="Rishikesh river, yoga and Ganga Aarti"
+              loading="lazy"
+            >
+            <h3>Rishikesh</h3>
+            <p>River adventures, yoga, ashrams and evening Ganga Aarti.</p>
+            <a href="pages/rishikesh.html">Explore Rishikesh →</a>
+          </article>
+
+              <!-- 4. Auli -->
+              <article class="extra-card" data-search="auli skiing snow mountains winter">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjkTERz2jVR7_c4QdFsGxpT4N80QuzKe_AC9GdjuKhzg&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Auli</h3>
+                <p>Snow-covered slopes, skiing and panoramic Himalayan views.</p>
+                <a href="pages/auli.html">Explore Auli →</a>
+              </article>
+
+              <!-- 5. Valley of Flowers -->
+              <article class="extra-card" data-search="valley of flowers nature trek alpine flowers">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQpFja6SBDCofDkPqT-raiwqpC5l3N42eBKJaJelye-A&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Valley of Flowers</h3>
+                <p>Alpine meadows and colourful seasonal Himalayan blooms.</p>
+                <a href="pages/valley-of-flowers.html">Explore Valley of Flowers →</a>
+              </article>
+
+              <!-- 6. Chopta -->
+              <article class="extra-card" data-search="chopta trek tungnath meadows">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTathRw-VkvweZwIzWQIRACMnOJYB--hzWNuAa84_ytFQ&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Chopta</h3>
+                <p>Green meadows, mountain views and access to the Tungnath trail.</p>
+                <a href="pages/chopta.html">Explore Chopta →</a>
+              </article>
+
+              <!-- 7. Lansdowne -->
+              <article class="extra-card" data-search="lansdowne pine forest colonial hill station">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ99ZT2Gg6yg4z0zADsu9T3Y6o-RQV7k4zQH_6xg4YGnw&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Lansdowne</h3>
+                <p>Quiet pine forests, peaceful hills and colonial-era charm.</p>
+                <a href="pages/lansdowne.html">Explore Lansdowne →</a>
+              </article>
+
+              <!-- 8. Chakrata -->
+              <article class="extra-card" data-search="chakrata tiger falls waterfall forest">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5uHqWfd_UMFHzgp2GTw54_3OBL4_7FxJx7jOHvu5xpA&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Chakrata</h3>
+                <p>Forest trails, Tiger Falls and scenic mountain roads.</p>
+                <a href="pages/chakrata.html">Explore Chakrata →</a>
+              </article>
+
+              <!-- 9. Pithoragarh -->
+              <article class="extra-card" data-search="pithoragarh himalayan valley kumaon">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRq9A1-pRQk0I62WNaLNJAE_zJMMfMx1vH6f0_KYz_3aw&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Pithoragarh</h3>
+                <p>Mountain valleys, scenic viewpoints and Kumaon heritage.</p>
+                <a href="pages/pithoragarh.html">Explore Pithoragarh →</a>
+              </article>
+
+              <!-- 10. Munsiyari -->
+              <article class="extra-card" data-search="munsiyari panchachuli snow peaks trekking">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQofA6-JxijSyQoPqjiWLfRSyTSWwCe_u2ZFprEJ0J6Q&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Munsiyari</h3>
+                <p>Magnificent Panchachuli peaks, trekking and mountain sunrises.</p>
+                <a href="pages/munsiyari.html">Explore Munsiyari →</a>
+              </article>
+
+              <!-- 11. Bhimtal -->
+              <article class="extra-card" data-search="bhimtal lake boating island family">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjdt8dwxjAG5x1T7xFP0T-oA13lhdTk-MRR2HAGIy6tA&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Bhimtal</h3>
+                <p>A peaceful lake destination with boating and lakeside views.</p>
+                <a href="pages/bhimtal.html">Explore Bhimtal →</a>
+              </article>
+
+              <!-- 12. Jageshwar Dham -->
+              <article class="extra-card" data-search="jageshwar dham ancient shiva temple deodar forest">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNRhaAf6Vwj5kVBuSSLwVjdsdoSVC1fyrwoWGsiYGi6g&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Jageshwar Dham</h3>
+                <p>Ancient stone temples surrounded by beautiful deodar forests.</p>
+                <a href="pages/jageshwar.html">Explore Jageshwar →</a>
+              </article>
+
+              <!-- 13. Patal Bhuvaneshwar -->
+              <article class="extra-card" data-search="patal bhuvaneshwar limestone cave temple">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBRsnmLuWbkvJ9kZp4Ce9dw43v5_2vohIy9rK8s-YKlQ&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Patal Bhuvaneshwar</h3>
+                <p>A sacred limestone cave with fascinating natural formations.</p>
+                <a href="pages/patal-bhuvaneshwar.html">Explore Cave Temple →</a>
+              </article>
+
+              <!-- 14. Abbott Mount -->
+              <article class="extra-card" data-search="abbott mount lohaghat heritage cottages hills">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg88AhV1FPtw91DDd0ytR15amKtUPe_smA_B0B0LRmLw&s" alt="Uttarakhand destination" loading="lazy">
+                <h3>Abbott Mount</h3>
+                <p>A quiet hill retreat with old cottages and panoramic views.</p>
+                <a href="pages/abbott-mount.html">Explore Abbott Mount →</a>
+              </article>
+
+              <!-- 15. Hemkund Sahib -->
+              <article class="extra-card" data-search="hemkund sahib gurudwara lake pilgrimage trek">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjS0sXDh5rYgsnVRrWqRtS737Gpgb95WIhmr-n1Q8P1Q&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Hemkund Sahib</h3>
+                <p>A high-altitude Sikh pilgrimage site beside a mountain lake.</p>
+                <a href="pages/hemkund-sahib.html">Explore Hemkund Sahib →</a>
+              </article>
+
+              <!-- 16. Kausani -->
+              <article class="extra-card" data-search="kausani sunrise himalaya tea gardens">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfWwJTZ0uveROT6n3vDy9lq-ntWVh5suzCTbqlbbhK5Q&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Kausani</h3>
+                <p>Himalayan panoramas, tea gardens and peaceful sunrise views.</p>
+                <a href="pages/kausani.html">Explore Kausani →</a>
+              </article>
+
+              <!-- 17. Sattal -->
+              <article class="extra-card" data-search="sattal seven lakes birds nature">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR88i73nA3U3nSzrLF4CqaMNFtq49giCzHndMHKcMVYCA&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Sattal</h3>
+                <p>A cluster of lakes surrounded by forests and birdlife.</p>
+                <a href="pages/sattal.html">Explore Sattal →</a>
+              </article>
+
+              <!-- 18. Naukuchiatal -->
+              <article class="extra-card" data-search="naukuchiatal nine corner lake boating">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYOnHiRTJwsaWzoYOzdy2oOqfWbgxr6QM5XmB1KVbTDA&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Naukuchiatal</h3>
+                <p>A scenic nine-cornered lake ideal for relaxing and boating.</p>
+                <a href="pages/naukuchiatal.html">Explore Naukuchiatal →</a>
+              </article>
+
+              <!-- 19. Dodital -->
+              <article class="extra-card" data-search="dodital lake trek forest himalaya">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSATcDYr8ji_EDvReSkTPyzFOW9AqJx0AzqX_SvVfEnWA&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Dodital</h3>
+                <p>A beautiful high-altitude lake reached through forest trails.</p>
+                <a href="pages/dodital.html">Explore Dodital →</a>
+              </article>
+
+              <!-- 20. Dayara Bugyal -->
+              <article class="extra-card" data-search="dayara bugyal alpine meadow trek snow">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSocOSkff2z7rDvmwieeT-vSOEwppQFxgGhQzwg3sPa0A&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Dayara Bugyal</h3>
+                <p>Vast alpine meadows with spectacular seasonal mountain views.</p>
+                <a href="pages/dayara-bugyal.html">Explore Dayara Bugyal →</a>
+              </article>
+
+              <!-- 21. Kedarkantha -->
+              <article class="extra-card" data-search="kedarkantha winter trek snow summit">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfXD0wZkm2D3T8zjKO4Tactg5gby1zfwNw9rtDV02n_Q&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Kedarkantha</h3>
+                <p>A popular Himalayan trek known for snowy trails and summit views.</p>
+                <a href="pages/kedarkantha.html">Explore Kedarkantha →</a>
+              </article>
+
+              <!-- 22. Har Ki Dun -->
+              <article class="extra-card" data-search="har ki dun trek valley villages mountains">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThfAuEYH3WRB1mMLmyEbP5iPtV31SjdTP6nriJhr6Jsw&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Har Ki Dun</h3>
+                <p>A scenic trekking valley with forests, villages and mountain views.</p>
+                <a href="pages/har-ki-dun.html">Explore Har Ki Dun →</a>
+              </article>
+
+              <!-- 23. Tiger Falls -->
+              <article class="extra-card" data-search="tiger falls chakrata waterfall nature">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz9fOjiCfPUIYudQNfPSDjVueqgPBhfRY6Glw4PHpKPg&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Tiger Falls</h3>
+                <p>A spectacular waterfall near Chakrata, reached by a forest trail.</p>
+                <a href="pages/tiger-falls.html">Explore Tiger Falls →</a>
+              </article>
+
+              <!-- 24. Vasudhara Falls -->
+              <article class="extra-card" data-search="vasudhara falls badrinath waterfall trek">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQejmLvHLJ2r5NkEWb3up5rKMHj-FJQw0Z8yCDI0Jvjvw&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Vasudhara Falls</h3>
+                <p>A dramatic Himalayan waterfall near the Badrinath region.</p>
+                <a href="pages/vasudhara-falls.html">Explore Vasudhara Falls →</a>
+              </article>
+
+              <!-- 25. Jim Corbett National Park -->
+              <article class="extra-card" data-search="jim corbett national park wildlife tiger safari">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6XjDUrmx7fZyyhdKH30MOLto_bvt9esIeHH1youoAqQ&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Jim Corbett National Park</h3>
+                <p>Wildlife, forest landscapes and regulated safari experiences.</p>
+                <a href="pages/jim-corbett.html">Explore Jim Corbett →</a>
+              </article>
+
+              <!-- 26. Rajaji National Park -->
+              <article class="extra-card" data-search="rajaji national park wildlife elephant forest safari">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5FFGbj3HvBfTCgsN4g9SlKpIoCaHWyhNz_oMxtBN5OA&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Rajaji National Park</h3>
+                <p>Forests, elephants and rich Himalayan foothill biodiversity.</p>
+                <a href="pages/rajaji-national-park.html">Explore Rajaji →</a>
+              </article>
+
+              <!-- 27. Katarmal Sun Temple -->
+              <article class="extra-card" data-search="katarmal sun temple almora ancient heritage">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe9yeMxLgVUv9CVJxFoBTVzL_hROC94ORmwMdQe_4fnw&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Katarmal Sun Temple</h3>
+                <p>An ancient Sun temple showcasing Kumaon's architectural heritage.</p>
+                <a href="pages/katarmal-sun-temple.html">Explore Katarmal →</a>
+              </article>
+
+              <!-- 28. Baijnath Temple -->
+              <article class="extra-card" data-search="baijnath temple bageshwar ancient stone temple">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSplpe3MKRUQWxlcT7rjl58MCT61olFsCCJ6sHQo7_wmA&s=10" alt="Uttarakhand destination" loading="lazy">
+                <h3>Baijnath Temple</h3>
+                <p>A historic temple complex beside the Gomti River.</p>
+                <a href="pages/baijnath-temple.html">Explore Baijnath →</a>
+              </article>
+
+              <!-- 29. Kartik Swami Temple -->
+              <article class="extra-card" data-search="kartik swami temple ridge trek himalaya">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS22tEuL3TXHSpzQVPH0JakUocQLONAbLVzpfbQXbjn0A&s=10" alt="Kartik Swami Temple" loading="lazy">
+                <h3>Kartik Swami Temple</h3>
+                <p>A hilltop temple reached by a trek with sweeping mountain views.</p>
+                <a href="pages/kartik-swami.html">Explore Kartik Swami →</a>
+              </article>
+
+              <!-- 30. Narendra Nagar Palace -->
+              <article class="extra-card" data-search="narendra nagar palace royal heritage tehri">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReXPoXkvE6ySHF_X_nRBZeYDKWpCJrdFwBXNw3BfcTgw&s=10" alt="Narendra Nagar Palace and hilltop heritage" loading="lazy">
+                <h3>Narendra Nagar Palace</h3>
+                <p>Explore royal heritage and hilltop views near Narendra Nagar.</p>
+                <a href="pages/narendra-nagar-palace.html">Explore Palace →</a>
+              </article>
+
+            </div>
+
+            <!-- No Results Message -->
+            <p id="no-destinations" hidden>
+              No destinations found. Try another search.
+            </p>
+
+          </section>
+
+          <!-- SPIRITUAL PLACES: UNIQUE PLACES ONLY -->
+          <section class="home-extra" id="spiritual">
+
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">DEV BHOOMI</p>
+                <h2>Spiritual Places</h2>
+              </div>
+              <a href="pages/spiritual-places.html">View All →</a>
+            </div>
+
+            <p class="intro">
+              Explore unique temples, ancient shrines, sacred sites and
+              peaceful pilgrimage destinations across Uttarakhand.
+            </p>
+
+            <div class="extra-grid" id="spiritual-grid">
+
+              <!-- Haridwar -->
+              <article class="extra-card" data-search="haridwar ganga ghats har ki pauri aarti">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQz0hozjuopHKgq9moiZjsveKGh0WTIQvtCPlgfd36YOQ&s=10" alt="Haridwar" loading="lazy">
+                <h3>Haridwar</h3>
+                <p>Experience the sacred Ganga ghats and the evening Ganga Aarti.</p>
+                <a href="pages/haridwar.html">Explore Haridwar →</a>
+              </article>
+
+              <!-- Neelkanth Mahadev -->
+              <article class="extra-card" data-search="neelkanth mahadev shiva temple">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKNUkYhrNoyEjb21w-FviQMBqMJMzAriiUn4Lw9sDGOg&s=10" alt="Neelkanth Mahadev" loading="lazy">
+                <h3>Neelkanth Mahadev</h3>
+                <p>A famous Shiva temple surrounded by forested Himalayan hills.</p>
+                <a href="pages/neelkanth-mahadev.html">Explore Neelkanth →</a>
+              </article>
+
+              <!-- Dhari Devi -->
+              <article class="extra-card" data-search="dhari devi goddess alaknanda river">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVn42U0sx06PrTpEE29d-lLR2qCmuJ35-J61C-9spO7g&s=10" alt="Dhari Devi Temple" loading="lazy">
+                <h3>Dhari Devi Temple</h3>
+                <p>A revered shrine of Goddess Dhari beside the Alaknanda River.</p>
+                <a href="pages/dhari-devi.html">Explore Dhari Devi →</a>
+              </article>
+
+              <!-- Surkanda Devi -->
+              <article class="extra-card" data-search="surkanda devi goddess temple">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFyAB2DK3bqHkgu_23lLy4c36goAiZabgXxQt1PZcu5Q&s=10" alt="Surkanda Devi Temple" loading="lazy">
+                <h3>Surkanda Devi Temple</h3>
+                <p>A hilltop shrine known for its mountain views and pilgrimage trail.</p>
+                <a href="pages/surkanda-devi.html">Explore Surkanda Devi →</a>
+              </article>
+
+              <!-- Kartik Swami -->
+              <article class="extra-card" data-search="kartik swami temple lord kartikeya">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnw8TS5BFMvCQa9jfpgmFQi5jyiWO2U3U8vNtrSmpQtg&s=10" alt="Kartik Swami Temple" loading="lazy">
+                <h3>Kartik Swami Temple</h3>
+                <p>A mountain-top shrine dedicated to Lord Kartikeya.</p>
+                <a href="pages/kartik-swami.html">Explore Kartik Swami →</a>
+              </article>
+
+              <!-- Triyuginarayan -->
+              <article class="extra-card" data-search="triyuginarayan temple shiva parvati wedding">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOIluvuJgDv5jOA_yrUrOPhwa7Ywm8OQCsXS41UPdiIA&s=10" alt="Triyuginarayan Temple" loading="lazy">
+                <h3>Triyuginarayan Temple</h3>
+                <p>An ancient temple traditionally associated with Shiva and Parvati's wedding.</p>
+                <a href="pages/triyuginarayan.html">Explore Triyuginarayan →</a>
+              </article>
+
+              <!-- Mansa Devi -->
+              <article class="extra-card" data-search="mansa devi temple goddess manasadevi">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUJVvFjc0ulTL4i54QPfjY7xo2VJ1x4uY_kHfmKhvq1A&s=10" alt="Mansa Devi Temple" loading="lazy">
+                <h3>Mansa Devi Temple</h3>
+                <p>A hilltop temple dedicated to Goddess Mansa Devi.</p>
+                <a href="pages/mansa-devi.html">Explore Mansa Devi →</a>
+              </article>
+
+              <!-- Chandi Devi -->
+              <article class="extra-card" data-search="chandi devi temple goddess nil parvat">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROQe3TagZF1VwnLQN5f0xsK2Whov3JDZL3pYT716fqHw&s=10" alt="Chandi Devi Temple" loading="lazy">
+                <h3>Chandi Devi Temple</h3>
+                <p>A sacred hilltop shrine dedicated to Goddess Chandi.</p>
+                <a href="pages/chandi-devi.html">Explore Chandi Devi →</a>
+              </article>
+
+              <!-- Maya Devi -->
+              <article class="extra-card" data-search="maya devi temple ancient haridwar">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS30PILIVenLwtsTT7G95YnRTF15hNXHAsULjN8hqfZvQ&s=10" alt="Maya Devi Temple" loading="lazy">
+                <h3>Maya Devi Temple</h3>
+                <p>An ancient temple and an important Shakti pilgrimage site.</p>
+                <a href="pages/maya-devi.html">Explore Maya Devi →</a>
+              </article>
+
+              <!-- Kunjapuri Devi -->
+              <article class="extra-card" data-search="kunjapuri devi temple sunrise shakti">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMx6PyXJqxRoN8XiB-mpOlXTtR1Tcr7V7lUTQjIGZTyQ&s=10" alt="Kunjapuri Devi Temple" loading="lazy">
+                <h3>Kunjapuri Devi Temple</h3>
+                <p>A hilltop Shakti shrine known for sunrise and Himalayan panoramas.</p>
+                <a href="pages/kunjapuri-devi.html">Explore Kunjapuri →</a>
+              </article>
+
+              <!-- Tapkeshwar Mahadev -->
+              <article class="extra-card" data-search="tapkeshwar mahadev cave temple dehradun">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHmkhTXs8QuzetoLznjLkqwO7UA3MV6knzxl_NykoXdA&s=10" alt="Tapkeshwar Mahadev" loading="lazy">
+                <h3>Tapkeshwar Mahadev</h3>
+                <p>A cave temple dedicated to Lord Shiva near Dehradun.</p>
+                <a href="pages/tapkeshwar-mahadev.html">Explore Tapkeshwar →</a>
+              </article>
+
+              <!-- Golu Devta -->
+              <article class="extra-card" data-search="golu devta temple goljyu chitai almora">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk7na7gCMBfy6Zc7uJCAGsPOnWTFsoQxagA7LqYmzVnA&s=10" alt="Golu Devta Temple" loading="lazy">
+                <h3>Golu Devta Temple</h3>
+                <p>A well-known Kumaoni shrine associated with justice and faith.</p>
+                <a href="pages/golu-devta.html">Explore Golu Devta →</a>
+              </article>
+
+              <!-- Kasar Devi -->
+              <article class="extra-card" data-search="kasar devi temple almora hills">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9AG6t_86kLOReett7xH4cwrsYXtkDx4Yt6WJtgoq-FQ&s=10" alt="Kasar Devi Temple" loading="lazy">
+                <h3>Kasar Devi Temple</h3>
+                <p>A peaceful hilltop temple overlooking the Almora region.</p>
+                <a href="pages/kasar-devi.html">Explore Kasar Devi →</a>
+              </article>
+
+              <!-- Mahasu Devta -->
+              <article class="extra-card" data-search="mahasu devta temple hanol jaunsar">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1-z2JQOr1GaED36ts-jJ1p8TEYqejj2Qw6diL5lviDA&s=10" alt="Mahasu Devta Temple" loading="lazy">
+                <h3>Mahasu Devta Temple</h3>
+                <p>A distinctive traditional temple in Hanol, known for its regional architecture.</p>
+                <a href="pages/mahasu-devta.html">Explore Mahasu Devta →</a>
+              </article>
+
+              <!-- Lakhamandal -->
+              <article class="extra-card" data-search="lakhamandal temple shiva ancient archaeology">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSO57160t8NP6VsWLmAl4ZgOMYkwZa-TQbxTVUbMVlK9g&s=10" alt="Lakhamandal Temple" loading="lazy">
+                <h3>Lakhamandal Temple</h3>
+                <p>An ancient Shiva temple site with historic and archaeological significance.</p>
+                <a href="pages/lakhamandal.html">Explore Lakhamandal →</a>
+              </article>
+
+              <!-- Baleshwar -->
+              <article class="extra-card" data-search="baleshwar temple champawat shiva stone architecture">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7E8NFAylbnsE-ldJ2stnWeUGrsCtHNzOcexfNL_Sdhg&s=10" alt="Baleshwar Temple" loading="lazy">
+                <h3>Baleshwar Temple</h3>
+                <p>A historic temple complex in Champawat known for its stone carvings.</p>
+                <a href="pages/baleshwar-temple.html">Explore Baleshwar →</a>
+              </article>
+
+              <!-- Gopinath -->
+              <article class="extra-card" data-search="gopinath temple gopeshwar shiva">
+                <img class="card-video" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRoYzzNEBugarF_SQtirTf40SdFgstmRQz2B3j2nINtQ&s=10" alt="Gopinath Temple" loading="lazy">
+                <h3>Gopinath Temple</h3>
+                <p>An old Shiva temple in Gopeshwar with traditional stone architecture.</p>
+                <a href="pages/gopinath-temple.html">Explore Gopinath →</a>
+              </article>
+
+            </div>
+          </section>
+
+
+          <!-- NATURE & WILDLIFE -->
+          <section class="home-extra" id="nature">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">WILD & WONDERFUL</p>
+                <h2>Nature & Wildlife</h2>
+              </div>
+            </div>
+
+            <p class="intro">
+              Discover Himalayan biodiversity, peaceful forests and spectacular natural landscapes.
+            </p>
+
+            <div class="extra-grid">
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyiVYbTPbt6L8jwa5DFpS8fFMJq5Wn2voRqFmLW8zErA&s=10"
+                    alt="Nanda Devi Himalayan landscape" loading="lazy">
+                <h3>Nanda Devi Region</h3>
+                <p>Explore remarkable Himalayan biodiversity and protected mountain landscapes.</p>
+                <a href="pages/nanda-devi.html">Explore →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbAAhInvPSfThdEYV_TA_ngPDYs_gXs1ZOLzk4GlshfA&s=10"
+                    alt="Rajaji National Park forest" loading="lazy">
+                <h3>Rajaji National Park</h3>
+                <p>Discover forest ecosystems, wildlife and beautiful Himalayan foothills.</p>
+                <a href="pages/rajaji-national-park.html">Explore →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCJNkX-B7FRr6ftKUh7oBiO9N0EaB6l6p7yCFB7Efv7Q&s=10"
+                    alt="Jim Corbett National Park wilderness" loading="lazy">
+                <h3>Jim Corbett National Park</h3>
+                <p>Experience forest trails, wildlife habitats and guided nature excursions.</p>
+                <a href="pages/jim-corbett.html">Explore →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMBWdK6AezqLuIxVj4qbm_NvWqmxfimFgFkV4-MAfslA&s=10"
+                    alt="Waterfall surrounded by Uttarakhand forest" loading="lazy">
+                <h3>Tiger Falls</h3>
+                <p>Enjoy a scenic waterfall and the surrounding forest landscape.</p>
+                <a href="pages/tiger-falls.html">Explore →</a>
+              </article>
+            </div>
+          </section>
+
+
+
+          <!-- ADVENTURE -->
+          <section class="home-extra" id="adventure">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">GET OUTSIDE</p>
+                <h2>Adventure &amp; Trekking</h2>
+              </div>
+            </div>
+
+            <p class="intro">
+              Find outdoor experiences suited to your interests, fitness and travel season.
+            </p>
+
+            <div class="extra-grid">
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ32K_m4d9xArwzYEaEcqhcU2Tmcivc10XzdqzxlndDZA&s=10"
+                    alt="Trekking trail through the Himalayas" loading="lazy">
+                <h3>Himalayan Trekking</h3>
+                <p>Choose a suitable trail and check weather, route conditions and local guidance.</p>
+                <a href="pages/adventure.html?activity=trekking">Explore Treks →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTizaOss36s1q7fobkBbA0LaRMgVFqOk4Si_CBofuiSww&s=10"
+                    alt="River rafting adventure" loading="lazy">
+                <h3>River Rafting</h3>
+                <p>Enjoy river adventures with licensed operators and proper safety equipment.</p>
+                <a href="pages/adventure.html?activity=rafting">Explore Rafting →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxKmo0AlD0SMy3dNIxUnntP1-sH8H7Ur36Ap-KwFU8cg&s=10"
+                    alt="Camping in a mountain meadow" loading="lazy">
+                <h3>Camping</h3>
+                <p>Experience the outdoors responsibly and follow local camping and fire rules.</p>
+                <a href="pages/adventure.html?activity=camping">Explore Camping →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDmOhLBw8GIaAxt2tjUlAXXQu2YUHoFK-U_0Pf96WePg&s=10"
+                    alt="Snow-covered Himalayan mountain slopes" loading="lazy">
+                <h3>Snow Adventures</h3>
+                <p>Plan seasonal snow activities after checking road access and weather conditions.</p>
+                <a href="pages/adventure.html?activity=snow">Explore Snow Activities →</a>
+              </article>
+            </div>
+          </section>
+
+
+          <!-- CULTURE -->
+          <section class="home-extra" id="culture">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">LOCAL STORIES</p>
+                <h2>Culture, Festivals &amp; Heritage</h2>
+              </div>
+            </div>
+
+            <div class="extra-grid">
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRu07P2fwpVnJ_h8Yg3d6CLum7wT22A88cPzjJ7rJow-A&s=10"
+                    alt="Traditional Garhwali and Kumaoni culture"
+                    loading="lazy">
+                <h3>Garhwali &amp; Kumaoni Traditions</h3>
+                <p>Discover regional music, folk dances, crafts, clothing and languages.</p>
+                <a href="pages/culture.html#traditions">Discover Traditions →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqIPa5ZRNfXHWtRQvrEYFvvg5skXwL5THxgEjb2FGZ5w&s=10"
+                    alt="Traditional festival in Uttarakhand"
+                    loading="lazy">
+                <h3>Festivals &amp; Fairs</h3>
+                <p>Learn about seasonal celebrations and community fairs across the state.</p>
+                <a href="pages/culture.html#festivals">Discover Festivals →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbVFm-4x4VxQWx_HhzYdV9-HtCTraM8_7GK8I1gUIHJg&s=10"
+                    alt="Traditional Himalayan architecture"
+                    loading="lazy">
+                <h3>Architecture &amp; Heritage</h3>
+                <p>Explore traditional homes, historic buildings and regional craftsmanship.</p>
+                <a href="pages/culture.html#heritage">Explore Heritage →</a>
+              </article>
+            </div>
+          </section>
+
+
+          <!-- LOCAL FOOD -->
+          <section class="home-extra" id="food">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">TASTE THE HILLS</p>
+                <h2>Local Food & Cafés</h2>
+              </div>
+            </div>
+
+            <div class="extra-grid">
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYcgGn6jdsVnS3OOmlxR7m7HGITparzErsfCgUqehe-Q&s=10"
+                    alt="Traditional Uttarakhand Kafuli dish"
+                    loading="lazy">
+                <h3>Kafuli</h3>
+                <p>A traditional regional dish prepared with green leafy vegetables.</p>
+                <a href="pages/food.html#kafuli">Discover Kafuli →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcZr0a7ngW5dQDW0X0lpZkZuR53K06BKEequuqBGffSw&s=10"
+                    alt="Traditional Chainsoo lentil dish"
+                    loading="lazy">
+                <h3>Chainsoo</h3>
+                <p>A hearty Garhwali preparation made using roasted lentils.</p>
+                <a href="pages/food.html#chainsoo">Discover Chainsoo →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQssqW5JIzdHcKGQSSJ8atPMPm31Xufuy6AJ4jvdFhW2Q&s=10"
+                    alt="Bal Mithai traditional Kumaoni sweet"
+                    loading="lazy">
+                <h3>Bal Mithai</h3>
+                <p>A famous Kumaoni sweet worth trying at local sweet shops.</p>
+                <a href="pages/food.html#bal-mithai">Discover Bal Mithai →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSP3Ow1V5b3002MV2cOJkzlXo4Bu_WfCLVSMeAevtf25g&s=10"
+                    alt="Cozy mountain café in Uttarakhand"
+                    loading="lazy">
+                <h3>Mountain Cafés</h3>
+                <p>Find cozy cafés and support independent local businesses.</p>
+                <a href="pages/food.html#cafes">Explore Cafés →</a>
+              </article>
+            </div>
+          </section>
+
+          <!-- TRIP PLANNER -->
+          <section class="home-extra" id="trip-planner">
+            <div class="planner-band">
+              <div>
+                <p class="eyebrow">MAKE IT YOUR JOURNEY</p>
+                <h2>Plan Your Uttarakhand Trip</h2>
+                <p>
+                  Build an itinerary around your dates, interests, travel time and season.
+                  Keep extra time for mountain roads and changing weather.
+                </p>
+              </div>
+              <a href="pages/trip-planner.html">Open Trip Planner →</a>
+            </div>
+          </section>
+
+
+
+          <!-- WEATHER & LIVE UPDATES -->
+          <section class="home-extra" id="travel-updates">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">TRAVEL PREPARED</p>
+                <h2>Weather &amp; Live Updates</h2>
+              </div>
+            </div>
+
+            <div class="extra-grid">
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEE3zs9uCZHwTNFvMjv3ylMnyBx020K10Qlz8AAOXTTA&s=10"
+                    alt="Clouds and weather over Himalayan mountains" loading="lazy">
+                <h3>Weather Forecast</h3>
+                <p>Check destination-specific forecasts before leaving for the mountains.</p>
+                <a href="pages/travel-updates.html#weather">Check Weather →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiluZKL8jQtxBJB5DJsDI538f_GkbivFX7f0XYkKxtFg&s=10"
+                    alt="Mountain road through Uttarakhand" loading="lazy">
+                <h3>Road Conditions</h3>
+                <p>Confirm current road closures, landslide alerts and route accessibility.</p>
+                <a href="pages/travel-updates.html#roads">Check Road Updates →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBmLtNIN-Ch44GYOyW8w-E3WfH8Yfb2_2AgJZ0TrNm2g&s=10"
+                    alt="Travel essentials packed for a mountain journey" loading="lazy">
+                <h3>Emergency Readiness</h3>
+                <p>Save emergency contacts, carry essentials and share your itinerary.</p>
+                <a href="pages/travel-updates.html#safety">Travel Safety →</a>
+              </article>
+            </div>
+          </section>
+
+          <!-- STATE INFORMATION -->
+          <section class="home-extra" id="state-information">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">KNOW THE STATE</p>
+                <h2>Uttarakhand at a Glance</h2>
+              </div>
+            </div>
+
+            <p class="intro">
+              Uttarakhand lies in the Indian Himalayas and is known for mountain landscapes,
+              rivers, forests, pilgrimage routes and diverse Garhwali and Kumaoni heritage.
+              Dehradun is its winter capital.
+            </p>
+
+            <div class="extra-grid">
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXLRW9s9UQwUL9YGZBGqw7eBDM6HsWS1HDk7Plh_wd1A&s=10"
+                    alt="Uttarakhand mountain ranges and valleys" loading="lazy">
+                <h3>Geography</h3>
+                <p>Explore Himalayan highlands, forested foothills and river valleys.</p>
+                <a href="pages/about-uttarakhand.html#geography">Learn More →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8i009CeJNyb39U4KegV6OZZPUWEUrr5B-eIact0M0sQ&s=10"
+                    alt="Traditional heritage and architecture of Uttarakhand" loading="lazy">
+                <h3>Heritage</h3>
+                <p>Learn about traditional settlements, crafts and regional customs.</p>
+                <a href="pages/about-uttarakhand.html#heritage">Learn More →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfjrQ5L97mkubc492jaDtmJ_PMUhvvqyxRi2QOUTuYrQ&s=10"
+                    alt="Visitors enjoying a clean natural landscape responsibly" loading="lazy">
+                <h3>Responsible Travel</h3>
+                <p>Respect protected areas, local communities and mountain conditions.</p>
+                <a href="pages/about-uttarakhand.html#responsible-travel">Travel Responsibly →</a>
+              </article>
+            </div>
+          </section>
+
+          <!-- HIDDEN GEMS -->
+          <section class="home-extra" id="hidden-gems">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">OFF THE BEATEN PATH</p>
+                <h2>Hidden Gems</h2>
+              </div>
+            </div>
+
+            <div class="extra-grid">
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbdd97z25Iajm4vtRN12Uy8e2Qwi40Pn54GUwvNvTWBg&s=10"
+                    alt="Kanatal mountain landscape" loading="lazy">
+                <h3>Kanatal</h3>
+                <p>A peaceful mountain getaway with forest walks and scenic views.</p>
+                <a href="pages/kanatal.html">Explore Kanatal →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbARuY9q7JfCiwb2MCRNFaDrwvxQJ_jogSkOqyXOyt0Q&s=10"
+                    alt="Khirsu village and Himalayan mountain views" loading="lazy">
+                <h3>Khirsu</h3>
+                <p>A quiet village surrounded by forests, orchards and mountain scenery.</p>
+                <a href="pages/khirsu.html">Explore Khirsu →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaMNfx7BcstHF-gntkXAVbrotuwmy3naMAFLZ1jHgVNQ&s=10"
+                    alt="Lohaghat pine forests in Kumaon" loading="lazy">
+                <h3>Lohaghat</h3>
+                <p>A Kumaon destination known for pine forests and peaceful surroundings.</p>
+                <a href="pages/lohaghat.html">Explore Lohaghat →</a>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo0U0OUDpVwfbYYb-EFj094Oyf5xYrEg91CSHBkI12Yw&s=10"
+                    alt="Peora village surrounded by Himalayan hills" loading="lazy">
+                <h3>Peora</h3>
+                <p>A slow-travel village escape amid orchards and forested hills.</p>
+                <a href="pages/peora.html">Explore Peora →</a>
+              </article>
+            </div>
+          </section>
+
+          <!-- GALLERY -->
+          <section class="home-extra" id="gallery">
+            <div class="section-heading">
+              <div>
+                <p class="eyebrow">A GLIMPSE OF THE HIMALAYAS</p>
+                <h2>Gallery</h2>
+              </div>
+              <a href="pages/gallery.html">View Gallery →</a>
+            </div>
+
+            <div class="extra-grid">
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQInIyjlJqKFXW4v349bA-6_lXro4Bdp2r0AL4VRsdjwg&s=10"
+                    alt="Snow-covered Himalayan mountain peaks" loading="lazy">
+                <h3>Mountains</h3>
+                <p>Snow peaks, ridgelines and beautiful sunrise views.</p>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjkmkmYyR_1pX-mu9S5NLWpobrLor5_HgNezJORaANMQ&s=10"
+                    alt="Clear lake and river scenery in Uttarakhand" loading="lazy">
+                <h3>Lakes &amp; Rivers</h3>
+                <p>Discover tranquil waters, river valleys and lakeside landscapes.</p>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2NXBidXgDqv6B6dvtPL_5uZJiF-C9K1ynpcBkgSbzqg&s=10"
+                    alt="Traditional Himalayan temple architecture" loading="lazy">
+                <h3>Architecture</h3>
+                <p>Admire traditional buildings, intricate stonework and local design.</p>
+              </article>
+
+              <article class="extra-card">
+                <img class="card-image"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIYv1V9ofTK_rqW7gysNqOI53z1nPeYyXTMpOTFlG9Nw&s=10"
+                    alt="Green Himalayan forest landscape" loading="lazy">
+                <h3>Forests &amp; Wildlife</h3>
+                <p>Enjoy the natural beauty of forests, meadows and wildlife habitats.</p>
+              </article>
+            </div>
+          </section>
+
+              <!-- FEEDBACK -->
+              <section class="home-extra" id="feedback">
+                <div class="section-heading">
+                  <div>
+                    <p class="eyebrow">HELP US IMPROVE</p>
+                    <h2>Share your feedback</h2>
+                  </div>
+                </div>
+                <p class="intro">Have a suggestion for the website? Send your feedback below.</p>
+
+                <form class="feedback-form" id="home-feedback">
+                  <label>
+                    Name
+                    <input name="name" autocomplete="name" required>
+                  </label>
+
+                  <label>
+                    Email
+                    <input name="email" type="email" autocomplete="email" required>
+                  </label>
+
+                  <label>
+                    Rating
+                    <select name="rating" required>
+                      <option value="">Choose rating</option>
+                      <option>5 - Excellent</option>
+                      <option>4 - Very good</option>
+                      <option>3 - Good</option>
+                      <option>2 - Fair</option>
+                      <option>1 - Needs improvement</option>
+                    </select>
+                  </label>
+
+                  <label>
+                    Category
+                    <select name="category">
+                      <option>Website experience</option>
+                      <option>Destination information</option>
+                      <option>Trip planning</option>
+                      <option>Suggestion</option>
+                    </select>
+                  </label>
+
+                  <label class="full">
+                    Message
+                    <textarea name="message" required></textarea>
+                  </label>
+
+                  <button class="button" type="submit">Submit feedback</button>
+                  <p class="full" id="feedback-status" role="status" aria-live="polite"></p>
+                </form>
+              </section>
+
+              <!-- FOOTER FEATURE -->
+              <section class="feature-band">
+                <div>
+                  <p class="eyebrow">TRAVEL WITH CARE</p>
+                  <h2>Leave only footprints.<br>Take home a story.</h2>
+                </div>
+                <p>Respect local traditions, check conditions before mountain travel, and help keep Uttarakhand beautiful for everyone.</p>
+              </section>
+            </main>
+
+
+        <!-- FOOTER -->
+        <footer>
+          <span>© 2026 Uttarakhand Explorer</span>
+
+          <span class="footer-credit">
+            Crafted with <span class="heart">♥</span> by
+            <strong>Akshay</strong> 🏔️
+          </span>
+
+          <span>Made for curious travellers</span>
+        </footer>
+
+<script type="module" src="js/common.js"></script>
+        <script>
+          // Destination search
+          const destinationSearch = document.getElementById('destination-search');
+
+          if (destinationSearch) {
+            destinationSearch.addEventListener('input', () => {
+              const term = destinationSearch.value.trim().toLowerCase();
+
+              document.querySelectorAll('#destination-grid [data-search]').forEach(card => {
+                card.hidden = !card.dataset.search.includes(term);
+              });
+            });
+          }
+        </script>
+
+       
+<script>
+(() => {
+  const toggle = document.getElementById("ue-menu-toggle");
+  const close = document.getElementById("ue-menu-close");
+  const overlay = document.getElementById("ue-menu-overlay");
+  const sidebar = document.getElementById("ue-sidebar");
+
+  if (!toggle || !close || !overlay || !sidebar) {
+    console.error("Sidebar error: required element IDs nahi mile.", {
+      toggle: !!toggle,
+      close: !!close,
+      overlay: !!overlay,
+      sidebar: !!sidebar
+    });
+    return;
+  }
+
+  let savedScrollY = 0;
+
+  function setOpen(open) {
+    if (open === document.body.classList.contains("ue-menu-open")) {
+      return;
+    }
+
+    if (open) {
+      savedScrollY = window.scrollY;
+      document.documentElement.classList.add("ue-menu-open");
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${savedScrollY}px`;
+      document.body.style.width = "100%";
+    } else {
+      document.documentElement.classList.remove("ue-menu-open");
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      window.scrollTo(0, savedScrollY);
+    }
+
+    document.body.classList.toggle("ue-menu-open", open);
+
+    toggle.setAttribute("aria-expanded", String(open));
+    toggle.setAttribute(
+      "aria-label",
+      open ? "Close navigation menu" : "Open navigation menu"
+    );
+
+    sidebar.setAttribute("aria-hidden", String(!open));
+    overlay.setAttribute("aria-hidden", String(!open));
+
+    if (open) {
+      close.focus();
+    } else {
+      toggle.focus();
+    }
+  }
+
+  toggle.addEventListener("click", () => {
+    setOpen(!document.body.classList.contains("ue-menu-open"));
+  });
+
+  close.addEventListener("click", () => setOpen(false));
+  overlay.addEventListener("click", () => setOpen(false));
+
+  document.addEventListener("keydown", (event) => {
+    if (
+      event.key === "Escape" &&
+      document.body.classList.contains("ue-menu-open")
+    ) {
+      setOpen(false);
+    }
+  });
+
+  sidebar.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => setOpen(false));
+  });
+})();
+</script>
+
+<!-- Firebase feedback handler -->
+<script type="module">
+  import { submitFeedback } from "./js/firebase/firestore.js";
+
+  const form = document.getElementById("home-feedback");
+  const status = document.getElementById("feedback-status");
+
+  if (form && status) {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      const button = form.querySelector('button[type="submit"]');
+      if (!button) return;
+
+      const originalText = button.textContent;
+      button.disabled = true;
+      button.textContent = "Submitting...";
+      status.textContent = "";
+
+      const data = new FormData(form);
+
+      try {
+        await submitFeedback({
+          name: data.get("name"),
+          email: data.get("email"),
+          rating: data.get("rating"),
+          category: data.get("category"),
+          message: data.get("message")
+        });
+
+        status.textContent = "Thank you! Your feedback has been saved.";
+        form.reset();
+      } catch (error) {
+        console.error("Firebase feedback error:", error);
+        status.textContent = "Feedback save nahi hua. Please try again.";
+      } finally {
+        button.disabled = false;
+        button.textContent = originalText;
+      }
+    });
+  }
+</script>
+</body>
+</html>

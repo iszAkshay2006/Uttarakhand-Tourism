@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#0b1914">
+  <meta name="description" content="Login to Uttarakhand Explorer and continue planning your Uttarakhand journey.">
+
+  <title>Login | Uttarakhand Explorer</title>
+
+  <!-- Login Page CSS -->
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="login-header">
+    <a class="login-brand" href="../index.html">
+      <span aria-hidden="true">🏔️</span>
+      Uttarakhand Explorer
+    </a>
+
+    <a class="back-home" href="../index.html">Back to Home</a>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="login-main">
+
+    <!-- WELCOME SECTION -->
+    <section class="login-welcome">
+      <p class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</p>
+
+      <h1>
+        Welcome Back to
+        <span>Uttarakhand</span>
+      </h1>
+
+      <p>
+        Login to continue your journey and explore
+        the beautiful destinations of Uttarakhand.
+      </p>
+
+      <div class="welcome-decoration" aria-hidden="true">
+        <span>🏔️</span>
+        <span>🌲</span>
+        <span>☀️</span>
+      </div>
+    </section>
+
+    <!-- LOGIN SECTION -->
+    <section class="login-card">
+      <div class="login-card-heading">
+        <p class="eyebrow">WELCOME BACK</p>
+        <h2>Login to Your Account</h2>
+        <p>Enter your account details to continue.</p>
+      </div>
+
+      <form id="loginForm">
+
+        <!-- EMAIL -->
+        <div class="form-group">
+          <label for="email">Email Address</label>
+
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            autocomplete="email"
+            required
+          >
+        </div>
+
+        <!-- PASSWORD WITH EYE ICON -->
+        <div class="form-group">
+          <label for="password">Password</label>
+
+          <div class="password-wrapper">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            >
+
+            <button
+              type="button"
+              id="togglePassword"
+              class="toggle-password"
+              aria-label="Show password"
+              aria-pressed="false"
+            >
+              👁
+            </button>
+          </div>
+        </div>
+
+        <!-- FORGOT PASSWORD -->
+        <p class="forgot-password-row">
+          <a href="#" id="forgotPassword">Forgot Password?</a>
+        </p>
+
+        <!-- LOGIN BUTTON -->
+        <button type="submit" id="loginButton" class="login-button">
+          Login
+        </button>
+
+        <!-- STATUS MESSAGE -->
+        <p
+          id="loginMessage"
+          class="login-message"
+          role="status"
+          aria-live="polite"
+        ></p>
+
+      </form>
+
+      <!-- SIGNUP LINK -->
+      <p class="signup-prompt">
+        Don't have an account?
+        <a href="signup.html">Create Account</a>
+      </p>
+
+      <!-- HOME LINK -->
+      <p class="home-link">
+        <a href="../index.html">← Return to Home</a>
+      </p>
+    </section>
+<p class="signup-prompt">
+  Don't have an account?
+  <a href="signup.html">Sign up</a>
+</p>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="login-footer">
+    <p>&copy; 2026 Uttarakhand Explorer. All rights reserved.</p>
+  </footer>
+
+  <!-- LOGIN JAVASCRIPT -->
+  <script src="../js/common.js"></script>
+<script type="module" src="../js/pages/login.js"></script>
+</body>
+</html>
+
+</body>
+</html>

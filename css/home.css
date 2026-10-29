@@ -1,0 +1,457 @@
+
+.hero {
+  padding: 82px 7% 76px;
+  display: grid;
+  grid-template-columns: 1.02fr 0.98fr;
+  align-items: center;
+  gap: 40px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 20%, #203d2b 0, transparent 45%),
+    #0b1914;
+  color: #f1f4ec;
+}
+
+.hero-content {
+  max-width: 610px;
+}
+
+.hero h1 {
+  font-size: clamp(3rem, 6.3vw, 5.8rem);
+  line-height: 0.99;
+  letter-spacing: -0.075em;
+  margin: 0 0 24px;
+  font-weight: 900;
+  color: #f1f4ec;
+}
+
+.hero h1 span {
+  color: #e7c878;
+}
+
+.hero-content > p:not(.eyebrow) {
+  font-size: 1.08rem;
+  color: #b5c2b8;
+  max-width: 510px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 19px;
+  border-radius: 999px;
+  background: #d6ad55;
+  color: #102016;
+  font-weight: 800;
+  font-size: 0.9rem;
+  border: 1px solid #d6ad55;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.button:hover {
+  background: #e7c878;
+  color: #102016;
+  transform: translateY(-2px);
+}
+
+.button-outline {
+  background: transparent;
+  color: #e7c878;
+  border-color: #8b784b;
+}
+
+.button-outline:hover {
+  background: #243528;
+  color: #f1d995;
+}
+
+.hero-art {
+  height: 390px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #315443;
+  border-radius: 30px;
+  background: linear-gradient(
+    160deg,
+    #284c39 0%,
+    #1d6049 52%,
+    #103b2d 100%
+  );
+  box-shadow: 0 25px 55px rgba(0, 0, 0, 0.3);
+}
+
+.sun {
+  position: absolute;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: #e7c878;
+  top: 48px;
+  right: 70px;
+  box-shadow: 0 0 60px rgba(231, 200, 120, 0.25);
+}
+
+.mountain {
+  position: absolute;
+  bottom: 55px;
+  width: 0;
+  height: 0;
+  border-left: 220px solid transparent;
+  border-right: 220px solid transparent;
+  border-bottom: 310px solid #376b50;
+}
+
+.mountain:after {
+  content: "";
+  position: absolute;
+  top: 35px;
+  left: -60px;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-bottom: 85px solid #d6ad55;
+}
+
+.mountain-back {
+  left: -35px;
+  border-bottom-color: #426e50;
+  transform: scale(1.05);
+}
+
+.mountain-front {
+  right: -60px;
+  border-bottom-color: #164936;
+  border-left-width: 270px;
+  border-right-width: 270px;
+  border-bottom-width: 260px;
+}
+
+.mountain-front:after {
+  top: 28px;
+  left: -65px;
+  border-left-width: 65px;
+  border-right-width: 65px;
+  border-bottom-width: 75px;
+  border-bottom-color: #c7a451;
+}
+
+.river {
+  position: absolute;
+  bottom: -50px;
+  left: 32%;
+  width: 45%;
+  height: 190px;
+  background: #438b76;
+  clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+  opacity: 0.9;
+}
+
+/* Main page background */
+body,
+main {
+  background: #0b1914;
+  color: #f1f4ec;
+}
+
+/* Alternate sections: slightly lighter green */
+main > section:nth-of-type(even) {
+  background-color: #18382a;
+}
+
+/* Keep cards dark, not white */
+main section .card,
+main section .place-card,
+main section .card-body,
+main section .weather-card,
+main section .update-card,
+main section .info-card {
+  background-color: #14291f;
+  color: #f1f4ec;
+  border-color: #2d4538;
+}
+
+/* Section headings */
+main section h2,
+main section h3,
+main section h4 {
+  color: #f1f4ec;
+}
+
+/* Section descriptions */
+main section p {
+  color: #b5c2b8;
+}
+
+/* Weather & live updates */
+#travel-updates {
+  background: #18382a;
+  color: #f1f4ec;
+}
+
+#travel-updates .card,
+#travel-updates .place-card,
+#travel-updates .card-body,
+#travel-updates .weather-card,
+#travel-updates .update-card,
+#travel-updates .info-card {
+  background: #14291f;
+  color: #f1f4ec;
+  border-color: #355342;
+}
+
+#travel-updates h2,
+#travel-updates h3,
+#travel-updates h4 {
+  color: #f1f4ec;
+}
+
+#travel-updates p {
+  color: #c0cec3;
+}
+
+@media (max-width: 850px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-art {
+    height: 300px;
+  }
+}
+
+@media (max-width: 580px) {
+  .hero {
+    padding: 55px 6%;
+  }
+
+  .hero-art {
+    min-height: 220px;
+  }
+}
+
+
+/* =========================================================
+   HOME PAGE WIDTH & SPACING FIX
+   Keeps the existing dark-green / gold theme.
+   Added as overrides so the original styles remain intact.
+   ========================================================= */
+
+/* Prevent horizontal overflow and allow sections to use the screen */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  margin-inline: 0;
+}
+
+/* Expand homepage sections and reduce excessive side gaps */
+.home-extra {
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding: clamp(42px, 5vw, 72px) clamp(20px, 4.5vw, 72px);
+  box-sizing: border-box;
+}
+
+/* Intro text should use available width without becoming too long */
+.home-extra > .intro {
+  max-width: 1000px;
+  margin: 0 0 26px;
+}
+
+/* Headings span the available section width */
+.home-extra .section-heading {
+  width: 100%;
+  max-width: none;
+  margin: 0 0 26px;
+}
+
+/* Cards fill the section instead of staying in a narrow centered block */
+.home-extra .extra-grid {
+  display: grid;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+.home-extra .extra-card {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: #14291f;
+  color: #f1f4ec;
+  border: 1px solid #2d4538;
+  border-radius: 16px;
+}
+
+.home-extra .extra-card img,
+.home-extra .extra-card img.card-image,
+.home-extra .extra-card video,
+.home-extra .extra-card video.card-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
+  margin: 0;
+  border-radius: 12px 12px 0 0;
+  background: #102b22;
+}
+
+.home-extra .extra-card h3 {
+  margin: 14px 16px 7px;
+  color: #f1f4ec;
+  overflow-wrap: anywhere;
+}
+
+.home-extra .extra-card p {
+  margin: 0 16px 14px;
+  color: #b5c2b8;
+  overflow-wrap: anywhere;
+}
+
+.home-extra .extra-card a {
+  display: inline-block;
+  margin: 0 16px 16px;
+  color: #e7c878;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.home-extra .extra-card .emoji {
+  min-height: 150px;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  background: #18382a;
+}
+
+/* Keep the planner band aligned with the section content */
+.home-extra .planner-band {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  box-sizing: border-box;
+  padding: clamp(24px, 4vw, 44px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: #18382a;
+  border: 1px solid #2d4538;
+  border-radius: 20px;
+}
+
+.home-extra .planner-band > div {
+  min-width: 0;
+  max-width: 850px;
+}
+
+.home-extra .planner-band h2 {
+  color: #f1f4ec;
+}
+
+.home-extra .planner-band p {
+  color: #b5c2b8;
+}
+
+.home-extra .planner-band > a {
+  flex-shrink: 0;
+  color: #e7c878;
+  font-weight: 800;
+}
+
+/* Ensure the hero also uses the available viewport width */
+.hero {
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+}
+
+/* Wide laptop / desktop */
+@media (min-width: 1500px) {
+  .home-extra {
+    padding-inline: 5vw;
+  }
+
+  .home-extra .extra-grid {
+    gap: 22px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 1050px) {
+  .home-extra .extra-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-extra .planner-band {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .home-extra .planner-band > a {
+    flex-shrink: 1;
+  }
+}
+
+/* Mobile */
+@media (max-width: 580px) {
+  .home-extra {
+    padding: 42px 18px;
+  }
+
+  .home-extra .extra-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .home-extra .extra-card img,
+  .home-extra .extra-card img.card-image,
+  .home-extra .extra-card video,
+  .home-extra .extra-card video.card-video {
+    height: 210px;
+  }
+
+  .home-extra .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .home-extra .planner-band {
+    padding: 22px 18px;
+  }
+
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 48px 18px;
+    gap: 28px;
+  }
+
+  .hero-art {
+    width: 100%;
+    min-width: 0;
+  }
+}

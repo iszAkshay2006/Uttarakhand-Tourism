@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create your Uttarakhand Explorer account and start planning your next journey.">
+  <title>Sign Up | Uttarakhand Explorer</title>
+
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/signup.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">🏔️ Uttarakhand Explorer</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="trip-planner.html">Trip Planner</a>
+    </nav>
+  </header>
+
+  <main class="signup-page">
+    <section class="signup-intro">
+      <p class="eyebrow">YOUR NEXT ADVENTURE STARTS HERE</p>
+      <h1>Make room for <span>new journeys.</span></h1>
+      <p>
+        Create your account to get started with your Uttarakhand travel
+        experience, discover destinations and plan memorable trips.
+      </p>
+
+      <div class="signup-benefits">
+        <div class="benefit">
+          <span>✦</span>
+          <div>
+            <h3>Discover new places</h3>
+            <p>Explore mountains, lakes, forests and spiritual destinations.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <span>⌁</span>
+          <div>
+            <h3>Plan your journeys</h3>
+            <p>Keep your travel planning organised in one place.</p>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <span>♡</span>
+          <div>
+            <h3>Travel thoughtfully</h3>
+            <p>Prepare for your trip with responsible travel in mind.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="signup-card">
+      <div class="form-heading">
+        <p class="eyebrow">JOIN THE COMMUNITY</p>
+        <h2>Create your account</h2>
+        <p>Enter your details to get started.</p>
+      </div>
+
+      <form id="signupForm" novalidate>
+        <div class="form-field">
+          <label for="fullName">Full name</label>
+          <input
+            type="text"
+            id="fullName"
+            name="fullName"
+            placeholder="Enter your full name"
+            autocomplete="name"
+            maxlength="80"
+            required
+          >
+          <small class="field-error" id="fullNameError"></small>
+        </div>
+
+        <div class="form-field">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="Choose a username"
+            autocomplete="username"
+            minlength="3"
+            maxlength="24"
+            pattern="[A-Za-z0-9_]+"
+            required
+          >
+          <small class="field-hint">3–24 characters; letters, numbers and underscores.</small>
+          <small class="field-error" id="usernameError"></small>
+        </div>
+
+        <div class="form-field">
+          <label for="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="you@example.com"
+            autocomplete="email"
+            maxlength="254"
+            required
+          >
+          <small class="field-error" id="emailError"></small>
+        </div>
+
+        <div class="form-field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a strong password"
+              autocomplete="new-password"
+              minlength="8"
+              required
+            >
+            <button type="button" class="toggle-password" data-target="password"
+              aria-label="Show password" aria-pressed="false">Show</button>
+          </div>
+          <small class="field-hint">Use at least 8 characters.</small>
+          <small class="field-error" id="passwordError"></small>
+        </div>
+
+        <div class="form-field">
+          <label for="confirmPassword">Confirm password</label>
+          <div class="password-wrap">
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              placeholder="Enter your password again"
+              autocomplete="new-password"
+              required
+            >
+            <button type="button" class="toggle-password" data-target="confirmPassword"
+              aria-label="Show confirmation password" aria-pressed="false">Show</button>
+          </div>
+          <small class="field-error" id="confirmPasswordError"></small>
+        </div>
+
+        <label class="terms-row" for="terms">
+          <input type="checkbox" id="terms" name="terms" required>
+          <span>
+            I agree to the
+            <a href="terms.html">Terms of Service</a>
+            and
+            <a href="privacy-policy.html">Privacy Policy</a>.
+          </span>
+        </label>
+        <small class="field-error terms-error" id="termsError"></small>
+
+        <p class="form-message" id="formMessage" role="status" aria-live="polite"></p>
+
+        <button type="submit" class="signup-submit">Create account <span>→</span></button>
+
+        <p class="login-prompt">
+          Already have an account?
+          <a href="login.html">Log in</a>
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Uttarakhand Explorer</span>
+    <span>Travel thoughtfully 🏔️</span>
+  </footer>
+<script type="module" src="../js/common.js"></script>
+<script type="module" src="../js/pages/signup.js"></script>
+</body>
+</html>

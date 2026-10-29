@@ -1,0 +1,337 @@
+/* ========================================
+   WATERFALLS PAGE - UTTARAKHAND EXPLORER
+   Theme: Soft Green, Clean & Responsive
+======================================== */
+
+/* Main Page */
+
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 75px 7% 90px;
+  color: #203b32;
+}
+
+/* Hero Section */
+
+.waterfall-hero {
+  padding: 48px 42px;
+  margin-bottom: 65px;
+  border: 1px solid #e1e9df;
+  border-radius: 28px;
+  background: linear-gradient(
+    135deg,
+    #e8f0e4 0%,
+    #f6f8f3 65%,
+    #edf3e9 100%
+  );
+}
+
+.waterfall-hero .eyebrow,
+.section-heading .eyebrow {
+  margin: 0 0 16px;
+  color: #246b4b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.waterfall-hero h1 {
+  max-width: 800px;
+  margin: 18px 0;
+  color: #203b32;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.06em;
+}
+
+.waterfall-hero h1 span {
+  color: #246b4b;
+}
+
+.waterfall-hero .intro {
+  max-width: 650px;
+  margin: 0 0 28px;
+  color: #657571;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+/* Waterfall Section */
+
+.waterfall-section {
+  margin-bottom: 45px;
+}
+
+.section-heading {
+  margin-bottom: 28px;
+}
+
+.section-heading h2 {
+  margin: 10px 0;
+  color: #203b32;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.04em;
+}
+
+.section-heading > p:last-child {
+  color: #657571;
+  line-height: 1.7;
+}
+
+/* Waterfall Grid */
+
+.waterfall-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* Waterfall Cards */
+
+.waterfall-card {
+  min-width: 0;
+  overflow: hidden;
+  padding: 18px 18px 24px;
+  border: 1px solid #e1e9df;
+  border-radius: 22px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(32, 59, 50, 0.045);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.waterfall-card:hover {
+  transform: translateY(-5px);
+  border-color: #cbdcc8;
+  box-shadow: 0 16px 34px rgba(32, 59, 50, 0.10);
+}
+
+/* Waterfall Images */
+
+.waterfall-image {
+  display: block;
+  width: 100%;
+  height: 245px;
+  margin: 0 0 22px;
+  border-radius: 16px;
+  object-fit: cover;
+  object-position: center;
+  background: #e8f0e4;
+  transition: transform 0.35s ease;
+}
+
+.waterfall-card:hover .waterfall-image {
+  transform: scale(1.02);
+}
+
+/* Category Tag */
+
+.waterfall-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: #edf4e9;
+  color: #246b4b;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Card Heading */
+
+.waterfall-card h3 {
+  margin: 0 0 12px;
+  color: #203b32;
+  font-size: 1.45rem;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+/* Card Description */
+
+.waterfall-card p {
+  color: #657571;
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+/* Location */
+
+.waterfall-card .location {
+  margin-top: 20px;
+  margin-bottom: 0;
+  padding-top: 15px;
+  border-top: 1px solid #e1e9df;
+  color: #246b4b;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+/* Safety Notice */
+
+.waterfall-notice {
+  margin-top: 35px;
+  padding: 30px;
+  border: 1px solid #dce8d7;
+  border-radius: 22px;
+  background: #e8f0e4;
+}
+
+.waterfall-notice h2 {
+  margin: 0 0 18px;
+  color: #203b32;
+  font-size: 1.55rem;
+  line-height: 1.4;
+}
+
+.waterfall-notice ul {
+  margin: 0;
+  padding-left: 22px;
+  color: #52675e;
+}
+
+.waterfall-notice li {
+  margin: 12px 0;
+  padding-left: 5px;
+  line-height: 1.7;
+}
+
+/* Back Button */
+
+.back-link {
+  margin-top: 32px;
+}
+
+/* Button styling is inherited from common.css */
+
+/* ========================================
+   TABLET RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+  .page-wrap {
+    padding: 55px 5% 75px;
+  }
+
+  .waterfall-grid {
+    gap: 18px;
+  }
+
+  .waterfall-card {
+    padding: 15px 15px 22px;
+  }
+
+  .waterfall-image {
+    height: 210px;
+  }
+
+  .waterfall-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+  .page-wrap {
+    padding: 35px 5% 60px;
+  }
+
+  .waterfall-hero {
+    padding: 30px 23px;
+    margin-bottom: 42px;
+    border-radius: 22px;
+  }
+
+  .waterfall-hero h1 {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+    line-height: 1.1;
+  }
+
+  .waterfall-hero .intro {
+    font-size: 0.96rem;
+    line-height: 1.75;
+  }
+
+  .section-heading {
+    margin-bottom: 22px;
+  }
+
+  .section-heading h2 {
+    font-size: 1.9rem;
+  }
+
+  .waterfall-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .waterfall-card {
+    padding: 14px 14px 22px;
+    border-radius: 19px;
+  }
+
+  .waterfall-image {
+    height: 230px;
+    margin-bottom: 19px;
+    border-radius: 14px;
+  }
+
+  .waterfall-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .waterfall-card p {
+    font-size: 0.94rem;
+  }
+
+  .waterfall-notice {
+    margin-top: 28px;
+    padding: 23px;
+    border-radius: 19px;
+  }
+
+  .waterfall-notice h2 {
+    font-size: 1.35rem;
+  }
+}
+
+/* Small Mobile Screens */
+
+@media (max-width: 380px) {
+  .waterfall-hero {
+    padding: 25px 18px;
+  }
+
+  .waterfall-hero h1 {
+    font-size: 2.1rem;
+  }
+
+  .waterfall-image {
+    height: 190px;
+  }
+
+  .waterfall-card {
+    padding: 12px 12px 20px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .waterfall-card,
+  .waterfall-image {
+    transition: none;
+  }
+
+  .waterfall-card:hover,
+  .waterfall-card:hover .waterfall-image {
+    transform: none;
+  }
+}

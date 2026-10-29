@@ -1,0 +1,196 @@
+/* Trekking — Uttarakhand Explorer */
+
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 75px 7% 90px;
+  color: #203b32;
+}
+
+.trek-hero {
+  padding: 48px 42px;
+  margin-bottom: 65px;
+  border: 1px solid #e1e9df;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #e8f0e4, #f6f8f3 65%, #edf3e9);
+}
+
+.eyebrow {
+  color: #246b4b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.trek-hero h1 {
+  max-width: 800px;
+  margin: 18px 0;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.06;
+  letter-spacing: -0.06em;
+}
+
+.trek-hero h1 span {
+  color: #246b4b;
+}
+
+.trek-hero .intro {
+  max-width: 650px;
+  margin-bottom: 28px;
+  color: #657571;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.trek-section {
+  margin-bottom: 45px;
+}
+
+.section-heading {
+  margin-bottom: 28px;
+}
+
+.section-heading h2 {
+  margin: 10px 0;
+  color: #203b32;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  letter-spacing: -0.04em;
+}
+
+.section-heading > p:last-child {
+  color: #657571;
+  line-height: 1.7;
+}
+
+.trek-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.trek-card {
+  padding: 30px;
+  border: 1px solid #e1e9df;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(32, 59, 50, 0.045);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.trek-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(32, 59, 50, 0.09);
+}
+
+.trek-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: 20px;
+  border-radius: 17px;
+  background: #e8f0e4;
+  font-size: 1.8rem;
+}
+
+.trek-tag {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 12px;
+  border-radius: 30px;
+  background: #edf4e9;
+  color: #246b4b;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.trek-card h3 {
+  margin: 0 0 12px;
+  color: #203b32;
+  font-size: 1.45rem;
+  letter-spacing: -0.025em;
+}
+
+.trek-card p {
+  color: #657571;
+  font-size: 0.96rem;
+  line-height: 1.8;
+}
+
+.trek-card .trek-meta {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #e1e9df;
+  color: #246b4b;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.trek-notice {
+  padding: 30px;
+  border: 1px solid #dce8d7;
+  border-radius: 22px;
+  background: #e8f0e4;
+}
+
+.trek-notice h2 {
+  margin: 0 0 18px;
+  color: #203b32;
+  font-size: 1.55rem;
+}
+
+.trek-notice ul {
+  margin: 0;
+  padding-left: 22px;
+  color: #52675e;
+}
+
+.trek-notice li {
+  margin: 12px 0;
+  padding-left: 5px;
+  line-height: 1.7;
+}
+
+.back-link {
+  margin-top: 32px;
+}
+
+/* Mobile responsive */
+
+@media (max-width: 650px) {
+  .page-wrap {
+    padding: 42px 5% 65px;
+  }
+
+  .trek-hero {
+    padding: 32px 24px;
+    margin-bottom: 45px;
+    border-radius: 22px;
+  }
+
+  .trek-hero h1 {
+    font-size: clamp(2.3rem, 10vw, 3.4rem);
+  }
+
+  .trek-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trek-card,
+  .trek-notice {
+    padding: 24px;
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trek-card {
+    transition: none;
+  }
+
+  .trek-card:hover {
+    transform: none;
+  }
+}

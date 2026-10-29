@@ -1,0 +1,145 @@
+/* Travel Guide — Uttarakhand Explorer */
+
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 75px 7% 90px;
+  color: #203b32;
+}
+
+.guide-hero {
+  padding: 48px 42px;
+  margin-bottom: 38px;
+  border: 1px solid #e1e9df;
+  border-radius: 28px;
+  background: linear-gradient(135deg, #e8f0e4 0%, #f6f8f3 65%, #edf3e9 100%);
+}
+
+.guide-hero .eyebrow {
+  margin: 0 0 18px;
+  color: #246b4b;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.guide-hero h1 {
+  margin: 0 0 22px;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+
+.guide-hero h1 span {
+  color: #246b4b;
+}
+
+.guide-hero .intro {
+  max-width: 650px;
+  margin: 0;
+  color: #657571;
+  font-size: 1.05rem;
+  line-height: 1.85;
+}
+
+.guide-content {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.guide-card {
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #e1e9df;
+  border-radius: 22px;
+  box-shadow: 0 8px 24px rgba(32, 59, 50, 0.045);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.guide-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(32, 59, 50, 0.09);
+}
+
+.guide-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 54px;
+  margin-bottom: 18px;
+  border-radius: 16px;
+  background: #e8f0e4;
+  font-size: 1.65rem;
+}
+
+.guide-card h2,
+.guide-notice h2 {
+  margin: 0 0 12px;
+  color: #203b32;
+  font-size: 1.35rem;
+  letter-spacing: -0.025em;
+}
+
+.guide-card p,
+.guide-notice p {
+  margin: 0;
+  color: #657571;
+  font-size: 0.97rem;
+  line-height: 1.8;
+}
+
+.guide-notice {
+  margin-top: 28px;
+  padding: 30px;
+  border: 1px solid #dce8d7;
+  border-radius: 22px;
+  background: #e8f0e4;
+}
+
+.back-link {
+  margin-top: 32px;
+}
+
+/* Responsive layout */
+
+@media (max-width: 650px) {
+  .page-wrap {
+    padding: 42px 5% 65px;
+  }
+
+  .guide-hero {
+    padding: 32px 24px;
+    border-radius: 22px;
+  }
+
+  .guide-hero h1 {
+    font-size: clamp(2.3rem, 10vw, 3.4rem);
+  }
+
+  .guide-hero .intro {
+    font-size: 0.98rem;
+  }
+
+  .guide-content {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .guide-card,
+  .guide-notice {
+    padding: 24px;
+    border-radius: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .guide-card {
+    transition: none;
+  }
+
+  .guide-card:hover {
+    transform: none;
+  }
+}

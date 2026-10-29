@@ -1,0 +1,190 @@
+
+/* =====================================
+   Uttarakhand Explorer - Wildlife Page
+   File: css/wildlife.css
+===================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: #f6f8f3;
+    color: #203b32;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.page-wrap {
+    width: min(1100px, 90%);
+    margin: 0 auto;
+    padding: 65px 0 80px;
+}
+
+.eyebrow,
+.section-label {
+    color: #246b4b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.page-wrap h1 {
+    max-width: 850px;
+    margin: 14px 0 20px;
+    font-size: clamp(38px, 6vw, 68px);
+    line-height: 1.08;
+    letter-spacing: -2px;
+}
+
+.intro {
+    max-width: 720px;
+    color: #657571;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.wildlife-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 38px;
+}
+
+.wildlife-card {
+    padding: 28px;
+    border: 1px solid #e1e9df;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(32, 59, 50, 0.06);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.wildlife-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(32, 59, 50, 0.1);
+}
+
+.wildlife-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+    background: #e8f0e4;
+    font-size: 34px;
+}
+
+.wildlife-card h2 {
+    margin: 0 0 12px;
+    font-size: 23px;
+}
+
+.wildlife-card p,
+.park-item p,
+.notice p {
+    margin: 0;
+    color: #657571;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+.wildlife-park {
+    margin-top: 65px;
+}
+
+.wildlife-park > h2 {
+    margin: 10px 0 24px;
+    font-size: clamp(28px, 4vw, 38px);
+}
+
+.park-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.park-item {
+    padding: 23px;
+    border: 1px solid #e1e9df;
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.park-item h3 {
+    margin: 0 0 12px;
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+.notice {
+    margin-top: 36px;
+    padding: 26px;
+    border: 1px solid #dce8d6;
+    border-radius: 18px;
+    background: #e8f0e4;
+}
+
+.notice h2 {
+    margin: 0 0 12px;
+    font-size: 24px;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 28px;
+    text-decoration: none;
+}
+
+/* Tablet */
+@media (max-width: 760px) {
+    .page-wrap {
+        padding: 45px 0 60px;
+    }
+
+    .wildlife-grid {
+        gap: 16px;
+    }
+
+    .park-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+    .page-wrap {
+        width: 90%;
+        padding-top: 35px;
+    }
+
+    .page-wrap h1 {
+        letter-spacing: -1px;
+    }
+
+    .intro {
+        font-size: 15px;
+    }
+
+    .wildlife-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .wildlife-card {
+        padding: 22px;
+    }
+
+    .wildlife-card h2 {
+        font-size: 21px;
+    }
+
+    .wildlife-park {
+        margin-top: 45px;
+    }
+
+    .notice {
+        padding: 21px;
+    }
+}

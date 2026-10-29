@@ -1,0 +1,104 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search destinations, hill stations, lakes, pilgrimage sites and travel guides across Uttarakhand.">
+  <title>Search | Uttarakhand Explorer</title>
+
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/search.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="../index.html">🏔️ Uttarakhand Explorer</a>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="explore.html">Explore</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="trip-planner.html">Trip Planner</a>
+    </nav>
+  </header>
+
+  <main class="search-page">
+    <section class="search-hero">
+      <p class="eyebrow">UTTARAKHAND • DEV BHOOMI</p>
+      <h1>Find your next <span>mountain escape.</span></h1>
+      <p class="hero-description">
+        Search destinations, peaceful lakes, hill stations, pilgrimage sites
+        and travel inspiration for your next Uttarakhand journey.
+      </p>
+
+      <form class="search-form" id="searchForm" role="search">
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="Try Mussoorie, lakes, trekking..."
+          aria-label="Search Uttarakhand Explorer"
+          autocomplete="off"
+        >
+        <button type="submit" class="search-button">Search</button>
+      </form>
+
+      <div class="popular-searches">
+        <span>Popular:</span>
+        <button type="button" data-query="Mussoorie">Mussoorie</button>
+        <button type="button" data-query="Lakes">Lakes</button>
+        <button type="button" data-query="Trekking">Trekking</button>
+        <button type="button" data-query="Pilgrimage">Pilgrimage</button>
+      </div>
+    </section>
+
+    <section class="results-section" aria-labelledby="resultsHeading">
+      <div class="results-top">
+        <div>
+          <p class="eyebrow">EXPLORE MORE</p>
+          <h2 id="resultsHeading">Discover Uttarakhand</h2>
+          <p id="resultsCount" class="results-count" aria-live="polite">
+            Browse popular places and travel guides.
+          </p>
+        </div>
+      </div>
+
+      <div class="search-filters" aria-label="Filter search results">
+        <button class="filter-btn active" type="button" data-filter="all">All</button>
+        <button class="filter-btn" type="button" data-filter="destination">Destinations</button>
+        <button class="filter-btn" type="button" data-filter="nature">Nature & Lakes</button>
+        <button class="filter-btn" type="button" data-filter="spiritual">Spiritual</button>
+        <button class="filter-btn" type="button" data-filter="guide">Travel Guides</button>
+      </div>
+
+      <div class="search-results" id="searchResults"></div>
+
+      <div class="empty-state" id="emptyState" hidden>
+        <span class="empty-icon">⌕</span>
+        <h3>No matching results</h3>
+        <p>Try another destination or a keyword such as nature, lake or temple.</p>
+        <button type="button" id="clearSearch" class="clear-button">Clear search</button>
+      </div>
+    </section>
+
+    <section class="search-note">
+      <span class="note-icon">✦</span>
+      <div>
+        <h3>Travel thoughtfully</h3>
+        <p>Check current weather, road conditions, permits and local guidance before travelling to remote or high-altitude areas.</p>
+      </div>
+      <a href="travel-updates.html">Travel updates ↗</a>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Uttarakhand Explorer</span>
+    <span>Travel thoughtfully 🏔️</span>
+  </footer>
+
+  <script src="../js/common.js"></script>
+  <script src="../js/search.js"></script>
+</body>
+</html>
+```
