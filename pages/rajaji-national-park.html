@@ -1,43 +1,410 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Travel guide to Rajaji National Park, Uttarakhand: viewpoints, culture, best time to visit, population context and travel tips.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Travel guide to Rajaji National Park, Uttarakhand: wildlife, safari routes, best time to visit and travel tips.">
 <title>Rajaji National Park Travel Guide | Uttarakhand Explorer</title>
+
 <style>
-:root{--ink:#18332b;--green:#1f6a50;--gold:#dba94b;--paper:#f6f7f2;--muted:#5e6d66;--white:#fff}
-*{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7}
-header{background:linear-gradient(135deg,#153f35,#367b61);color:#fff;padding:18px 6vw}
-nav{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap} nav a{color:#fff;text-decoration:none;font-weight:700}
-.hero{padding:70px 6vw 64px;background:linear-gradient(120deg,rgba(8,35,29,.9),rgba(20,80,58,.62)),url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=80') center/cover;color:white}
-.tag{display:inline-block;background:var(--gold);color:#172c24;padding:5px 12px;border-radius:99px;font-size:.82rem;font-weight:bold}
-h1{font-size:clamp(2.3rem,6vw,4.5rem);line-height:1.08;margin:16px 0} .hero p{max-width:760px;font-size:1.1rem}
-main{max-width:1100px;margin:0 auto;padding:32px 20px 60px} .intro{font-size:1.08rem;color:#344c43}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:18px;margin:24px 0}
-.card,section.info{background:var(--white);border:1px solid #e2e8df;border-radius:16px;padding:22px;box-shadow:0 6px 22px rgba(25,60,44,.05)}
-h2{margin:0 0 12px;color:var(--green);font-size:1.45rem} h3{margin:0 0 8px} ul{padding-left:21px} li{margin:6px 0}
-.info{margin:18px 0} .note{background:#fff6df;border-left:4px solid var(--gold);padding:14px 17px;border-radius:8px}
-footer{background:#143d32;color:#eaf3ed;padding:25px 6vw;text-align:center} footer a{color:#ffe2a1} .small{font-size:.92rem;color:var(--muted)}
-@media(max-width:600px){.hero{padding-top:50px} main{padding-left:14px;padding-right:14px}}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f4ec;
+    color: #183c36;
+    line-height: 1.7;
+}
+
+header {
+    background: #15352e;
+    padding: 16px 7%;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    min-height: 410px;
+    background:
+        linear-gradient(to top, rgba(0,0,0,0.78), rgba(0,0,0,0.12)),
+        url("../assets/images/rajaji-national-park.jpeg") center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 55px 7%;
+    color: white;
+}
+
+.tag {
+    display: inline-block;
+    width: fit-content;
+    background: #dba94b;
+    color: #172c24;
+    padding: 5px 14px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: clamp(2.3rem, 6vw, 4.5rem);
+    line-height: 1.1;
+    margin: 15px 0;
+}
+
+.hero p {
+    max-width: 760px;
+    font-size: 1.08rem;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 35px 20px 60px;
+}
+
+.intro {
+    font-size: 1.08rem;
+    color: #344c43;
+    margin-bottom: 22px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    gap: 20px;
+    margin: 25px 0;
+}
+
+.card,
+.info,
+.video-section {
+    background: white;
+    border: 1px solid #e2e8df;
+    border-radius: 17px;
+    padding: 23px;
+    box-shadow: 0 6px 22px rgba(25, 60, 44, 0.06);
+}
+
+h2 {
+    color: #08745d;
+    font-size: 1.45rem;
+    margin-bottom: 12px;
+}
+
+h3 {
+    margin: 12px 0 8px;
+}
+
+ul {
+    padding-left: 21px;
+}
+
+li {
+    margin: 6px 0;
+}
+
+.info {
+    margin: 20px 0;
+}
+
+.small {
+    font-size: 0.92rem;
+    color: #5e6d66;
+}
+
+.note {
+    background: #fff6df;
+    border-left: 4px solid #dba94b;
+    padding: 14px 17px;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* Video Section */
+.video-section {
+    margin: 25px 0;
+}
+
+.video-placeholder {
+    background: #e9eee8;
+    border: 2px dashed #9aafa2;
+    border-radius: 12px;
+    min-height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+    color: #456057;
+}
+
+.video-placeholder span {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+/* Footer */
+footer {
+    background: #15352e;
+    color: #eaf3ed;
+    padding: 25px 7%;
+    text-align: center;
+}
+
+footer a {
+    color: #ffe2a1;
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .hero {
+        min-height: 350px;
+        padding: 40px 6%;
+    }
+
+    main {
+        padding: 25px 14px 45px;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    .card,
+    .info,
+    .video-section {
+        padding: 18px;
+    }
+}
 </style>
 </head>
+
 <body>
-<header><nav><a href="../index.html">UTTARAKHAND EXPLORER</a><a href="../index.html#destinations">← All Destinations</a></nav></header>
-<section class="hero"><span class="tag">Wildlife protected area</span><h1>Rajaji National Park</h1><p>A practical guide to the scenery, viewpoints, local culture, best visiting season and useful travel information for Rajaji National Park, Uttarakhand.</p></section>
+
+<header>
+    <nav>
+        <a href="../index.html">UTTARAKHAND EXPLORER</a>
+        <a href="../index.html#destinations">← All Destinations</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <span class="tag">Wildlife Protected Area</span>
+    <h1>Rajaji National Park</h1>
+    <p>
+        Explore the natural beauty of Rajaji National Park,
+        known for its elephants, diverse wildlife, birdlife
+        and beautiful forest landscapes in Uttarakhand.
+    </p>
+</section>
+
 <main>
-<p class="intro">Rajaji National Park offers a distinct experience of Uttarakhand's Himalayan landscapes and living heritage. Use this guide to plan what to see, when to go and how to visit respectfully.</p>
-<div class="grid">
-<article class="card"><h2>Famous Viewpoints & Places</h2><ul><li>Chilla range</li><li>authorised safari routes</li><li>forest-edge viewpoints and interpretation areas</li></ul></article>
-<article class="card"><h2>Things to Do</h2><p>Wildlife safaris where open, birdwatching and forest landscape viewing.</p></article>
-<article class="card"><h2>Best Time to Visit</h2><p>Season and opening dates vary by range; check official forest department notices before visiting.</p><p class="small">Weather, road access and opening dates can change. Check local advisories shortly before travelling.</p></article>
-<article class="card"><h2>Culture & Local Life</h2><p>Communities around the park include Garhwali and other Himalayan foothill traditions; conservation and human-wildlife coexistence are important local themes.</p></article>
-</div>
-<section class="info"><h2>History & Local Significance</h2><p>Rajaji National Park was formed in 1983 by combining protected forest areas and is named after C. Rajagopalachari. It protects elephant corridors and diverse foothill habitats.</p></section>
-<section class="info"><h2>Population & Settlement</h2><p>The park is a protected landscape rather than a single town; nearby villages have separate populations.</p><p class="small">Population note: figures are not inserted where a reliable, comparable figure is unavailable. For official numbers, consult Census of India publications or the relevant municipal, village or forest authority, and state the year and administrative boundary.</p></section>
-<section class="info"><h2>Visitor Tips</h2><p>Use official entry gates and guides. Do not leave vehicles, feed animals or enter closed forest areas.</p><ul><li>Carry reusable water bottles and take all litter back with you.</li><li>Respect local customs, worship areas, wildlife and private property.</li><li>Mountain weather can change quickly; keep flexible plans and suitable clothing.</li><li>Use authorised guides and operators for trekking, rafting, boating or safaris.</li></ul></section>
-<section class="info"><h2>Responsible Travel</h2><p>Choose locally run services where possible, ask permission before photographing people, and avoid disturbing wildlife or fragile natural areas. Do not treat local legends as verified historical facts unless a reliable historical source supports them.</p></section>
-<p class="small">This page is an introductory travel guide. Confirm current opening times, permits, prices, road status and safety conditions with official local sources before travel.</p>
+
+    <p class="intro">
+        Rajaji National Park offers a distinct experience of
+        Uttarakhand's Himalayan foothill landscapes and living
+        heritage. Use this guide to plan what to see, when to
+        visit and how to explore the park responsibly.
+    </p>
+
+    <!-- Destination Cards -->
+    <div class="grid">
+
+        <article class="card">
+            <h2>Famous Places & Viewpoints</h2>
+            <ul>
+                <li>Chilla Range</li>
+                <li>Authorised safari routes</li>
+                <li>Forest-edge viewpoints</li>
+                <li>Nature interpretation areas</li>
+                <li>River and forest landscapes</li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h2>Things to Do</h2>
+            <ul>
+                <li>Enjoy wildlife safaris where available.</li>
+                <li>Explore birdwatching opportunities.</li>
+                <li>Observe forest landscapes and natural habitats.</li>
+                <li>Learn about local wildlife conservation.</li>
+                <li>Enjoy nature photography from permitted areas.</li>
+            </ul>
+        </article>
+
+        <article class="card">
+            <h2>Best Time to Visit</h2>
+            <p>
+                The suitable visiting season and opening dates
+                vary by park range. Check official forest
+                department notices before planning a safari.
+            </p>
+            <p class="small">
+                Weather, road access and safari availability
+                can change. Check local advisories shortly
+                before travelling.
+            </p>
+        </article>
+
+        <article class="card">
+            <h2>Culture & Local Life</h2>
+            <p>
+                Communities around the park include Garhwali
+                and other Himalayan foothill traditions.
+                Conservation and human-wildlife coexistence
+                are important local themes.
+            </p>
+        </article>
+
+    </div>
+
+    <!-- History -->
+    <section class="info">
+        <h2>History & Local Significance</h2>
+        <p>
+            Rajaji National Park was formed in 1983 by combining
+            protected forest areas and is named after
+            C. Rajagopalachari. It protects important elephant
+            corridors and diverse foothill habitats.
+        </p>
+    </section>
+
+    <!-- Wildlife -->
+    <section class="info">
+        <h2>Wildlife & Biodiversity</h2>
+        <p>
+            Rajaji National Park is known for its rich biodiversity
+            and forest ecosystems. The park provides habitat for
+            Asian elephants, deer, leopards and many bird species.
+            Its forests, grasslands and river ecosystems support
+            a wide variety of wildlife.
+        </p>
+        <p class="small">
+            Wildlife sightings are never guaranteed. Maintain
+            a safe distance from animals and follow the
+            instructions of authorised guides.
+        </p>
+    </section>
+
+    <!-- Population -->
+    <section class="info">
+        <h2>Population & Settlement</h2>
+        <p>
+            The park is a protected landscape rather than a
+            single town. Nearby villages and settlements have
+            separate populations and local administrative
+            boundaries.
+        </p>
+        <p class="small">
+            Population note: figures are not inserted where a
+            reliable, comparable figure is unavailable. For
+            official numbers, consult Census of India publications
+            or the relevant village authority, and state the
+            year and administrative boundary.
+        </p>
+    </section>
+
+    <!-- Safari Information -->
+    <section class="info">
+        <h2>Safari & Park Experience</h2>
+        <p>
+            Visitors can explore permitted safari zones through
+            authorised entry gates and approved operators.
+            Safari availability, timings and routes depend on
+            the forest department's current rules and seasonal
+            conditions.
+        </p>
+
+        <div class="note">
+            Always confirm safari availability, entry fees,
+            booking requirements and permitted routes through
+            official park authorities before visiting.
+        </div>
+    </section>
+
+    <!-- Visitor Tips -->
+    <section class="info">
+        <h2>Visitor Tips</h2>
+        <p>
+            Use official entry gates and authorised guides.
+            Do not leave designated routes, feed animals
+            or enter closed forest areas.
+        </p>
+
+        <ul>
+            <li>Carry reusable water bottles and take all litter back with you.</li>
+            <li>Respect local customs, wildlife and private property.</li>
+            <li>Follow safari vehicle and guide instructions.</li>
+            <li>Avoid loud noises that may disturb wildlife.</li>
+            <li>Carry suitable clothing according to the season.</li>
+            <li>Use authorised guides and safari operators.</li>
+        </ul>
+    </section>
+
+    <!-- Responsible Travel -->
+    <section class="info">
+        <h2>Responsible Travel</h2>
+        <p>
+            Choose locally run services where possible, ask
+            permission before photographing people, and avoid
+            disturbing wildlife or fragile natural areas.
+            Do not feed animals, litter in the forest or
+            attempt to approach wild animals for photographs.
+        </p>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <h2>Explore Rajaji National Park – Video</h2>
+
+        <div class="video-placeholder">
+            <span>▶</span>
+            <h3>Video Coming Soon</h3>
+            <p>
+                Rajaji National Park ka wildlife aur safari
+                video jald hi yahan add kiya jayega.
+            </p>
+        </div>
+    </section>
+
+    <p class="small">
+        This page is an introductory travel guide. Confirm
+        current opening dates, permits, safari bookings,
+        prices, road status and safety conditions with
+        official local sources before travel.
+    </p>
+
 </main>
-<footer><p><strong>Uttarakhand Explorer</strong> · Discover places with care.</p><p><a href="../index.html#destinations">Return to Explore Uttarakhand</a></p></footer>
-</body></html>
+
+<footer>
+    <p><strong>Uttarakhand Explorer</strong> · Discover places with care.</p>
+    <p>
+        <a href="../index.html#destinations">
+            Return to Explore Uttarakhand
+        </a>
+    </p>
+</footer>
+
+</body>
+</html>

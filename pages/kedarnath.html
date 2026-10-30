@@ -2,404 +2,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kedarnath Temple - Uttarakhand Tourism</title>
 
-<title>Kedarnath Temple | Uttarakhand Explorer</title>
-<meta name="description" content="Explore Kedarnath Temple, its history, religious beliefs, worship and Himalayan beauty.">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-<style>
-:root {
-  --ink: #18302b;
-  --muted: #52645d;
-  --green: #176b55;
-  --cream: #f5f4ec;
-  --card: #ffffff;
-  --line: #dce5dd;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f4ec;
+      color: #183c36;
+      line-height: 1.7;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    /* HERO SECTION */
+    .hero {
+      min-height: 410px;
+      background:
+        linear-gradient(to top, rgba(0, 20, 25, 0.85), rgba(0, 0, 0, 0.15)),
+        url('../assets/images/kedarnath.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 55px 7%;
+      color: white;
+    }
 
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--ink);
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.7;
-}
+    .hero-content {
+      max-width: 900px;
+    }
 
-/* VIDEO WALLPAPER HERO */
-.hero {
-  min-height: 520px;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: end;
-  padding: 45px 7%;
-  color: white;
-  background: #102c26;
-  isolation: isolate;
-}
+    .location-tag {
+      display: inline-block;
+      background: #f4f5f1;
+      color: #164d40;
+      padding: 7px 16px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
 
-.hero-video {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  z-index: -2;
-}
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 74px);
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.82) 0%,
-    rgba(0, 0, 0, 0.25) 65%,
-    rgba(0, 0, 0, 0.12) 100%
-  );
-  z-index: -1;
-}
+    .hero p {
+      font-size: 19px;
+    }
 
-.hero-inner {
-  max-width: 900px;
-  position: relative;
-}
+    /* NAVIGATION */
+    nav {
+      background: #15352e;
+      padding: 15px 7%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
 
-.tag {
-  display: inline-block;
-  background: rgba(255, 255, 255, 0.92);
-  color: #174b3e;
-  padding: 5px 14px;
-  border-radius: 25px;
-  font-size: 0.85rem;
-  font-weight: bold;
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+    }
 
-h1 {
-  font-size: clamp(2.4rem, 7vw, 4.8rem);
-  line-height: 1.1;
-  margin: 18px 0 12px;
-  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.4);
-}
+    nav a:hover {
+      color: #b9dfc9;
+    }
 
-.subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
-  margin: 0;
-}
+    /* MAIN CONTENT */
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 22px 55px;
+    }
 
-/* OPTIONAL NAVIGATION */
-.navbar {
-  background: #18302b;
-  padding: 13px 7%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 18px;
-}
+    .intro {
+      font-size: 17px;
+      margin-bottom: 25px;
+      color: #294b45;
+    }
 
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-size: 0.95rem;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
 
-.navbar a:hover {
-  color: #a7e4c7;
-}
+    .card {
+      background: white;
+      border: 1px solid #dce5dc;
+      border-radius: 17px;
+      padding: 22px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+    }
 
-/* MAIN CONTENT */
-main {
-  max-width: 1100px;
-  margin: 30px auto;
-  padding: 0 18px 48px;
-}
+    .card h2 {
+      color: #08745d;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
 
-.lead {
-  font-size: 1.1rem;
-  color: #334b43;
-  margin-bottom: 25px;
-}
+    .card p {
+      color: #29433e;
+      font-size: 16px;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
+    /* VIDEO SECTION */
+    .video-section {
+      margin-top: 40px;
+      background: white;
+      border: 1px solid #dce5dc;
+      border-radius: 17px;
+      padding: 25px;
+    }
 
-.card {
-  background: var(--card);
-  padding: 23px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(24, 48, 43, 0.06);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    .video-section h2 {
+      color: #08745d;
+      margin-bottom: 15px;
+    }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 9px 25px rgba(24, 48, 43, 0.1);
-}
+    .video-container video {
+      width: 100%;
+      max-height: 520px;
+      display: block;
+      border-radius: 12px;
+      background: #000;
+    }
 
-.card h2 {
-  margin: 0 0 10px;
-  color: var(--green);
-  font-size: 1.25rem;
-  line-height: 1.4;
-}
+    /* FOOTER */
+    footer {
+      background: #15352e;
+      color: white;
+      text-align: center;
+      padding: 22px;
+    }
 
-.card p {
-  margin: 0;
-}
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 700px) {
+      .hero {
+        min-height: 350px;
+        padding: 35px 22px;
+        background-position: center;
+      }
 
-.wide {
-  grid-column: 1 / -1;
-}
+      .hero h1 {
+        font-size: 43px;
+      }
 
-.note {
-  background: #e8f0e9;
-  border-left: 4px solid var(--green);
-  padding: 14px 17px;
-  border-radius: 8px;
-  margin-top: 14px !important;
-}
+      .hero p {
+        font-size: 16px;
+      }
 
-a {
-  color: var(--green);
-  font-weight: bold;
-}
+      nav {
+        gap: 15px;
+        padding: 14px 20px;
+      }
 
-footer {
-  border-top: 1px solid var(--line);
-  padding-top: 20px;
-  margin-top: 28px;
-  color: var(--muted);
-  font-size: 0.9rem;
-}
+      .cards {
+        grid-template-columns: 1fr;
+      }
 
-footer p {
-  margin: 10px 0;
-}
+      .container {
+        padding: 25px 16px 40px;
+      }
 
-/* MOBILE RESPONSIVE */
-@media (max-width: 700px) {
-  .hero {
-    min-height: 400px;
-    padding: 28px 22px;
-  }
+      .card {
+        padding: 19px;
+      }
 
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .wide {
-    grid-column: auto;
-  }
-
-  .card {
-    padding: 19px;
-  }
-
-  .navbar {
-    gap: 12px;
-    padding: 12px 18px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .card {
-    transition: none;
-  }
-}
-</style>
+      .video-section {
+        padding: 18px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- KEDARNATH VIDEO WALLPAPER -->
-<header class="hero">
+  <!-- HERO SECTION -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <span class="location-tag">Panch Kedar • Uttarakhand, India</span>
+      <h1>Kedarnath Temple</h1>
+      <p>Kedarnath, Rudraprayag District, Uttarakhand</p>
+    </div>
+  </header>
 
-  <video
-    class="hero-video"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    poster="https://commons.wikimedia.org/wiki/Special:FilePath/Kedarnath%20Temple.jpg"
-    aria-label="Kedarnath Temple background video"
-  >
-    <source src="../assets/videos/kedarnath.mp4" type="video/mp4">
-    Your browser does not support HTML video.
-  </video>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#history">History</a>
+    <a href="#geography">Geography</a>
+    <a href="#worship">Worship</a>
+  </nav>
 
-  <div class="hero-inner">
-    <span class="tag">Panch Kedar • Uttarakhand, India</span>
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-    <h1>Kedarnath Temple</h1>
-
-    <p class="subtitle">
-      Kedarnath, Rudraprayag District, Uttarakhand
+    <p class="intro" id="about">
+      <strong>Kedarnath Temple</strong> is one of the most sacred Hindu
+      shrines dedicated to Lord Shiva. Located high in the Himalayas,
+      it is traditionally associated with Panch Kedar, the twelve
+      Jyotirlingas and the Uttarakhand Char Dham pilgrimage.
     </p>
-  </div>
 
-</header>
+    <div class="cards">
 
-<!-- NAVIGATION -->
-<nav class="navbar" aria-label="Main navigation">
-  <a href="../index.html">Home</a>
-  <a href="#about">About</a>
-  <a href="#history">History</a>
-  <a href="#geography">Geography</a>
-  <a href="#worship">Worship</a>
-</nav>
+      <section class="card">
+        <h2>1. Which Deity Is Worshipped Here?</h2>
+        <p>
+          Lord Shiva is worshipped at Kedarnath in the form of a sacred
+          stone lingam. The temple is one of the most important pilgrimage
+          sites for devotees of Lord Shiva.
+        </p>
+      </section>
 
-<!-- MAIN CONTENT -->
-<main id="about">
+      <section class="card" id="worship">
+        <h2>2. Who Visits and What Do They Pray For?</h2>
+        <p>
+          Pilgrims from across India and around the world visit Kedarnath
+          to offer prayers to Lord Shiva and seek blessings, peace and
+          spiritual strength.
+        </p>
+      </section>
 
-  <p class="lead">
-    <strong>Kedarnath Temple</strong> is one of the most sacred Hindu
-    shrines dedicated to Lord Shiva. Located high in the Himalayas,
-    it is traditionally associated with Panch Kedar, the twelve
-    Jyotirlingas and the Uttarakhand Char Dham pilgrimage.
-  </p>
+      <section class="card" id="history">
+        <h2>3. History of Kedarnath</h2>
+        <p>
+          Kedarnath is an ancient pilgrimage destination associated with
+          Hindu traditions and the legends of the Pandavas. The temple
+          holds great religious and historical importance.
+        </p>
+      </section>
 
-  <div class="grid">
+      <section class="card" id="geography">
+        <h2>4. Geography and Location</h2>
+        <p>
+          Kedarnath Temple is situated in the Garhwal Himalayas of
+          Rudraprayag district, near the Mandakini River and surrounded
+          by magnificent mountain peaks.
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>1. Which Deity Is Worshipped Here?</h2>
+      <section class="card">
+        <h2>5. Best Time to Visit</h2>
+        <p>
+          Kedarnath is generally visited during the temple's open season,
+          usually from late spring to autumn. Visitors should check the
+          official temple opening dates and weather conditions before
+          planning their journey.
+        </p>
+      </section>
 
-      <p>
-        Lord Shiva is worshipped at Kedarnath in the form of a sacred,
-        naturally shaped stone lingam. According to traditional belief,
-        this form represents the hump of the divine bull associated
-        with Shiva.
-      </p>
+      <section class="card">
+        <h2>6. How to Reach Kedarnath</h2>
+        <p>
+          Visitors generally travel by road to Gaurikund. From there,
+          the temple is reached by trekking, or by using permitted
+          available transport services.
+        </p>
+      </section>
+
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <section class="video-section">
+      <h2>Kedarnath Temple Video</h2>
+
+      <div class="video-container">
+        <video controls preload="metadata"
+          poster="../assets/images/kedarnath.jpeg">
+          <source src="../assets/videos/kedarnath.mp4" type="video/mp4">
+          Your browser does not support HTML video.
+        </video>
+      </div>
     </section>
 
-    <section class="card">
-      <h2>2. Who Visits and What Do They Pray For?</h2>
+  </main>
 
-      <p>
-        Pilgrims from across India and around the world visit to offer
-        prayers to Lord Shiva. Devotees commonly pray for peace,
-        spiritual strength, protection, forgiveness and the well-being
-        of their families. The shrine is an important destination
-        on the Himalayan pilgrimage circuit.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>3. Religious Beliefs, Vows and Legends</h2>
-
-      <p>
-        Many devotees make religious vows, perform puja and seek
-        blessings during difficult periods of life. A traditional
-        legend tells how the Pandavas sought Lord Shiva after the
-        Mahabharata war. This account belongs to religious tradition
-        rather than independently verified history.
-      </p>
-    </section>
-
-    <section class="card" id="history">
-      <h2>4. History and Sacred Traditions</h2>
-
-      <p>
-        Kedarnath is one of the most revered temples in the Himalayas.
-        Hindu traditions associate the shrine with the Pandavas and
-        Adi Shankaracharya. In 2013, devastating floods affected the
-        surrounding region, while the main temple structure survived.
-      </p>
-    </section>
-
-    <section class="card">
-      <h2>5. Temple Area and Dimensions</h2>
-
-      <p>
-        The exact total area of the temple building and its immediate
-        precinct should be established from an official record or
-        architectural survey. The wider pilgrimage settlement covers
-        a larger area than the temple structure itself.
-      </p>
-
-      <p class="note">
-        <strong>Measurement note:</strong>
-        No unverified square-metre measurement is provided.
-      </p>
-    </section>
-
-    <section class="card" id="geography">
-      <h2>6. Geography and Access</h2>
-
-      <p>
-        Kedarnath lies at approximately 3,584 metres above sea level
-        near the Mandakini River, surrounded by spectacular Himalayan
-        peaks. The traditional trek from Gaurikund is roughly
-        16–19 km, depending on route arrangements. Weather and
-        trail conditions can change, so check current local guidance
-        before travelling.
-      </p>
-    </section>
-
-    <section class="card wide" id="worship">
-      <h2>7. Worship Practices and Visitor Advice</h2>
-
-      <p>
-        Visitors commonly attend darshan, aarti and Shiva puja and
-        make offerings according to temple rules. The shrine operates
-        seasonally because of heavy Himalayan snowfall. Confirm current
-        opening dates, registration requirements and travel advisories
-        through official sources before planning a visit.
-      </p>
-    </section>
-
-  </div>
-
-  <!-- REFERENCES -->
+  <!-- FOOTER -->
   <footer>
-
-    <p>
-      <strong>References:</strong>
-      <a
-        href="https://www.uttarakhandtourism.gov.in/explore/kedarnath"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Uttarakhand Tourism</a>
-      ·
-      <a
-        href="https://commons.wikimedia.org/wiki/File:Kedarnath_Temple.jpg"
-        target="_blank"
-        rel="noopener noreferrer"
-      >Kedarnath Temple image reference</a>
-    </p>
-
-    <p>
-      Religious beliefs and legends are described as traditional
-      accounts, not as guaranteed outcomes or independently
-      proven historical facts.
-    </p>
-
-    <p>
-      <a href="../index.html#panch-kedar">
-        &larr; Back to Uttarakhand Explorer
-      </a>
-    </p>
-
+    <p>Explore Uttarakhand | Uttarakhand Tourism</p>
   </footer>
-
-</main>
 
 </body>
 </html>

@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binsar - Uttarakhand Tourism</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f4ec;
+      color: #183c36;
+      line-height: 1.7;
+    }
+
+    .hero {
+      min-height: 410px;
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.12)),
+        url("../assets/images/binsar.jpeg") center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 55px 7%;
+      color: white;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin: 12px 0;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      max-width: 650px;
+    }
+
+    .location-tag {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 14px;
+    }
+
+    nav {
+      background: #15352e;
+      padding: 14px 7%;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 22px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: #08745d;
+      margin-bottom: 18px;
+      font-size: 28px;
+    }
+
+    .intro {
+      background: white;
+      padding: 25px;
+      border-radius: 17px;
+      border: 1px solid #e4e8df;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      margin-bottom: 30px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 23px;
+      border-radius: 17px;
+      border: 1px solid #e4e8df;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      color: #08745d;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .video-section {
+      background: white;
+      padding: 25px;
+      border-radius: 17px;
+      border: 1px solid #e4e8df;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .video-placeholder {
+      background: #e5ebe5;
+      min-height: 260px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #183c36;
+      padding: 20px;
+      margin-top: 15px;
+    }
+
+    footer {
+      background: #15352e;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 35px;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        min-height: 350px;
+        padding: 35px 6%;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 12px 5px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <span class="location-tag">Almora, Uttarakhand</span>
+      <h1>Binsar</h1>
+      <p>Explore the peaceful Himalayan forests, beautiful mountain views and rich wildlife of Binsar.</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#attractions">Attractions</a>
+    <a href="#activities">Things to Do</a>
+    <a href="#reach">How to Reach</a>
+    <a href="#video">Video</a>
+  </nav>
+
+  <main class="container">
+
+    <section class="intro" id="about">
+      <h2>About Binsar</h2>
+      <p>
+        Binsar is a beautiful hill destination in the Kumaon region of Uttarakhand,
+        situated at an altitude of around 2,420 metres. It was once the summer
+        capital of the Chand Dynasty rulers. Binsar is famous for its peaceful
+        surroundings, dense oak and rhododendron forests, wildlife and spectacular
+        views of Himalayan peaks such as Nanda Devi, Trishul and Panchachuli.
+      </p>
+      <p>
+        Binsar is an ideal destination for nature lovers, photographers, bird
+        watchers and travellers looking for a peaceful mountain getaway.
+      </p>
+    </section>
+
+    <section id="attractions">
+      <h2>Popular Attractions</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Binsar Wildlife Sanctuary</h3>
+          <p>
+            A beautiful forest sanctuary known for oak, rhododendron and pine
+            trees. It is home to animals such as barking deer, wild boar,
+            Himalayan black bears and many species of birds.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Zero Point</h3>
+          <p>
+            A popular viewpoint inside the sanctuary. A short trek through the
+            forest leads to panoramic views of the Himalayan mountain ranges.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Kasar Devi Temple</h3>
+          <p>
+            An ancient temple near Almora, known for its peaceful atmosphere,
+            spiritual importance and beautiful views of the surrounding hills.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Bineshwar Mahadev Temple</h3>
+          <p>
+            A historic temple dedicated to Lord Shiva. It is associated with
+            the name and history of the Binsar region.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Gananath Temple</h3>
+          <p>
+            Known for its natural caves and ancient Shiva temple, Gananath
+            is a peaceful religious destination near Almora.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Khali Estate</h3>
+          <p>
+            A scenic heritage property surrounded by forests, offering
+            beautiful views of the Himalayan mountains.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="activities" style="margin-top: 35px;">
+      <h2>Things to Do in Binsar</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Nature Walks</h3>
+          <p>
+            Enjoy peaceful walks through oak and rhododendron forests while
+            listening to the sounds of birds.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Wildlife Safari</h3>
+          <p>
+            Explore Binsar Wildlife Sanctuary through a jeep safari and
+            experience its rich natural surroundings.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Trekking</h3>
+          <p>
+            Take a trek to Zero Point or explore nearby forest trails for
+            beautiful mountain and valley views.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Bird Watching</h3>
+          <p>
+            Binsar is a wonderful destination for bird lovers, with many
+            resident and migratory bird species found in its forests.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-top: 35px;">
+      <h2>Best Time to Visit</h2>
+      <div class="intro">
+        <p>
+          March to June and October to December are generally considered good
+          months to visit Binsar. During these periods, visitors can enjoy
+          pleasant weather, forest walks and clear mountain views.
+        </p>
+      </div>
+    </section>
+
+    <section id="reach">
+      <h2>How to Reach Binsar</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>By Air</h3>
+          <p>
+            The nearest airport is Pantnagar Airport. Taxis are available
+            from the airport to reach the Almora and Binsar region.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>By Train</h3>
+          <p>
+            Kathgodam is the nearest major railway station. From there,
+            visitors can hire a taxi or use road transport towards Almora
+            and Binsar.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>By Road</h3>
+          <p>
+            Binsar is connected by road through Almora. Taxis and buses
+            are available from nearby towns and cities.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Nearby Town</h3>
+          <p>
+            Almora is the nearest major town and an important base for
+            travelling to Binsar and nearby attractions.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="video-section" id="video">
+      <h2>Explore Binsar – Video</h2>
+      <p>
+        Binsar ka video yahan add kiya jayega. Matching video file abhi
+        available video list mein nahi hai.
+      </p>
+      <div class="video-placeholder">
+        <p>Binsar video will be added here.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Uttarakhand Tourism | Explore the Beauty of Devbhoomi</p>
+  </footer>
+
+</body>
+</html>

@@ -1,23 +1,15 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Travel guide to Nainital, Uttarakhand, featuring viewpoints, culture, the best time to visit and practical travel tips.">
-  <title>Nainital Travel Guide | Uttarakhand Explorer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nainital - Uttarakhand Tourism</title>
 
   <style>
-    :root {
-      --ink: #18332b;
-      --green: #1f6a50;
-      --gold: #dba94b;
-      --paper: #f6f7f2;
-      --muted: #5e6d66;
-      --white: #fff;
-    }
-
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
@@ -26,162 +18,168 @@
     }
 
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--paper);
-      color: var(--ink);
+      font-family: Arial, sans-serif;
+      background: #f5f4ec;
+      color: #183c36;
       line-height: 1.7;
     }
 
-    header {
-      background: linear-gradient(135deg, #153f35, #367b61);
-      color: var(--white);
-      padding: 18px 6vw;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    nav a:hover,
-    footer a:hover {
-      text-decoration: underline;
-    }
-
+    /* HERO SECTION */
     .hero {
-      padding: 65px 6vw;
-      background: linear-gradient(135deg, #153f35, #367b61);
-      color: var(--white);
+      min-height: 410px;
+      background:
+        linear-gradient(to top, rgba(0, 20, 25, 0.85), rgba(0, 0, 0, 0.15)),
+        url('../assets/images/nainital.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 55px 7%;
+      color: white;
     }
 
     .hero-content {
-      max-width: 1100px;
-      margin: auto;
+      max-width: 900px;
     }
 
-    .tag {
+    .location-tag {
       display: inline-block;
-      background: var(--gold);
-      color: #172c24;
-      padding: 5px 12px;
-      border-radius: 99px;
-      font-size: .82rem;
+      background: #f4f5f1;
+      color: #164d40;
+      padding: 7px 16px;
+      border-radius: 25px;
+      font-size: 14px;
       font-weight: bold;
+      margin-bottom: 18px;
     }
 
-    h1 {
-      font-size: clamp(2.3rem, 6vw, 4.5rem);
-      line-height: 1.08;
-      margin: 16px 0;
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 74px);
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 760px;
-      font-size: 1.1rem;
+      font-size: 19px;
     }
 
-    .hero-image {
-      display: block;
-      width: 100%;
-      height: 380px;
-      object-fit: cover;
-      border-radius: 22px;
-      margin-top: 28px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, .2);
+    /* NAVIGATION */
+    nav {
+      background: #15352e;
+      padding: 15px 7%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
     }
 
-    main {
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #b9dfc9;
+    }
+
+    /* MAIN CONTENT */
+    .container {
       max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
+      margin: auto;
+      padding: 30px 22px 55px;
     }
 
     .intro {
-      font-size: 1.08rem;
-      color: #344c43;
+      font-size: 17px;
+      margin-bottom: 25px;
+      color: #294b45;
     }
 
-    .grid {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
-      gap: 18px;
-      margin: 24px 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
-    .card,
-    section.info {
-      background: var(--white);
-      border: 1px solid #e2e8df;
-      border-radius: 16px;
+    .card {
+      background: white;
+      border: 1px solid #dce5dc;
+      border-radius: 17px;
       padding: 22px;
-      box-shadow: 0 6px 22px rgba(25, 60, 44, .05);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
     }
 
-    h2 {
-      margin: 0 0 12px;
-      color: var(--green);
-      font-size: 1.45rem;
-      line-height: 1.3;
+    .card h2 {
+      color: #08745d;
+      font-size: 21px;
+      margin-bottom: 10px;
     }
 
-    ul {
-      padding-left: 21px;
+    .card p {
+      color: #29433e;
+      font-size: 16px;
     }
 
-    li {
-      margin: 6px 0;
+    /* VIDEO SECTION */
+    .video-section {
+      margin-top: 40px;
+      background: white;
+      border: 1px solid #dce5dc;
+      border-radius: 17px;
+      padding: 25px;
     }
 
-    .info {
-      margin: 18px 0;
+    .video-section h2 {
+      color: #08745d;
+      margin-bottom: 15px;
     }
 
-    footer {
-      background: #143d32;
-      color: #eaf3ed;
-      padding: 25px 6vw;
+    .video-placeholder {
+      background: #edf1eb;
+      border-radius: 12px;
+      padding: 35px 20px;
       text-align: center;
+      color: #42645a;
     }
 
-    footer a {
-      color: #ffe2a1;
+    /* FOOTER */
+    footer {
+      background: #15352e;
+      color: white;
+      text-align: center;
+      padding: 22px;
     }
 
-    .small {
-      font-size: .92rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 600px) {
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 700px) {
       .hero {
-        padding: 45px 6vw;
+        min-height: 350px;
+        padding: 35px 22px;
+        background-position: center;
       }
 
-      .hero-image {
-  width: 100%;
-  height: 420px;
-  display: block;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 22px;
-}
+      .hero h1 {
+        font-size: 43px;
+      }
 
-      main {
-        padding: 28px 14px 48px;
+      .hero p {
+        font-size: 16px;
       }
 
       nav {
-        align-items: flex-start;
+        gap: 15px;
+        padding: 14px 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 25px 16px 40px;
+      }
+
+      .card {
+        padding: 19px;
       }
     }
   </style>
@@ -189,149 +187,105 @@
 
 <body>
 
-  <header>
-    <nav aria-label="Main navigation">
-      <a href="../index.html">UTTARAKHAND EXPLORER</a>
-      <a href="../index.html#destinations">← All Destinations</a>
-    </nav>
+  <!-- HERO SECTION -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <span class="location-tag">Nainital • Uttarakhand, India</span>
+      <h1>Nainital</h1>
+      <p>The Lake District of India – A beautiful Himalayan hill station</p>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
-      <span class="tag">Lake town</span>
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#history">History</a>
+    <a href="#geography">Geography</a>
+    <a href="#activities">Activities</a>
+  </nav>
 
-      <h1>Nainital</h1>
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-      <p>
-        A practical guide to the scenery, viewpoints, local culture,
-        best visiting season and useful travel information for
-        Nainital, Uttarakhand.
-      </p>
-
-      <img
-  class="hero-image"
-  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbYgRKRCrZ3_Kjc_KeijF8JoOtSOoRpjBgOTM-6TOROw&s=10"
-  alt="Beautiful view of Nainital"
->
-    </div>
-  </section>
-
-  <main>
-
-    <p class="intro">
-      Nainital offers a memorable experience of Uttarakhand's
-      Himalayan landscapes and living heritage. Use this guide
-      to plan what to see, when to go and how to visit respectfully.
+    <p class="intro" id="about">
+      <strong>Nainital</strong> is a famous hill station in Uttarakhand,
+      known for its beautiful Naini Lake, green mountains and pleasant
+      weather. It is one of the most popular tourist destinations in
+      the Kumaon region.
     </p>
 
-    <div class="grid">
+    <div class="cards">
 
-      <article class="card">
-        <h2>Famous Viewpoints &amp; Places</h2>
-        <ul>
-          <li>Naini Lake</li>
-          <li>Naina Devi Temple</li>
-          <li>Snow View Point</li>
-          <li>Tiffin Top</li>
-          <li>The Mall Road</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2>Things to Do</h2>
+      <section class="card">
+        <h2>1. About Nainital</h2>
         <p>
-          Enjoy boating, lakeside walks, scenic viewpoints,
-          local markets, Kumaoni food and temple visits.
+          Nainital is surrounded by beautiful hills and centred around
+          the famous Naini Lake. Visitors come here to enjoy boating,
+          sightseeing, shopping and peaceful mountain views.
         </p>
-      </article>
+      </section>
 
-      <article class="card">
-        <h2>Best Time to Visit</h2>
+      <section class="card" id="history">
+        <h2>2. History of Nainital</h2>
         <p>
-          March to June and September to November are popular
-          visiting periods. Winters are cold and may be misty.
+          Nainital developed as a popular hill station during British
+          rule. The town became known for its scenic lake, pleasant
+          climate and colonial-era buildings.
         </p>
-        <p class="small">
-          Weather, road access and opening dates can change.
-          Check local advisories shortly before travelling.
-        </p>
-      </article>
+      </section>
 
-      <article class="card">
-        <h2>Culture &amp; Local Life</h2>
+      <section class="card" id="geography">
+        <h2>3. Geography and Location</h2>
         <p>
-          Discover Kumaoni traditions, Nanda Devi worship,
-          local fairs, woollens and regional food.
+          Nainital is located in the Kumaon region of Uttarakhand.
+          It lies at an altitude of around 2,000 metres and is
+          surrounded by forest-covered hills.
         </p>
-      </article>
+      </section>
+
+      <section class="card" id="activities">
+        <h2>4. Things to Do in Nainital</h2>
+        <p>
+          Visitors can enjoy boating in Naini Lake, explore Mall Road,
+          visit Naina Devi Temple, take a ropeway ride and enjoy
+          beautiful views from Snow View Point.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>5. Best Time to Visit</h2>
+        <p>
+          March to June is popular for pleasant weather and sightseeing.
+          September to November is also a good time to enjoy clear
+          skies and beautiful mountain views.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>6. How to Reach Nainital</h2>
+        <p>
+          The nearest railway station is Kathgodam Railway Station.
+          Nainital is connected to Kathgodam by road, with taxis
+          and buses available for visitors.
+        </p>
+      </section>
 
     </div>
 
-    <section class="info">
-      <h2>History &amp; Local Significance</h2>
-      <p>
-        Nainital developed as a hill station during the British
-        period in the nineteenth century. The lake is also
-        associated with the Hindu tradition of Naina Devi.
-      </p>
+    <!-- VIDEO SECTION -->
+    <section class="video-section">
+      <h2>Nainital Travel Video</h2>
+      <div class="video-placeholder">
+        <p>Nainital video will be added when its video file is available.</p>
+      </div>
     </section>
-
-    <section class="info">
-      <h2>Population &amp; Settlement</h2>
-      <p>
-        Nainital is a hill town and the headquarters of
-        Nainital district. Population figures depend on
-        the year and the administrative boundary being used.
-      </p>
-      <p class="small">
-        For accurate population data, consult the latest
-        available Census of India or official municipal
-        publications. Always mention the year and whether
-        the figure refers to the town, municipality or district.
-      </p>
-    </section>
-
-    <section class="info">
-      <h2>Visitor Tips</h2>
-      <p>
-        Allow one to two days to explore Nainital. Roads can
-        be busy on weekends and holidays. Use authorised
-        boating services and follow local lake rules.
-      </p>
-
-      <ul>
-        <li>Carry a reusable water bottle and take all litter back with you.</li>
-        <li>Respect local customs, places of worship, wildlife and private property.</li>
-        <li>Mountain weather can change quickly, so keep your plans flexible and carry suitable clothing.</li>
-        <li>Use authorised guides and operators for outdoor activities.</li>
-      </ul>
-    </section>
-
-    <section class="info">
-      <h2>Responsible Travel</h2>
-      <p>
-        Choose locally run services where possible, ask permission
-        before photographing people, and avoid disturbing wildlife
-        or fragile natural areas. Treat local legends respectfully
-        and distinguish them from documented historical facts.
-      </p>
-    </section>
-
-    <p class="small">
-      This page is an introductory travel guide. Confirm current
-      opening times, permits, prices, road status and safety
-      conditions with official local sources before travelling.
-    </p>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <p><strong>Uttarakhand Explorer</strong> · Discover places with care.</p>
-    <p>
-      <a href="../index.html#destinations">
-        Return to Explore Uttarakhand
-      </a>
-    </p>
+    <p>Explore Uttarakhand | Uttarakhand Tourism</p>
   </footer>
 
 </body>

@@ -1,0 +1,317 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dhanaulti - Uttarakhand Tourism</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f4ec;
+      color: #183c36;
+      line-height: 1.7;
+    }
+
+    .hero {
+      min-height: 410px;
+      background:
+        linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.1)),
+        url("../assets/images/dhanaulti.jpeg") center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 55px 7%;
+      color: white;
+    }
+
+    .hero-content h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      max-width: 650px;
+    }
+
+    .location-tag {
+      display: inline-block;
+      background: #08745d;
+      color: white;
+      padding: 6px 15px;
+      border-radius: 20px;
+      margin-bottom: 12px;
+      font-size: 14px;
+    }
+
+    nav {
+      background: #15352e;
+      padding: 14px 7%;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-right: 22px;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+
+    h2 {
+      color: #08745d;
+      margin-bottom: 18px;
+      font-size: 28px;
+    }
+
+    .intro {
+      background: white;
+      padding: 25px;
+      border-radius: 17px;
+      border: 1px solid #e5e5dc;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      margin-bottom: 30px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 24px;
+      border-radius: 17px;
+      border: 1px solid #e5e5dc;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+    }
+
+    .card h3 {
+      color: #08745d;
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .video-section {
+      background: white;
+      padding: 25px;
+      border-radius: 17px;
+      border: 1px solid #e5e5dc;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      margin-top: 30px;
+    }
+
+    .video-placeholder {
+      background: #e8eee9;
+      min-height: 220px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #31584d;
+    }
+
+    footer {
+      background: #15352e;
+      color: white;
+      text-align: center;
+      padding: 22px;
+      margin-top: 30px;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        min-height: 350px;
+        padding: 35px 6%;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 5px 12px 5px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <span class="location-tag">Tehri Garhwal, Uttarakhand</span>
+      <h1>Dhanaulti</h1>
+      <p>Discover peaceful forests, beautiful Himalayan views and the natural beauty of this quiet hill station.</p>
+    </div>
+  </header>
+
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="#places">Places to Visit</a>
+    <a href="#activities">Activities</a>
+    <a href="#video">Video</a>
+  </nav>
+
+  <main class="container">
+
+    <section class="intro" id="about">
+      <h2>About Dhanaulti</h2>
+      <p>
+        Dhanaulti is a peaceful hill station in the Tehri Garhwal district
+        of Uttarakhand. Located at an altitude of around 2,250 metres,
+        it is surrounded by beautiful forests of deodar, oak and
+        rhododendron trees.
+      </p>
+      <p>
+        Away from the busy tourist crowds, Dhanaulti offers a relaxing
+        atmosphere, pleasant weather and wonderful views of the Himalayan
+        mountains. It is a perfect destination for nature lovers,
+        families and travellers looking for a peaceful getaway.
+      </p>
+    </section>
+
+    <section id="places">
+      <h2>Popular Places to Visit</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Dhanaulti Eco Park</h3>
+          <p>
+            Dhanaulti has two beautiful eco parks named Amber and Dhara.
+            Surrounded by tall deodar and oak trees, these parks are
+            perfect for nature walks, relaxation and spending time
+            with family.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Surkanda Devi Temple</h3>
+          <p>
+            Located near Dhanaulti, Surkanda Devi Temple is an important
+            religious destination and one of the 51 Shakti Peethas.
+            Visitors can reach the temple through a scenic trek from
+            Kaddukhal.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Deogarh Fort</h3>
+          <p>
+            Deogarh Fort is a historical attraction known for its
+            ancient architecture, beautiful murals and nearby Jain
+            temples. It offers a glimpse into the region's history.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Aaloo Khet</h3>
+          <p>
+            Aaloo Khet is a potato farm and a popular viewpoint near
+            Dhanaulti. It is a peaceful place to enjoy open landscapes
+            and capture beautiful photographs.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="activities">
+      <h2>Things to Do in Dhanaulti</h2>
+
+      <div class="grid">
+
+        <div class="card">
+          <h3>Trekking and Nature Walks</h3>
+          <p>
+            Explore the beautiful forest trails and enjoy peaceful
+            walks through the deodar and oak forests. The trek to
+            Surkanda Devi Temple is a popular experience.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Camping</h3>
+          <p>
+            Enjoy camping in the natural surroundings of Dhanaulti.
+            The forests, open landscapes and mountain views make it
+            a wonderful destination for outdoor stays.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Mountain Biking</h3>
+          <p>
+            Explore the scenic mountain roads and forest pathways
+            through cycling and mountain biking.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Photography</h3>
+          <p>
+            Capture beautiful Himalayan views, green forests,
+            peaceful landscapes and the natural beauty of Dhanaulti.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="intro">
+      <h2>Best Time to Visit</h2>
+      <p>
+        April to October is considered a good time to visit Dhanaulti
+        for pleasant weather and outdoor activities. During winter,
+        the region may receive snowfall and becomes especially
+        attractive for visitors who enjoy cold weather.
+      </p>
+    </section>
+
+    <section class="intro">
+      <h2>How to Reach Dhanaulti</h2>
+
+      <p><strong>By Air:</strong> The nearest airport is Jolly Grant Airport near Dehradun.</p>
+
+      <p><strong>By Train:</strong> Dehradun and Rishikesh are the nearest major railway stations.</p>
+
+      <p><strong>By Road:</strong> Dhanaulti is connected by road with Dehradun, Mussoorie and other major destinations of Uttarakhand.</p>
+    </section>
+
+    <section class="video-section" id="video">
+      <h2>Explore Dhanaulti – Video</h2>
+      <div class="video-placeholder">
+        <p>Dhanaulti video will be added here soon.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Uttarakhand Tourism | Explore the Beauty of Uttarakhand</p>
+  </footer>
+
+</body>
+</html>

@@ -1,23 +1,15 @@
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Travel guide to Mussoorie, Uttarakhand, featuring viewpoints, culture, the best time to visit and practical travel tips.">
-  <title>Mussoorie Travel Guide | Uttarakhand Explorer</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mussoorie - Uttarakhand Tourism</title>
 
   <style>
-    :root {
-      --ink: #18332b;
-      --green: #1f6a50;
-      --gold: #dba94b;
-      --paper: #f6f7f2;
-      --muted: #5e6d66;
-      --white: #fff;
-    }
-
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
@@ -26,158 +18,168 @@
     }
 
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--paper);
-      color: var(--ink);
+      font-family: Arial, sans-serif;
+      background: #f5f4ec;
+      color: #183c36;
       line-height: 1.7;
     }
 
-    header {
-      background: linear-gradient(135deg, #153f35, #367b61);
-      color: var(--white);
-      padding: 18px 6vw;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    nav a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    nav a:hover,
-    footer a:hover {
-      text-decoration: underline;
-    }
-
+    /* HERO SECTION */
     .hero {
-      padding: 65px 6vw;
-      background: linear-gradient(135deg, #153f35, #367b61);
-      color: var(--white);
+      min-height: 410px;
+      background:
+        linear-gradient(to top, rgba(0, 20, 25, 0.85), rgba(0, 0, 0, 0.15)),
+        url('../assets/images/mussoorie.jpeg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 55px 7%;
+      color: white;
     }
 
     .hero-content {
-      max-width: 1100px;
-      margin: auto;
+      max-width: 900px;
     }
 
-    .tag {
+    .location-tag {
       display: inline-block;
-      background: var(--gold);
-      color: #172c24;
-      padding: 5px 12px;
-      border-radius: 99px;
-      font-size: .82rem;
+      background: #f4f5f1;
+      color: #164d40;
+      padding: 7px 16px;
+      border-radius: 25px;
+      font-size: 14px;
       font-weight: bold;
+      margin-bottom: 18px;
     }
 
-    h1 {
-      font-size: clamp(2.3rem, 6vw, 4.5rem);
-      line-height: 1.08;
-      margin: 16px 0;
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 74px);
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
 
     .hero p {
-      max-width: 760px;
-      font-size: 1.1rem;
+      font-size: 19px;
     }
 
-    .hero-image {
-      display: block;
-      width: 100%;
-      height: 380px;
-      object-fit: cover;
-      border-radius: 22px;
-      margin-top: 28px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, .2);
+    /* NAVIGATION */
+    nav {
+      background: #15352e;
+      padding: 15px 7%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
     }
 
-    main {
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    nav a:hover {
+      color: #b9dfc9;
+    }
+
+    /* MAIN CONTENT */
+    .container {
       max-width: 1100px;
-      margin: 0 auto;
-      padding: 32px 20px 60px;
+      margin: auto;
+      padding: 30px 22px 55px;
     }
 
     .intro {
-      font-size: 1.08rem;
-      color: #344c43;
+      font-size: 17px;
+      margin-bottom: 25px;
+      color: #294b45;
     }
 
-    .grid {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 245px), 1fr));
-      gap: 18px;
-      margin: 24px 0;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
     }
 
-    .card,
-    section.info {
-      background: var(--white);
-      border: 1px solid #e2e8df;
-      border-radius: 16px;
+    .card {
+      background: white;
+      border: 1px solid #dce5dc;
+      border-radius: 17px;
       padding: 22px;
-      box-shadow: 0 6px 22px rgba(25, 60, 44, .05);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
     }
 
-    h2 {
-      margin: 0 0 12px;
-      color: var(--green);
-      font-size: 1.45rem;
-      line-height: 1.3;
+    .card h2 {
+      color: #08745d;
+      font-size: 21px;
+      margin-bottom: 10px;
     }
 
-    ul {
-      padding-left: 21px;
+    .card p {
+      color: #29433e;
+      font-size: 16px;
     }
 
-    li {
-      margin: 6px 0;
+    /* VIDEO SECTION */
+    .video-section {
+      margin-top: 40px;
+      background: white;
+      border: 1px solid #dce5dc;
+      border-radius: 17px;
+      padding: 25px;
     }
 
-    .info {
-      margin: 18px 0;
+    .video-section h2 {
+      color: #08745d;
+      margin-bottom: 15px;
     }
 
-    footer {
-      background: #143d32;
-      color: #eaf3ed;
-      padding: 25px 6vw;
+    .video-placeholder {
+      background: #edf1eb;
+      border-radius: 12px;
+      padding: 35px 20px;
       text-align: center;
+      color: #42645a;
     }
 
-    footer a {
-      color: #ffe2a1;
+    /* FOOTER */
+    footer {
+      background: #15352e;
+      color: white;
+      text-align: center;
+      padding: 22px;
     }
 
-    .small {
-      font-size: .92rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 600px) {
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 700px) {
       .hero {
-        padding: 45px 6vw;
+        min-height: 350px;
+        padding: 35px 22px;
+        background-position: center;
       }
 
-      .hero-image {
-        height: 230px;
-        border-radius: 15px;
+      .hero h1 {
+        font-size: 43px;
       }
 
-      main {
-        padding: 28px 14px 48px;
+      .hero p {
+        font-size: 16px;
       }
 
       nav {
-        align-items: flex-start;
+        gap: 15px;
+        padding: 14px 20px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .container {
+        padding: 25px 16px 40px;
+      }
+
+      .card {
+        padding: 19px;
       }
     }
   </style>
@@ -185,156 +187,103 @@
 
 <body>
 
-  <header>
-    <nav aria-label="Main navigation">
-      <a href="../index.html">UTTARAKHAND EXPLORER</a>
-      <a href="../index.html#destinations">← All Destinations</a>
-    </nav>
+  <!-- HERO SECTION -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <span class="location-tag">Dehradun • Uttarakhand, India</span>
+      <h1>Mussoorie</h1>
+      <p>The Queen of Hills – A beautiful Himalayan hill station</p>
+    </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-content">
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#history">History</a>
+    <a href="#geography">Geography</a>
+    <a href="#activities">Activities</a>
+  </nav>
 
-      <span class="tag">Hill station</span>
+  <!-- MAIN CONTENT -->
+  <main class="container">
 
-      <h1>Mussoorie</h1>
-
-      <p>
-        A practical guide to the scenery, viewpoints, local culture,
-        best visiting season and useful travel information for
-        Mussoorie, Uttarakhand.
-      </p>
-
-      <!-- MUSSOORIE IMAGE FROM INDEX PAGE -->
-      <img
-        class="hero-image"
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwJ0fs7khsjGs-SzNMQ3eynFkMJOkPHdO6wafW2HTf_w&s=10"
-        alt="Mussoorie hill station and forested hills"
-        loading="lazy"
-      >
-
-    </div>
-  </section>
-
-  <main>
-
-    <p class="intro">
-      Mussoorie offers a memorable experience of Uttarakhand's
-      Himalayan landscapes and hill-town heritage. Use this guide
-      to plan what to see, when to go and how to visit respectfully.
+    <p class="intro" id="about">
+      <strong>Mussoorie</strong> is a famous hill station in Dehradun district
+      of Uttarakhand. Known as the Queen of Hills, it is popular for its
+      beautiful mountain views, pleasant weather, waterfalls and scenic valleys.
     </p>
 
-    <div class="grid">
+    <div class="cards">
 
-      <article class="card">
-        <h2>Famous Viewpoints &amp; Places</h2>
-        <ul>
-          <li>Gun Hill</li>
-          <li>Lal Tibba</li>
-          <li>Camel's Back Road</li>
-          <li>Company Garden</li>
-          <li>Kempty Falls</li>
-          <li>Landour</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h2>Things to Do</h2>
+      <section class="card">
+        <h2>1. About Mussoorie</h2>
         <p>
-          Enjoy mountain viewpoints, heritage walks, waterfalls,
-          cafés, shopping and views over the Doon Valley.
+          Mussoorie is one of the most popular tourist destinations in
+          Uttarakhand. Surrounded by green hills and Himalayan views, it
+          attracts visitors throughout the year.
         </p>
-      </article>
+      </section>
 
-      <article class="card">
-        <h2>Best Time to Visit</h2>
+      <section class="card" id="history">
+        <h2>2. History of Mussoorie</h2>
         <p>
-          March to June and September to November are popular
-          visiting periods. The monsoon season brings rain and
-          may increase the risk of road disruption and landslides.
+          Mussoorie developed as a hill station during British rule in India.
+          Its pleasant climate and beautiful surroundings made it a popular
+          summer retreat.
         </p>
-        <p class="small">
-          Weather, road access and opening dates can change.
-          Check local advisories shortly before travelling.
-        </p>
-      </article>
+      </section>
 
-      <article class="card">
-        <h2>Culture &amp; Local Life</h2>
+      <section class="card" id="geography">
+        <h2>3. Geography and Location</h2>
         <p>
-          Discover Garhwali culture, hill-town markets,
-          colonial-era buildings and regional dishes such
-          as kafuli and chainsoo.
+          Mussoorie is situated in the Garhwal Himalayan region of Uttarakhand,
+          at an elevation of around 2,000 metres. It offers beautiful views
+          of the Doon Valley and surrounding mountains.
         </p>
-      </article>
+      </section>
+
+      <section class="card" id="activities">
+        <h2>4. Things to Do in Mussoorie</h2>
+        <p>
+          Visitors can explore Mall Road, enjoy the ropeway to Gun Hill,
+          visit Kempty Falls, take nature walks and enjoy the mountain scenery.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>5. Best Time to Visit</h2>
+        <p>
+          March to June is popular for pleasant weather and sightseeing.
+          September to November is also a good time to enjoy clear mountain
+          views and peaceful surroundings.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>6. How to Reach Mussoorie</h2>
+        <p>
+          The nearest railway station is Dehradun Railway Station.
+          Mussoorie is connected to Dehradun by road, and taxis and buses
+          are available for the journey.
+        </p>
+      </section>
 
     </div>
 
-    <section class="info">
-      <h2>History &amp; Local Significance</h2>
-      <p>
-        Mussoorie developed as a British-era hill station
-        during the nineteenth century and later became
-        a popular summer and weekend destination.
-      </p>
+    <!-- VIDEO SECTION -->
+    <section class="video-section">
+      <h2>Mussoorie Travel Video</h2>
+      <div class="video-placeholder">
+        <p>Mussoorie video will be added when its video file is available.</p>
+      </div>
     </section>
-
-    <section class="info">
-      <h2>Population &amp; Settlement</h2>
-      <p>
-        Mussoorie is an inhabited hill town. Population figures
-        depend on the year and the administrative boundary being
-        used; visitor numbers also vary considerably by season.
-      </p>
-      <p class="small">
-        For accurate population data, consult the latest
-        available Census of India or official municipal
-        publications. Always mention the year and whether
-        the figure refers to the town, municipality or district.
-      </p>
-    </section>
-
-    <section class="info">
-      <h2>Visitor Tips</h2>
-      <p>
-        Plan one to three days. Traffic and parking can become
-        difficult during peak holidays, so check local traffic
-        updates, waterfall access and weather before travelling.
-      </p>
-
-      <ul>
-        <li>Carry a reusable water bottle and take all litter back with you.</li>
-        <li>Respect local customs, places of worship, wildlife and private property.</li>
-        <li>Mountain weather can change quickly, so keep your plans flexible and carry suitable clothing.</li>
-        <li>Use authorised guides and operators for outdoor activities.</li>
-      </ul>
-    </section>
-
-    <section class="info">
-      <h2>Responsible Travel</h2>
-      <p>
-        Choose locally run services where possible, ask permission
-        before photographing people, and avoid disturbing wildlife
-        or fragile natural areas. Treat local legends respectfully
-        and distinguish them from documented historical facts.
-      </p>
-    </section>
-
-    <p class="small">
-      This page is an introductory travel guide. Confirm current
-      opening times, permits, prices, road status and safety
-      conditions with official local sources before travelling.
-    </p>
 
   </main>
 
+  <!-- FOOTER -->
   <footer>
-    <p><strong>Uttarakhand Explorer</strong> · Discover places with care.</p>
-    <p>
-      <a href="../index.html#destinations">
-        Return to Explore Uttarakhand
-      </a>
-    </p>
+    <p>Explore Uttarakhand | Uttarakhand Tourism</p>
   </footer>
 
 </body>
