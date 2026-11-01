@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -129,12 +130,12 @@ li {
     margin: 25px 0;
 }
 
-.video-placeholder {
-    background: #e9eee9;
+.video-section video {
+    width: 100%;
+    max-height: 500px;
+    display: block;
     border-radius: 12px;
-    padding: 35px 20px;
-    text-align: center;
-    color: #52645b;
+    background: #000;
 }
 
 footer {
@@ -291,11 +292,12 @@ footer a {
 
 <!-- Rishikesh Video Section -->
 <section class="video-section">
-    <h2>Rishikesh Video</h2>
-    <div class="video-placeholder">
-        <p><strong>Video Coming Soon</strong></p>
-        <p>Rishikesh ka video yahan add kiya jayega.</p>
-    </div>
+    <h2>Rishikesh Travel Video</h2>
+
+    <video controls muted preload="metadata" poster="../assets/images/rishikesh.jpeg">
+        <source src="../assets/videos/rishikesh.mp4" type="video/mp4">
+        Your browser does not support HTML video.
+    </video>
 </section>
 
 <p class="small">

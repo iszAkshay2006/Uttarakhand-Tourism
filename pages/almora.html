@@ -2,230 +2,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Almora - Uttarakhand Tourism</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Almora, Uttarakhand – its attractions, culture, food and beautiful Himalayan views.">
+    <title>Almora - Uttarakhand Tourism</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: #f5f4ec;
-      color: #183c36;
-      font-family: Arial, sans-serif;
-      line-height: 1.7;
-    }
+        body {
+            background: #f5f4ec;
+            color: #183c36;
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+        }
 
-    .hero {
-      min-height: 410px;
-      background:
-        linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1)),
-        url("../assets/images/almora.jpeg") center/cover no-repeat;
-      display: flex;
-      align-items: flex-end;
-      padding: 55px 7%;
-      color: white;
-    }
+        nav {
+            background: #15352e;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
 
-    .hero h1 {
-      font-size: 48px;
-      margin: 12px 0;
-    }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: bold;
+        }
 
-    .location-tag {
-      display: inline-block;
-      background: #08745d;
-      padding: 5px 16px;
-      border-radius: 20px;
-      font-size: 14px;
-    }
+        nav a:hover {
+            color: #e5bd63;
+        }
 
-    nav {
-      background: #15352e;
-      padding: 15px 7%;
-    }
+        .hero {
+            min-height: 410px;
+            background:
+                linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.1)),
+                url("../assets/images/almora.jpeg") center/cover no-repeat;
+            display: flex;
+            align-items: flex-end;
+            padding: 55px 7%;
+            color: white;
+        }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-right: 22px;
-      font-weight: bold;
-    }
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 48px);
+            margin: 12px 0;
+            line-height: 1.2;
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 35px 20px;
-    }
+        .hero p {
+            font-size: 17px;
+            max-width: 700px;
+        }
 
-    h2 {
-      color: #08745d;
-      margin-bottom: 15px;
-    }
+        .location-tag {
+            display: inline-block;
+            background: #e5bd63;
+            color: #183c36;
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
 
-    .intro {
-      margin-bottom: 30px;
-    }
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 35px 20px 55px;
+        }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
+        h2 {
+            color: #08745d;
+            margin-bottom: 15px;
+        }
 
-    .card, .video-section {
-      background: white;
-      padding: 25px;
-      border-radius: 17px;
-      border: 1px solid #e5e5dc;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    }
+        .intro {
+            margin-bottom: 30px;
+            font-size: 17px;
+            color: #344c43;
+        }
 
-    .card h2 {
-      font-size: 21px;
-    }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
 
-    .video-section {
-      margin-top: 30px;
-    }
+        .card,
+        .video-section {
+            background: white;
+            padding: 25px;
+            border-radius: 17px;
+            border: 1px solid #e5e5dc;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+        }
 
-    .video-placeholder {
-      background: #e8eee9;
-      border-radius: 12px;
-      padding: 35px 15px;
-      text-align: center;
-      color: #183c36;
-    }
+        .card h2 {
+            font-size: 21px;
+        }
 
-    footer {
-      background: #15352e;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 30px;
-    }
+        .card p {
+            color: #344c43;
+        }
 
-    @media (max-width: 700px) {
-      .hero {
-        min-height: 350px;
-      }
+        .video-section {
+            margin-top: 30px;
+        }
 
-      .hero h1 {
-        font-size: 36px;
-      }
+        .video-placeholder {
+            background: #e8eee9;
+            border-radius: 12px;
+            padding: 35px 15px;
+            text-align: center;
+            color: #183c36;
+        }
 
-      .cards {
-        grid-template-columns: 1fr;
-      }
+        footer {
+            background: #15352e;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 30px;
+        }
 
-      nav a {
-        display: inline-block;
-        margin: 5px 12px 5px 0;
-      }
-    }
-  </style>
+        @media (max-width: 700px) {
+            .hero {
+                min-height: 350px;
+                padding: 40px 6%;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 12px 5px 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-  <header class="hero">
-    <div>
-      <span class="location-tag">Kumaon Region, Uttarakhand</span>
-      <h1>Almora</h1>
-      <p>Discover the beauty, culture and peaceful hills of Almora.</p>
-    </div>
-  </header>
+    <nav>
+        <a href="../index.html">UTTARAKHAND TOURISM</a>
 
-  <nav>
-    <a href="../index.html">Home</a>
-    <a href="../index.html#destinations">Destinations</a>
-  </nav>
+        <div>
+            <a href="../index.html">Home</a>
+            <a href="../index.html#destinations">Destinations</a>
+        </div>
+    </nav>
 
-  <main class="container">
+    <!-- Hero Section -->
+    <header class="hero">
+        <div>
+            <span class="location-tag">Kumaon Region, Uttarakhand</span>
+            <h1>Almora</h1>
+            <p>
+                Discover the beauty, culture and peaceful hills of Almora.
+                Experience the charm of traditional Kumaoni life and
+                beautiful Himalayan mountain views.
+            </p>
+        </div>
+    </header>
 
-    <section class="intro">
-      <h2>Welcome to Almora</h2>
-      <p>
-        Almora is a beautiful hill town in the Kumaon region of Uttarakhand.
-        Surrounded by green hills and scenic mountain views, it is known
-        for its natural beauty, rich culture, traditional markets and
-        peaceful atmosphere. Almora is a wonderful destination for
-        travellers who want to experience the charm of the Himalayas.
-      </p>
-    </section>
+    <main class="container">
 
-    <section class="cards">
+        <!-- Introduction -->
+        <section class="intro">
+            <h2>Welcome to Almora</h2>
 
-      <div class="card">
-        <h2>About Almora</h2>
-        <p>
-          Almora is famous for its traditional culture, beautiful
-          architecture, local handicrafts and panoramic views of the
-          Himalayan mountain ranges.
-        </p>
-      </div>
+            <p>
+                Almora is a beautiful hill town in the Kumaon region of Uttarakhand.
+                Surrounded by green hills and scenic mountain views, it is known
+                for its natural beauty, rich culture, traditional markets and
+                peaceful atmosphere. Almora is a wonderful destination for
+                travellers who want to experience the charm of the Himalayas.
+            </p>
+        </section>
 
-      <div class="card">
-        <h2>Famous Attractions</h2>
-        <p>
-          Popular places around Almora include Kasar Devi Temple,
-          Bright End Corner, Zero Point at Binsar and Chitai Golu Devta
-          Temple.
-        </p>
-      </div>
+        <!-- Information Cards -->
+        <section class="cards">
 
-      <div class="card">
-        <h2>Best Time to Visit</h2>
-        <p>
-          March to June and September to November are generally pleasant
-          periods to explore Almora and its surrounding areas.
-        </p>
-      </div>
+            <div class="card">
+                <h2>About Almora</h2>
+                <p>
+                    Almora is famous for its traditional culture, beautiful
+                    architecture, local handicrafts and panoramic views of the
+                    Himalayan mountain ranges.
+                </p>
+            </div>
 
-      <div class="card">
-        <h2>Things to Do</h2>
-        <p>
-          Enjoy Himalayan views, explore local markets, visit temples,
-          try Kumaoni food and experience the peaceful mountain lifestyle.
-        </p>
-      </div>
+            <div class="card">
+                <h2>Famous Attractions</h2>
+                <p>
+                    Popular places around Almora include Kasar Devi Temple,
+                    Bright End Corner, Zero Point at Binsar and Chitai Golu Devta
+                    Temple.
+                </p>
+            </div>
 
-      <div class="card">
-        <h2>Local Food</h2>
-        <p>
-          Try traditional Kumaoni dishes such as Bhatt ki Churkani,
-          Aloo ke Gutke, Bal Mithai and Singori.
-        </p>
-      </div>
+            <div class="card">
+                <h2>Best Time to Visit</h2>
+                <p>
+                    March to June and September to November are generally pleasant
+                    periods to explore Almora and its surrounding areas.
+                </p>
+            </div>
 
-      <div class="card">
-        <h2>How to Reach</h2>
-        <p>
-          Almora can be reached by road from nearby cities. Kathgodam
-          is a major nearby railway station, while Pantnagar is the
-          nearest airport.
-        </p>
-      </div>
+            <div class="card">
+                <h2>Things to Do</h2>
+                <p>
+                    Enjoy Himalayan views, explore local markets, visit temples,
+                    try Kumaoni food and experience the peaceful mountain lifestyle.
+                </p>
+            </div>
 
-    </section>
+            <div class="card">
+                <h2>Local Food</h2>
+                <p>
+                    Try traditional Kumaoni dishes such as Bhatt ki Churkani,
+                    Aloo ke Gutke, Bal Mithai and Singori.
+                </p>
+            </div>
 
-    <section class="video-section">
-      <h2>Explore Almora – Video</h2>
-      <div class="video-placeholder">
-        <p>Almora video will be added here soon.</p>
-        <p>Video file is not currently available in your videos folder.</p>
-      </div>
-    </section>
+            <div class="card">
+                <h2>How to Reach</h2>
+                <p>
+                    Almora can be reached by road from nearby cities. Kathgodam
+                    is a major nearby railway station, while Pantnagar is the
+                    nearest airport.
+                </p>
+            </div>
 
-  </main>
+        </section>
 
-  <footer>
-    <p>© 2026 Uttarakhand Tourism | Explore the Land of Gods</p>
-  </footer>
+        <!-- Video Section -->
+        <section class="video-section">
+            <h2>Explore Almora – Video</h2>
+
+            <div class="video-placeholder">
+                <p><strong>Video Coming Soon</strong></p>
+                <p>Almora video will be added here soon.</p>
+                <p>Video file is not currently available in your videos folder.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Uttarakhand Tourism | Explore the Land of Gods</p>
+    </footer>
 
 </body>
 </html>
