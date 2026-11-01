@@ -1,307 +1,250 @@
+
 import { auth, db } from "../firebase/firebase-config.js";
 
 import {
-  createUserWithEmailAndPassword,
-  updateProfile,
-  sendEmailVerification
+    createUserWithEmailAndPassword,
+    updateProfile,
+    sendEmailVerification
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 
 import {
-  doc,
-  setDoc,
-  serverTimestamp
+    doc,
+    setDoc,
+    serverTimestamp
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
+
 document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("signupForm");
-  const message = document.getElementById("formMessage");
 
-  if (!form || !message) {
-    console.error("Signup form ya formMessage nahi mila.");
-    return;
-  }
+    const signupForm = document.getElementById("signupForm");
 
-  const fields = {
-    fullName: document.getElementById("fullName"),
-    username: document.getElementById("username"),
-    email: document.getElementById("email"),
-    password: document.getElementById("password"),
-    confirmPassword: document.getElementById("confirmPassword"),
-    terms: document.getElementById("terms")
-  };
-
-  // Required fields check
-  const missingField = Object.entries(fields).find(
-    ([, field]) => !field
-  );
-
-  if (missingField) {
-    console.error("Signup field nahi mila:", missingField[0]);
-    message.textContent = "Signup form mein kuch fields missing hain.";
-    message.className = "form-message error";
-    return;
-  }
-
-  function showError(fieldName, text) {
-    const error = document.getElementById(`${fieldName}Error`);
-    if (error) error.textContent = text;
-
-    const field = fields[fieldName];
-    if (field) {
-      field.setAttribute("aria-invalid", text ? "true" : "false");
-    }
-  }
-
-  function validateForm() {
-    let valid = true;
-
-    Object.keys(fields).forEach(name => showError(name, ""));
-
-    const fullName = fields.fullName.value.trim();
-    const username = fields.username.value.trim();
-    const email = fields.email.value.trim();
-    const password = fields.password.value;
-    const confirmPassword = fields.confirmPassword.value;
-
-    if (fullName.length < 2) {
-      showError("fullName", "Please enter your full name.");
-      valid = false;
-    }
-
-    if (!/^[A-Za-z0-9_]{3,24}$/.test(username)) {
-      showError(
-        "username",
-        "Use 3–24 letters, numbers or underscores."
-      );
-      valid = false;
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      showError("email", "Please enter a valid email address.");
-      valid = false;
-    }
-
-    if (password.length < 8) {
-      showError(
-        "password",
-        "Password must contain at least 8 characters."
-      );
-      valid = false;
-    }
-
-    if (!confirmPassword || confirmPassword !== password) {
-      showError("confirmPassword", "Passwords do not match.");
-      valid = false;
-    }
-
-    if (!fields.terms.checked) {
-      showError(
-        "terms",
-        "Please accept the Terms of Service and Privacy Policy."
-      );
-      valid = false;
-    }
-
-    return valid;
-  }
-
-  // Show / Hide password
-  document.querySelectorAll(".toggle-password").forEach(button => {
-    button.addEventListener("click", () => {
-      const input = document.getElementById(button.dataset.target);
-
-      if (!input) {
-        console.error(
-          "Password input nahi mila:",
-          button.dataset.target
-        );
+    if (!signupForm) {
+        console.error("Signup form with id='signupForm' was not found.");
         return;
-      }
-
-      const isHidden = input.type === "password";
-
-      input.type = isHidden ? "text" : "password";
-      button.textContent = isHidden ? "Hide" : "Show";
-      button.setAttribute("aria-pressed", String(isHidden));
-
-      button.setAttribute(
-        "aria-label",
-        `${isHidden ? "Hide" : "Show"} ${
-          button.dataset.target === "password"
-            ? "password"
-            : "confirmation password"
-        }`
-      );
-    });
-  });
-
-  // Signup + verification email
-  form.addEventListener("submit", async event => {
-    event.preventDefault();
-
-    message.textContent = "";
-    message.className = "form-message";
-
-    if (!validateForm()) {
-      message.textContent =
-        "Please correct the highlighted fields.";
-      message.classList.add("error");
-
-      const firstInvalid = form.querySelector(
-        '[aria-invalid="true"]'
-      );
-
-      if (firstInvalid) firstInvalid.focus();
-      return;
     }
 
-    const fullName = fields.fullName.value.trim();
-    const username = fields.username.value.trim();
-    const email = fields.email.value.trim();
-    const password = fields.password.value;
+    const fields = {
+        fullName: document.getElementById("fullName"),
+        username: document.getElementById("username"),
+        email: document.getElementById("email"),
+        password: document.getElementById("password"),
+        confirmPassword: document.getElementById("confirmPassword"),
+        terms: document.getElementById("terms")
+    };
 
-    const submitButton = form.querySelector('[type="submit"]');
+    const submitButton = signupForm.querySelector(
+        'button[type="submit"]'
+    );
 
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Creating account...";
+    // Change this if your login page has a different filename.
+    const LOGIN_PAGE_URL = "./login.html";
+
+
+    // TOP NOTIFICATION
+    function showTopAlert(message, type = "success") {
+
+        const oldAlert = document.getElementById("signupTopAlert");
+
+        if (oldAlert) {
+            oldAlert.remove();
+        }
+
+        const alertBox = document.createElement("div");
+
+        alertBox.id = "signupTopAlert";
+        alertBox.textContent = message;
+
+        const isSuccess = type === "success";
+
+        alertBox.style.cssText = `
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+            max-width: 500px;
+            padding: 16px 22px;
+            border-radius: 12px;
+            background: ${isSuccess ? "#e8f8ee" : "#fff0f0"};
+            color: ${isSuccess ? "#176b38" : "#b42318"};
+            border: 1px solid ${isSuccess ? "#9ad5ad" : "#f2b8b5"};
+            font-size: 15px;
+            font-weight: 700;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,.15);
+            z-index: 999999;
+        `;
+
+        document.body.appendChild(alertBox);
     }
 
-    let accountCreated = false;
 
-    try {
-      // 1. Firebase account create karein
-      const credential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+    // PASSWORD SHOW / HIDE
+    document.querySelectorAll("[data-toggle-password]").forEach(button => {
 
-      accountCreated = true;
+        button.addEventListener("click", () => {
 
-      // 2. Firebase profile mein full name save karein
-      await updateProfile(credential.user, {
-        displayName: fullName
-      });
+            const targetId = button.getAttribute("data-toggle-password");
+            const passwordInput = document.getElementById(targetId);
 
-      // 3. Firestore mein user profile save karein
-      await setDoc(doc(db, "users", credential.user.uid), {
-        uid: credential.user.uid,
-        fullName,
-        username,
-        email,
-        createdAt: serverTimestamp()
-      });
+            if (!passwordInput) return;
 
-      // 4. Verification email bhejein
-      // Apne actual deployed login page URL se replace karein.
-      const verificationRedirectURL =
-        "https://YOUR-WEBSITE-URL.com/pages/login.html";
+            passwordInput.type =
+                passwordInput.type === "password" ? "text" : "password";
 
-      await sendEmailVerification(credential.user, {
-        url: verificationRedirectURL,
-        handleCodeInApp: false
-      });
+        });
 
-      // 5. User ko success message dikhayein
-      message.textContent =
-        "Account created! Check your inbox or spam folder and click the verification link. Then log in.";
-
-      message.classList.add("success");
-
-      // Password field ko clear karein
-      fields.password.value = "";
-      fields.confirmPassword.value = "";
-
-      // Redirect nahi karte, taaki user message padh sake.
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Create Account";
-      }
-
-    } catch (error) {
-      console.error(
-        "Signup error:",
-        error.code,
-        error.message
-      );
-
-      const errors = {
-        "auth/email-already-in-use":
-          "This email is already registered. Please log in.",
-
-        "auth/invalid-email":
-          "Please enter a valid email address.",
-
-        "auth/weak-password":
-          "Please choose a stronger password.",
-
-        "auth/network-request-failed":
-          "Check your internet connection and try again.",
-
-        "auth/operation-not-allowed":
-          "Enable Email/Password in Firebase Authentication.",
-
-        "auth/too-many-requests":
-          "Too many attempts. Please try again later.",
-
-        "permission-denied":
-          "Firestore permission denied. Check your security rules.",
-
-        "unavailable":
-          "The service is temporarily unavailable. Please try again."
-      };
-
-      if (accountCreated) {
-        // Account ban chuka hai, lekin profile ya email step fail hua.
-        message.textContent =
-          "Your account was created, but setup or the verification email could not be completed. Please try logging in and request a new verification email if needed.";
-      } else {
-        message.textContent =
-          errors[error.code] ||
-          "Signup failed. Please try again.";
-      }
-
-      message.classList.add("error");
-
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Create Account";
-      }
-    }
-  });
-
-  // Typing ke dauran errors clear/update karein
-  Object.entries(fields).forEach(([name, field]) => {
-    if (!field) return;
-
-    field.addEventListener("input", () => {
-      showError(name, "");
-
-      if (name === "password" &&
-          fields.confirmPassword.value) {
-        showError(
-          "confirmPassword",
-          fields.confirmPassword.value === field.value
-            ? ""
-            : "Passwords do not match."
-        );
-      }
-
-      if (name === "confirmPassword") {
-        showError(
-          "confirmPassword",
-          field.value === fields.password.value
-            ? ""
-            : "Passwords do not match."
-        );
-      }
     });
 
-    field.addEventListener("change", () => {
-      if (name === "terms" && field.checked) {
-        showError("terms", "");
-      }
+
+    // SIGNUP FORM SUBMIT
+    signupForm.addEventListener("submit", async (event) => {
+
+        event.preventDefault();
+
+        const fullName = fields.fullName?.value.trim() || "";
+        const username = fields.username?.value.trim() || "";
+        const email = fields.email?.value.trim().toLowerCase() || "";
+        const password = fields.password?.value || "";
+        const confirmPassword = fields.confirmPassword?.value || "";
+        const termsAccepted = fields.terms?.checked || false;
+
+
+        // VALIDATION
+        if (!fullName || !username || !email || !password || !confirmPassword) {
+            showTopAlert("Please fill in all required fields.", "error");
+            return;
+        }
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+            showTopAlert("Please enter a valid email address.", "error");
+            return;
+        }
+
+        if (password.length < 8) {
+            showTopAlert("Password must contain at least 8 characters.", "error");
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            showTopAlert("Passwords do not match.", "error");
+            return;
+        }
+
+        if (!termsAccepted) {
+            showTopAlert("Please accept the Terms and Conditions.", "error");
+            return;
+        }
+
+
+        // BUTTON LOADING
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Creating Account...";
+        }
+
+
+        let accountCreated = false;
+
+        try {
+
+            // CREATE FIREBASE ACCOUNT
+            const userCredential = await createUserWithEmailAndPassword(
+                auth,
+                email,
+                password
+            );
+
+            const user = userCredential.user;
+
+            accountCreated = true;
+
+
+            // SAVE USER PROFILE
+            await updateProfile(user, {
+                displayName: fullName
+            });
+
+
+            // SAVE USER DATA IN FIRESTORE
+            await setDoc(doc(db, "users", user.uid), {
+
+                uid: user.uid,
+                fullName: fullName,
+                username: username,
+                email: email,
+                createdAt: serverTimestamp()
+
+            });
+
+
+            // SEND EMAIL VERIFICATION
+            try {
+
+                await sendEmailVerification(user);
+
+            } catch (verificationError) {
+
+                console.error(
+                    "Verification email could not be sent:",
+                    verificationError
+                );
+
+            }
+
+
+            // SUCCESS NOTIFICATION
+            showTopAlert(
+                "✓ Account Created Successfully! Please Login.",
+                "success"
+            );
+
+
+            // CLEAR PASSWORD FIELDS
+            if (fields.password) {
+                fields.password.value = "";
+            }
+
+            if (fields.confirmPassword) {
+                fields.confirmPassword.value = "";
+            }
+
+
+            // OPEN LOGIN PAGE AFTER 2 SECONDS
+            setTimeout(() => {
+                window.location.href = LOGIN_PAGE_URL;
+            }, 2000);
+
+
+        } catch (error) {
+
+            console.error("Signup error:", error);
+
+            let errorMessage = "Unable to create account. Please try again.";
+
+            if (error.code === "auth/email-already-in-use") {
+                errorMessage = "This email is already registered. Please Login.";
+            } else if (error.code === "auth/invalid-email") {
+                errorMessage = "Please enter a valid email address.";
+            } else if (error.code === "auth/weak-password") {
+                errorMessage = "Please choose a stronger password.";
+            } else if (error.code === "auth/network-request-failed") {
+                errorMessage = "Network error. Please check your internet connection.";
+            } else if (accountCreated) {
+                errorMessage = "Account created, but profile saving failed. Please contact support.";
+            }
+
+            showTopAlert(errorMessage, "error");
+
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.textContent = "Create Account";
+            }
+
+        }
+
     });
-  });
+
 });

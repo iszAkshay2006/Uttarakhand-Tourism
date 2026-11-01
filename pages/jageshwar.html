@@ -4,7 +4,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Travel guide to Jageshwar Dham, Uttarakhand: viewpoints, culture, best time to visit and travel tips.">
+
+<meta name="description" content="Travel guide to Jageshwar Dham, Uttarakhand: temples, culture, deodar forests, best time to visit and travel tips.">
+
 <title>Jageshwar Dham Travel Guide | Uttarakhand Explorer</title>
 
 <style>
@@ -38,6 +40,10 @@ nav a {
   color: white;
   text-decoration: none;
   font-weight: bold;
+}
+
+nav a:hover {
+  color: #dba94b;
 }
 
 .hero {
@@ -106,6 +112,15 @@ nav a {
   box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
 }
 
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 9px 22px rgba(0, 0, 0, 0.09);
+}
+
 h2 {
   color: #08745d;
   margin-bottom: 12px;
@@ -143,22 +158,36 @@ li {
   margin-top: 10px;
 }
 
+/* Video Section */
+
 .video-section {
   margin-top: 30px;
   text-align: center;
 }
 
-.video-placeholder {
-  background: #e5ebe5;
-  min-height: 260px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  margin-top: 15px;
-  color: #183c36;
+.video-section h2 {
+  margin-bottom: 18px;
 }
+
+.place-video {
+  width: 100%;
+  max-width: 1000px;
+  height: 500px;
+  margin: 20px auto 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #071510;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.place-video video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Footer */
 
 footer {
   background: #15352e;
@@ -173,6 +202,12 @@ footer a {
   text-decoration: none;
 }
 
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+
 @media (max-width: 700px) {
   .hero {
     min-height: 350px;
@@ -183,6 +218,10 @@ footer a {
     font-size: 36px;
   }
 
+  .hero p {
+    font-size: 16px;
+  }
+
   .grid {
     grid-template-columns: 1fr;
   }
@@ -190,12 +229,35 @@ footer a {
   nav {
     justify-content: flex-start;
   }
+
+  nav a {
+    font-size: 14px;
+  }
+
+  .place-video {
+    height: 280px;
+  }
+
+  .container {
+    padding: 25px 15px;
+  }
+
+  .card,
+  .info,
+  .video-section {
+    padding: 18px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- Header -->
 <header>
   <nav>
     <a href="../index.html">UTTARAKHAND EXPLORER</a>
@@ -203,9 +265,12 @@ footer a {
   </nav>
 </header>
 
+<!-- Hero Section -->
 <section class="hero">
   <span class="tag">Temple Complex</span>
+
   <h1>Jageshwar Dham</h1>
+
   <p>
     A practical guide to the scenery, viewpoints, local culture, best visiting
     season and useful travel information for Jageshwar Dham, Uttarakhand.
@@ -214,6 +279,7 @@ footer a {
 
 <main class="container">
 
+  <!-- Introduction -->
   <section class="intro">
     <p>
       Jageshwar Dham offers a distinct experience of Uttarakhand's Himalayan
@@ -222,6 +288,7 @@ footer a {
     </p>
   </section>
 
+  <!-- Main Information Cards -->
   <section class="grid">
 
     <article class="card">
@@ -246,6 +313,7 @@ footer a {
       <p>
         March–June and September–November; monsoon is lush but wet.
       </p>
+
       <p class="small">
         Weather, road access and opening dates can change. Check local advisories
         shortly before travelling.
@@ -261,8 +329,10 @@ footer a {
 
   </section>
 
+  <!-- History -->
   <section class="info">
     <h2>History & Local Significance</h2>
+
     <p>
       Jageshwar is a historic Shaiva temple complex with temples from different
       periods, especially associated with early medieval Himalayan temple
@@ -270,13 +340,16 @@ footer a {
     </p>
   </section>
 
+  <!-- Population -->
   <section class="info">
     <h2>Population & Settlement</h2>
+
     <p>
       The temple complex is not a city with a separate resident population.
       Nearby villages have small populations; use village-level census data
       if required.
     </p>
+
     <p class="small">
       Population note: figures are not inserted where a reliable, comparable
       figure is unavailable. For official numbers, consult Census of India
@@ -285,12 +358,15 @@ footer a {
     </p>
   </section>
 
+  <!-- Visitor Tips -->
   <section class="info">
     <h2>Visitor Tips</h2>
+
     <p>
       Allow 2–4 hours or stay nearby for a slower visit. Respect worship areas
       and archaeological rules.
     </p>
+
     <ul>
       <li>Carry reusable water bottles and take all litter back with you.</li>
       <li>Respect local customs, worship areas, wildlife and private property.</li>
@@ -299,8 +375,10 @@ footer a {
     </ul>
   </section>
 
+  <!-- Responsible Travel -->
   <section class="info">
     <h2>Responsible Travel</h2>
+
     <p>
       Choose locally run services where possible, ask permission before
       photographing people, and avoid disturbing wildlife or fragile natural
@@ -309,6 +387,7 @@ footer a {
     </p>
   </section>
 
+  <!-- Travel Information Note -->
   <section class="info">
     <p class="small">
       This page is an introductory travel guide. Confirm current opening times,
@@ -317,21 +396,31 @@ footer a {
     </p>
   </section>
 
+  <!-- Jageshwar Dham Video -->
   <section class="video-section" id="video">
-    <h2>Explore Jageshwar Dham – Video</h2>
-    <p>
-      Jageshwar Dham ka video yahan add kiya jayega. Matching video file
-      abhi available video list mein nahi hai.
-    </p>
-    <div class="video-placeholder">
-      <p>Jageshwar Dham video will be added here.</p>
+
+    <h2>Explore Jageshwar Dham – Travel Video</h2>
+
+    <div class="place-video">
+      <video controls preload="metadata" playsinline
+             poster="../assets/images/jageshwar.jpeg">
+
+        <source src="../assets/videos/jageshwar-dham.mp4" type="video/mp4">
+
+        Your browser does not support HTML video.
+      </video>
     </div>
+
   </section>
 
 </main>
 
+<!-- Footer -->
 <footer>
-  <p><strong>Uttarakhand Explorer</strong> · Discover places with care.</p>
+  <p>
+    <strong>Uttarakhand Explorer</strong> · Discover places with care.
+  </p>
+
   <p>
     <a href="../index.html#destinations">Return to Explore Uttarakhand</a>
   </p>
