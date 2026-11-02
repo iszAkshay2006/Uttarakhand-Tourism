@@ -378,7 +378,7 @@ main {
 
 .home-extra .planner-band > a {
   flex-shrink: 0;
-  color: #e7c878;
+  color: #000000 !important;
   font-weight: 800;
 }
 
