@@ -49,7 +49,13 @@ onAuthStateChanged(auth, (user) => {
     accountLink.textContent =
       user.displayName || user.email || "My Account";
 
-    accountLink.href = "#account";
+    const isInPagesFolder = window.location.pathname
+  .split("/")
+  .includes("pages");
+
+accountLink.href = isInPagesFolder
+  ? "profile.html"
+  : "pages/profile.html";
     accountLink.dataset.accountLink = "true";
     accountLink.title = "Currently logged in";
 
@@ -89,7 +95,7 @@ onAuthStateChanged(auth, (user) => {
       logoutButton.remove();
     }
 
-    accountLink.textContent = "Login";
+   accountLink.textContent = "Login / Signup";
 
     const isInPagesFolder =
       window.location.pathname.split("/").includes("pages");
