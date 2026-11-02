@@ -1,5 +1,6 @@
 
 import { auth, db } from "./firebase/firebase-config.js";
+import { uploadProfilePhoto } from "./firebase/firebase-storage.js";
 
 import {
   onAuthStateChanged,
@@ -37,7 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetPasswordBtn = document.getElementById("resetPasswordBtn");
 
   let currentUser = null;
-  let selectedPhoto = "";
+  let selectedFile = null;
+  let savedPhotoURL = "";
 
   // ==========================================
   // HELPER FUNCTIONS
@@ -78,7 +80,14 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function displayPhoto(photoURL) {
-    if (!photoURL || !avatarPreview || !avatarFallback) return;
+    if (!avatarPreview || !avatarFallback) return;
+
+    if (!photoURL) {
+      avatarPreview.removeAttribute("src");
+      avatarPreview.hidden = true;
+      avatarFallback.hidden = false;
+      return;
+    }
 
     avatarPreview.src = photoURL;
     avatarPreview.hidden = false;
@@ -86,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ==========================================
-  // LOAD PROFILE FROM EXISTING FIRESTORE USER
+  // LOAD PROFILE FROM FIRESTORE
   // ==========================================
 
   async function loadUserProfile(user) {
@@ -115,9 +124,14 @@ document.addEventListener("DOMContentLoaded", () => {
         profileData.username
       );
 
-      if (userData.photoURL) {
-        displayPhoto(userData.photoURL);
+      savedPhotoURL = userData.photoURL || "";
+      selectedFile = null;
+
+      if (photoInput) {
+        photoInput.value = "";
       }
+
+      displayPhoto(savedPhotoURL);
 
       if (userData.travelPreferences) {
         fillForm(travelForm, userData.travelPreferences);
@@ -177,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       photoInput.value = "";
+      selectedFile = null;
       return;
     }
 
@@ -187,18 +202,20 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
       photoInput.value = "";
+      selectedFile = null;
       return;
     }
+
+    selectedFile = file;
 
     const reader = new FileReader();
 
     reader.onload = () => {
-      selectedPhoto = reader.result;
-      displayPhoto(selectedPhoto);
+      displayPhoto(reader.result);
 
       showMessage(
         profileMessage,
-        "Photo preview updated. Save Changes to save your profile details."
+        "Photo preview updated. Click Save Changes to upload it."
       );
     };
 
@@ -213,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================
-  // SAVE PROFILE DETAILS TO FIRESTORE
+  // SAVE PROFILE DETAILS + PHOTO TO FIREBASE
   // ==========================================
 
   profileForm?.addEventListener("submit", async (event) => {
@@ -252,10 +269,29 @@ document.addEventListener("DOMContentLoaded", () => {
         saveButton.textContent = "Saving...";
       }
 
+      let photoURL = savedPhotoURL;
+
+      // Upload selected photo to Firebase Storage
+      if (selectedFile) {
+
+        showMessage(
+          profileMessage,
+          "Uploading profile photo..."
+        );
+
+        photoURL = await uploadProfilePhoto(
+          currentUser,
+          selectedFile
+        );
+      }
+
+      // Update Firebase Authentication display name
       await updateProfile(currentUser, {
-        displayName: fullName
+        displayName: fullName,
+        ...(photoURL ? { photoURL } : {})
       });
 
+      // Save profile details and photo URL in Firestore
       const userRef = doc(db, "users", currentUser.uid);
 
       await setDoc(userRef, {
@@ -267,14 +303,24 @@ document.addEventListener("DOMContentLoaded", () => {
         city: (details.city || "").trim(),
         state: (details.state || "").trim(),
         bio: (details.bio || "").trim(),
+        photoURL: photoURL,
         updatedAt: serverTimestamp()
       }, { merge: true });
+
+      savedPhotoURL = photoURL;
+      selectedFile = null;
+
+      if (photoInput) {
+        photoInput.value = "";
+      }
+
+      displayPhoto(savedPhotoURL);
 
       updateSidebar(fullName, username);
 
       showMessage(
         profileMessage,
-        "Profile updated successfully!"
+        "Profile details and photo saved successfully!"
       );
 
     } catch (error) {
@@ -283,7 +329,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       showMessage(
         profileMessage,
-        "Unable to save your profile. Please try again."
+        error.message || "Unable to save your profile. Please try again."
       );
 
     } finally {
@@ -304,15 +350,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
 
-      if (currentUser) {
-        loadUserProfile(currentUser);
-      }
+      selectedFile = null;
 
       if (photoInput) {
         photoInput.value = "";
       }
 
-      selectedPhoto = "";
+      if (currentUser) {
+        loadUserProfile(currentUser);
+      }
 
     }, 0);
   });
@@ -341,6 +387,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (saveButton) {
         saveButton.disabled = true;
+        saveButton.textContent = "Saving...";
       }
 
       const preferences = readForm(travelForm);
@@ -356,7 +403,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       showMessage(
         travelMessage,
-        "Travel preferences saved successfully!"
+        "Travel preferences saved successfully in Firestore!"
       );
 
     } catch (error) {
@@ -372,6 +419,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (saveButton) {
         saveButton.disabled = false;
+        saveButton.textContent = "Save Preferences";
       }
 
     }
@@ -394,6 +442,8 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
 
       resetPasswordBtn.disabled = true;
+      resetPasswordBtn.textContent = "Sending...";
+
       showMessage(
         securityMessage,
         "Sending password reset email..."
@@ -421,6 +471,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } finally {
 
       resetPasswordBtn.disabled = false;
+      resetPasswordBtn.textContent = "Reset Password";
 
     }
   });
