@@ -1,11 +1,11 @@
+
 // js/pages/login.js
 
 import { auth } from "../firebase/firebase-config.js";
 
 import {
   signInWithEmailAndPassword,
-  sendPasswordResetEmail,
-  onAuthStateChanged
+  sendPasswordResetEmail
 } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // Message show karna
+  // Show message
   function showMessage(message, type = "error") {
     loginMessage.textContent = message;
     loginMessage.style.color =
@@ -46,10 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       passwordInput.type = isHidden ? "text" : "password";
       togglePassword.textContent = isHidden ? "🙈" : "👁";
+
       togglePassword.setAttribute(
         "aria-label",
         isHidden ? "Hide password" : "Show password"
       );
+
       togglePassword.setAttribute(
         "aria-pressed",
         String(isHidden)
@@ -57,11 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Input change par message clear
+  // Clear message when user types
   emailInput.addEventListener("input", clearMessage);
   passwordInput.addEventListener("input", clearMessage);
 
-  // Login form submit
+  // LOGIN
   loginForm.addEventListener("submit", async (event) => {
     event.preventDefault();
     clearMessage();
@@ -78,17 +80,19 @@ document.addEventListener("DOMContentLoaded", () => {
     loginButton.textContent = "Logging in...";
 
     try {
-      const userCredential = await signInWithEmailAndPassword(
+      await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
 
-      showMessage("Login successful! Redirecting...", "success");
+      showMessage(
+        "Login successful! Redirecting...",
+        "success"
+      );
 
-      // User details console mein expose nahi kar rahe.
-      // Login page se homepage par redirect.
       window.location.href = "../index.html";
+
     } catch (error) {
       console.error("Login error:", error.code);
 
@@ -100,7 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
         case "auth/user-not-found":
         case "auth/invalid-credential":
         case "auth/wrong-password":
-          showMessage("Email or password is incorrect. Please try again.");
+          showMessage(
+            "Email or password is incorrect. Please try again."
+          );
           break;
 
         case "auth/too-many-requests":
@@ -110,7 +116,9 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
 
         case "auth/network-request-failed":
-          showMessage("Network error. Please check your internet connection.");
+          showMessage(
+            "Network error. Please check your internet connection."
+          );
           break;
 
         case "auth/operation-not-allowed":
@@ -120,17 +128,16 @@ document.addEventListener("DOMContentLoaded", () => {
           break;
 
         default:
-          showMessage(
-            "Login failed. Please try again. If the issue continues, check the browser console."
-          );
+          showMessage("Login failed. Please try again.");
       }
+
     } finally {
       loginButton.disabled = false;
       loginButton.textContent = "Login";
     }
   });
 
-  // Forgot Password
+  // FORGOT PASSWORD
   if (forgotPassword) {
     forgotPassword.addEventListener("click", async (event) => {
       event.preventDefault();
@@ -140,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!email) {
         showMessage(
-          "Please enter your email address first, then click Forgot Password."
+          "Please enter your email address first."
         );
         emailInput.focus();
         return;
@@ -156,8 +163,12 @@ document.addEventListener("DOMContentLoaded", () => {
           "If this email is registered, a password reset email has been sent. Check your inbox and spam folder.",
           "success"
         );
+
       } catch (error) {
-        console.error("Password reset error:", error.code);
+        console.error(
+          "Password reset error:",
+          error.code
+        );
 
         switch (error.code) {
           case "auth/invalid-email":
@@ -165,14 +176,17 @@ document.addEventListener("DOMContentLoaded", () => {
             break;
 
           case "auth/too-many-requests":
-            showMessage("Too many requests. Please try again later.");
+            showMessage(
+              "Too many requests. Please try again later."
+            );
             break;
 
           default:
             showMessage(
-              "Could not send the reset email. Check your Firebase settings and try again."
+              "Could not send the reset email. Please try again."
             );
         }
+
       } finally {
         forgotPassword.style.pointerEvents = "";
         forgotPassword.style.opacity = "";
