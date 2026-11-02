@@ -35,7 +35,6 @@
 
   </header>
 
-
   <!-- MAIN -->
   <main class="profile-page">
 
@@ -54,7 +53,6 @@
       </p>
 
     </section>
-
 
     <div class="profile-layout">
 
@@ -83,11 +81,9 @@
 
         </div>
 
-
         <h2 id="sidebarName">Your Name</h2>
 
         <p id="sidebarUsername">@yourusername</p>
-
 
         <label class="upload-label" for="photoInput">
           Change photo
@@ -105,9 +101,7 @@
           JPG, PNG or WebP · Max 2 MB
         </p>
 
-
         <div class="sidebar-divider"></div>
-
 
         <a href="#personal-details">
           👤 Personal Details
@@ -123,10 +117,8 @@
 
       </aside>
 
-
       <!-- PROFILE CONTENT -->
       <div class="profile-content">
-
 
         <!-- PERSONAL DETAILS -->
         <section class="profile-section" id="personal-details">
@@ -147,31 +139,49 @@
 
           </div>
 
-
           <form id="profileForm">
 
             <div class="form-grid">
 
-
+              <!-- FIRST NAME -->
               <div class="form-field">
 
-                <label for="fullName">
-                  Full name
+                <label for="firstName">
+                  First Name
                 </label>
 
                 <input
-                  id="fullName"
-                  name="fullName"
+                  id="firstName"
+                  name="firstName"
                   type="text"
-                  autocomplete="name"
-                  placeholder="Enter your full name"
-                  maxlength="80"
+                  autocomplete="given-name"
+                  placeholder="Enter your first name"
+                  maxlength="40"
                   required
                 >
 
               </div>
 
+              <!-- LAST NAME -->
+              <div class="form-field">
 
+                <label for="lastName">
+                  Last Name
+                </label>
+
+                <input
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  autocomplete="family-name"
+                  placeholder="Enter your last name"
+                  maxlength="40"
+                  required
+                >
+
+              </div>
+
+              <!-- USERNAME -->
               <div class="form-field">
 
                 <label for="username">
@@ -183,18 +193,17 @@
                   name="username"
                   type="text"
                   autocomplete="username"
-                  value="yourusername"
                   readonly
                   aria-describedby="usernameHelp"
                 >
 
                 <small id="usernameHelp">
-                  Username cannot be changed.
+                  Your registered username cannot be changed.
                 </small>
 
               </div>
 
-
+              <!-- EMAIL -->
               <div class="form-field">
 
                 <label for="email">
@@ -217,7 +226,7 @@
 
               </div>
 
-
+              <!-- PHONE -->
               <div class="form-field">
 
                 <label for="phone">
@@ -235,7 +244,7 @@
 
               </div>
 
-
+              <!-- CITY -->
               <div class="form-field">
 
                 <label for="city">
@@ -253,7 +262,7 @@
 
               </div>
 
-
+              <!-- STATE -->
               <div class="form-field">
 
                 <label for="state">
@@ -271,7 +280,7 @@
 
               </div>
 
-
+              <!-- BIO -->
               <div class="form-field full-width">
 
                 <label for="bio">
@@ -291,7 +300,6 @@
 
             </div>
 
-
             <div class="form-actions">
 
               <button
@@ -310,7 +318,6 @@
 
             </div>
 
-
             <p
               id="profileMessage"
               class="form-message"
@@ -321,8 +328,6 @@
           </form>
 
         </section>
-
-
 
         <!-- TRAVEL PREFERENCES -->
         <section class="profile-section" id="travel-details">
@@ -343,11 +348,9 @@
 
           </div>
 
-
           <form id="travelForm">
 
             <div class="form-grid">
-
 
               <div class="form-field">
 
@@ -383,7 +386,6 @@
 
               </div>
 
-
               <div class="form-field">
 
                 <label for="travelGroup">
@@ -402,7 +404,6 @@
                 </select>
 
               </div>
-
 
               <div class="form-field">
 
@@ -430,7 +431,6 @@
 
               </div>
 
-
               <div class="form-field">
 
                 <label for="season">
@@ -453,7 +453,6 @@
 
             </div>
 
-
             <div class="form-actions">
 
               <button
@@ -465,7 +464,6 @@
 
             </div>
 
-
             <p
               id="travelMessage"
               class="form-message"
@@ -476,8 +474,6 @@
           </form>
 
         </section>
-
-
 
         <!-- ACCOUNT SECURITY -->
         <section
@@ -501,13 +497,11 @@
 
           </div>
 
-
           <div class="security-row">
 
             <div class="security-symbol">
               🔑
             </div>
-
 
             <div class="security-copy">
 
@@ -519,7 +513,6 @@
 
             </div>
 
-
             <button
               type="button"
               id="resetPasswordBtn"
@@ -530,7 +523,6 @@
 
           </div>
 
-
           <p
             id="securityMessage"
             class="form-message"
@@ -538,13 +530,12 @@
             aria-live="polite"
           ></p>
 
-
           <div class="security-info">
 
             <strong>Username stays fixed</strong>
 
             <p>
-              Your username is read-only on this page. A real account system must also enforce this restriction on the server.
+              Your registered username cannot be edited from this page.
             </p>
 
           </div>
@@ -557,8 +548,6 @@
 
   </main>
 
-
-
   <!-- FOOTER -->
   <footer>
 
@@ -567,8 +556,6 @@
     <span>Travel thoughtfully 🏔️</span>
 
   </footer>
-
-
 
   <!-- EXISTING JAVASCRIPT CONNECTIONS -->
   <script type="module" src="../js/common.js"></script>

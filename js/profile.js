@@ -18,7 +18,7 @@ import {
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================
-  // EXISTING HTML ELEMENTS
+  // HTML ELEMENTS
   // ==========================================
 
   const profileForm = document.getElementById("profileForm");
@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentUser = null;
   let selectedFile = null;
   let savedPhotoURL = "";
+  let savedUsername = "";
 
   // ==========================================
   // HELPER FUNCTIONS
@@ -100,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function loadUserProfile(user) {
     try {
+
       const userRef = doc(db, "users", user.uid);
       const userSnapshot = await getDoc(userRef);
 
@@ -107,9 +109,27 @@ document.addEventListener("DOMContentLoaded", () => {
         ? userSnapshot.data()
         : {};
 
+      // Support old accounts containing only fullName
+      const oldFullName = (
+        userData.fullName || user.displayName || ""
+      ).trim();
+
+      const nameParts = oldFullName
+        ? oldFullName.split(/\s+/)
+        : [];
+
+      const firstName =
+        userData.firstName || nameParts[0] || "";
+
+      const lastName =
+        userData.lastName || nameParts.slice(1).join(" ") || "";
+
+      savedUsername = userData.username || "";
+
       const profileData = {
-        fullName: userData.fullName || user.displayName || "",
-        username: userData.username || "",
+        firstName: firstName,
+        lastName: lastName,
+        username: savedUsername,
         email: userData.email || user.email || "",
         phone: userData.phone || "",
         city: userData.city || "",
@@ -119,12 +139,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
       fillForm(profileForm, profileData);
 
-      updateSidebar(
-        profileData.fullName,
-        profileData.username
-      );
+      // Keep username fixed
+      const usernameField = document.getElementById("username");
 
-      savedPhotoURL = userData.photoURL || "";
+      if (usernameField) {
+        usernameField.value = savedUsername;
+        usernameField.readOnly = true;
+      }
+
+      const fullName = `${firstName} ${lastName}`.trim();
+
+      updateSidebar(fullName, savedUsername);
+
+      // Load saved profile photo
+      savedPhotoURL = userData.photoURL || user.photoURL || "";
+
       selectedFile = null;
 
       if (photoInput) {
@@ -133,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       displayPhoto(savedPhotoURL);
 
+      // Load travel preferences
       if (userData.travelPreferences) {
         fillForm(travelForm, userData.travelPreferences);
       }
@@ -143,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
       );
 
     } catch (error) {
+
       console.error("Profile loading error:", error);
 
       showMessage(
@@ -185,6 +216,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
 
     if (!allowedTypes.includes(file.type)) {
+
       showMessage(
         profileMessage,
         "Please choose a JPG, PNG or WebP image."
@@ -196,6 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (file.size > 2 * 1024 * 1024) {
+
       showMessage(
         profileMessage,
         "Photo size must be 2 MB or less."
@@ -211,6 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const reader = new FileReader();
 
     reader.onload = () => {
+
       displayPhoto(reader.result);
 
       showMessage(
@@ -220,6 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     reader.onerror = () => {
+
       showMessage(
         profileMessage,
         "Unable to read this image. Please choose another."
@@ -238,23 +273,42 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     if (!currentUser) {
+
       showMessage(
         profileMessage,
         "Please login to save your profile."
       );
+
       return;
     }
 
     const details = readForm(profileForm);
 
-    const fullName = (details.fullName || "").trim();
-    const username = (details.username || "").trim();
+    const firstName = (details.firstName || "").trim();
+    const lastName = (details.lastName || "").trim();
 
-    if (!fullName || !username) {
+    // Always use the original registered username
+    const username = savedUsername;
+
+    const fullName = `${firstName} ${lastName}`.trim();
+
+    if (!firstName || !lastName) {
+
       showMessage(
         profileMessage,
-        "Full name and username are required."
+        "First name and last name are required."
       );
+
+      return;
+    }
+
+    if (!username) {
+
+      showMessage(
+        profileMessage,
+        "Registered username not found. Please contact support."
+      );
+
       return;
     }
 
@@ -285,28 +339,40 @@ document.addEventListener("DOMContentLoaded", () => {
         );
       }
 
-      // Update Firebase Authentication display name
+      // Update Firebase Authentication profile
       await updateProfile(currentUser, {
         displayName: fullName,
         ...(photoURL ? { photoURL } : {})
       });
 
-      // Save profile details and photo URL in Firestore
+      // Save profile details to existing Firestore document
       const userRef = doc(db, "users", currentUser.uid);
 
       await setDoc(userRef, {
+
         uid: currentUser.uid,
+
+        firstName: firstName,
+        lastName: lastName,
         fullName: fullName,
+
+        // Preserve original registered username
         username: username,
+
         email: currentUser.email || "",
+
         phone: (details.phone || "").trim(),
         city: (details.city || "").trim(),
         state: (details.state || "").trim(),
         bio: (details.bio || "").trim(),
+
         photoURL: photoURL,
+
         updatedAt: serverTimestamp()
+
       }, { merge: true });
 
+      // Update local saved values
       savedPhotoURL = photoURL;
       selectedFile = null;
 
@@ -338,7 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
         saveButton.disabled = false;
         saveButton.textContent = "Save Changes";
       }
-
     }
   });
 
@@ -372,10 +437,12 @@ document.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     if (!currentUser) {
+
       showMessage(
         travelMessage,
         "Please login to save your travel preferences."
       );
+
       return;
     }
 
@@ -421,7 +488,6 @@ document.addEventListener("DOMContentLoaded", () => {
         saveButton.disabled = false;
         saveButton.textContent = "Save Preferences";
       }
-
     }
   });
 
@@ -432,10 +498,12 @@ document.addEventListener("DOMContentLoaded", () => {
   resetPasswordBtn?.addEventListener("click", async () => {
 
     if (!currentUser || !currentUser.email) {
+
       showMessage(
         securityMessage,
         "Registered email address not found."
       );
+
       return;
     }
 
@@ -472,7 +540,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       resetPasswordBtn.disabled = false;
       resetPasswordBtn.textContent = "Reset Password";
-
     }
   });
 
