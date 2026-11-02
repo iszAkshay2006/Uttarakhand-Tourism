@@ -1,188 +1,428 @@
 
-/* ========================================
-   PROFILE PAGE — Frontend demo
-   ======================================== */
+import { auth, db } from "./firebase/firebase-config.js";
 
-const profileForm = document.getElementById("profileForm");
-const travelForm = document.getElementById("travelForm");
-const photoInput = document.getElementById("photoInput");
+import {
+  onAuthStateChanged,
+  updateProfile,
+  sendPasswordResetEmail
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
 
-const avatarPreview = document.getElementById("avatarPreview");
-const avatarFallback = document.getElementById("avatarFallback");
+import {
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
 
-const profileMessage = document.getElementById("profileMessage");
-const travelMessage = document.getElementById("travelMessage");
-const securityMessage = document.getElementById("securityMessage");
+document.addEventListener("DOMContentLoaded", () => {
 
-const sidebarName = document.getElementById("sidebarName");
-const sidebarUsername = document.getElementById("sidebarUsername");
+  // ==========================================
+  // EXISTING HTML ELEMENTS
+  // ==========================================
 
-const PROFILE_KEY = "ue_profile_demo";
-const TRAVEL_KEY = "ue_travel_preferences_demo";
+  const profileForm = document.getElementById("profileForm");
+  const travelForm = document.getElementById("travelForm");
+  const photoInput = document.getElementById("photoInput");
 
-let selectedPhoto = "";
+  const avatarPreview = document.getElementById("avatarPreview");
+  const avatarFallback = document.getElementById("avatarFallback");
 
-function showMessage(element, message) {
-  element.textContent = message;
-}
+  const profileMessage = document.getElementById("profileMessage");
+  const travelMessage = document.getElementById("travelMessage");
+  const securityMessage = document.getElementById("securityMessage");
 
-function updateSidebar() {
-  const name = document.getElementById("fullName").value.trim();
-  sidebarName.textContent = name || "Your Name";
+  const sidebarName = document.getElementById("sidebarName");
+  const sidebarUsername = document.getElementById("sidebarUsername");
 
-  const username = document.getElementById("username").value.trim();
-  sidebarUsername.textContent = username ? `@${username}` : "@yourusername";
-}
+  const resetPasswordBtn = document.getElementById("resetPasswordBtn");
 
-function readForm(form) {
-  return Object.fromEntries(new FormData(form).entries());
-}
+  let currentUser = null;
+  let selectedPhoto = "";
 
-function fillForm(form, values) {
-  Object.entries(values).forEach(([key, value]) => {
-    const field = form.elements.namedItem(key);
-    if (field && field.type !== "file") {
-      field.value = value ?? "";
+  // ==========================================
+  // HELPER FUNCTIONS
+  // ==========================================
+
+  function showMessage(element, message) {
+    if (element) {
+      element.textContent = message;
     }
-  });
-}
+  }
 
-function loadDemoData() {
-  try {
-    const savedProfile = localStorage.getItem(PROFILE_KEY);
-    if (savedProfile) {
-      const data = JSON.parse(savedProfile);
-      fillForm(profileForm, data.details || {});
+  function updateSidebar(name, username) {
+    if (sidebarName) {
+      sidebarName.textContent = name || "Your Name";
+    }
 
-      if (data.photo) {
-        selectedPhoto = data.photo;
-        avatarPreview.src = selectedPhoto;
-        avatarPreview.hidden = false;
-        avatarFallback.hidden = true;
+    if (sidebarUsername) {
+      sidebarUsername.textContent = username
+        ? `@${username}`
+        : "@yourusername";
+    }
+  }
+
+  function readForm(form) {
+    return Object.fromEntries(new FormData(form).entries());
+  }
+
+  function fillForm(form, values) {
+    if (!form || !values) return;
+
+    Object.entries(values).forEach(([key, value]) => {
+      const field = form.elements.namedItem(key);
+
+      if (field && field.type !== "file") {
+        field.value = value ?? "";
       }
-    }
-
-    const savedTravel = localStorage.getItem(TRAVEL_KEY);
-    if (savedTravel) {
-      fillForm(travelForm, JSON.parse(savedTravel));
-    }
-  } catch {
-    showMessage(
-      profileMessage,
-      "Saved demo data could not be loaded. Your browser storage may be unavailable."
-    );
+    });
   }
 
-  updateSidebar();
-}
+  function displayPhoto(photoURL) {
+    if (!photoURL || !avatarPreview || !avatarFallback) return;
 
-photoInput.addEventListener("change", () => {
-  const file = photoInput.files[0];
-  if (!file) return;
-
-  const allowedTypes = ["image/jpeg", "image/png", "image/webp"];
-
-  if (!allowedTypes.includes(file.type)) {
-    showMessage(profileMessage, "Please choose a JPG, PNG or WebP image.");
-    photoInput.value = "";
-    return;
-  }
-
-  if (file.size > 2 * 1024 * 1024) {
-    showMessage(profileMessage, "Photo size must be 2 MB or less.");
-    photoInput.value = "";
-    return;
-  }
-
-  const reader = new FileReader();
-
-  reader.onload = () => {
-    selectedPhoto = reader.result;
-    avatarPreview.src = selectedPhoto;
+    avatarPreview.src = photoURL;
     avatarPreview.hidden = false;
     avatarFallback.hidden = true;
-    showMessage(profileMessage, "Photo preview updated. Click Save Changes to save this demo profile.");
-  };
-
-  reader.onerror = () => {
-    showMessage(profileMessage, "Unable to read this image. Please try another.");
-  };
-
-  reader.readAsDataURL(file);
-});
-
-profileForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const details = readForm(profileForm);
-
-  try {
-    localStorage.setItem(
-      PROFILE_KEY,
-      JSON.stringify({
-        details,
-        photo: selectedPhoto
-      })
-    );
-
-    updateSidebar();
-    showMessage(
-      profileMessage,
-      "Demo profile saved in this browser. This is not a server account."
-    );
-  } catch {
-    showMessage(
-      profileMessage,
-      "Unable to save. The browser may not have enough storage for this photo."
-    );
   }
-});
 
-profileForm.addEventListener("reset", () => {
-  setTimeout(() => {
-    photoInput.value = "";
-    selectedPhoto = "";
+  // ==========================================
+  // LOAD PROFILE FROM EXISTING FIRESTORE USER
+  // ==========================================
 
-    avatarPreview.removeAttribute("src");
-    avatarPreview.hidden = true;
-    avatarFallback.hidden = false;
-
+  async function loadUserProfile(user) {
     try {
-      const saved = JSON.parse(localStorage.getItem(PROFILE_KEY) || "null");
-      if (saved) {
-        fillForm(profileForm, saved.details || {});
-        if (saved.photo) {
-          selectedPhoto = saved.photo;
-          avatarPreview.src = saved.photo;
-          avatarPreview.hidden = false;
-          avatarFallback.hidden = true;
-        }
+      const userRef = doc(db, "users", user.uid);
+      const userSnapshot = await getDoc(userRef);
+
+      const userData = userSnapshot.exists()
+        ? userSnapshot.data()
+        : {};
+
+      const profileData = {
+        fullName: userData.fullName || user.displayName || "",
+        username: userData.username || "",
+        email: userData.email || user.email || "",
+        phone: userData.phone || "",
+        city: userData.city || "",
+        state: userData.state || "",
+        bio: userData.bio || ""
+      };
+
+      fillForm(profileForm, profileData);
+
+      updateSidebar(
+        profileData.fullName,
+        profileData.username
+      );
+
+      if (userData.photoURL) {
+        displayPhoto(userData.photoURL);
       }
-    } catch {
-      // Leave the form reset if stored demo data is unavailable.
+
+      if (userData.travelPreferences) {
+        fillForm(travelForm, userData.travelPreferences);
+      }
+
+      showMessage(
+        profileMessage,
+        "Your profile has been loaded successfully."
+      );
+
+    } catch (error) {
+      console.error("Profile loading error:", error);
+
+      showMessage(
+        profileMessage,
+        "Unable to load your profile. Please try again."
+      );
+    }
+  }
+
+  // ==========================================
+  // FIREBASE AUTHENTICATION CHECK
+  // ==========================================
+
+  onAuthStateChanged(auth, async (user) => {
+
+    if (!user) {
+      window.location.href = "login.html";
+      return;
     }
 
-    updateSidebar();
-    showMessage(profileMessage, "Form reset.");
-  }, 0);
+    currentUser = user;
+
+    await loadUserProfile(user);
+  });
+
+  // ==========================================
+  // PROFILE PHOTO PREVIEW
+  // ==========================================
+
+  photoInput?.addEventListener("change", () => {
+
+    const file = photoInput.files?.[0];
+
+    if (!file) return;
+
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp"
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      showMessage(
+        profileMessage,
+        "Please choose a JPG, PNG or WebP image."
+      );
+
+      photoInput.value = "";
+      return;
+    }
+
+    if (file.size > 2 * 1024 * 1024) {
+      showMessage(
+        profileMessage,
+        "Photo size must be 2 MB or less."
+      );
+
+      photoInput.value = "";
+      return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      selectedPhoto = reader.result;
+      displayPhoto(selectedPhoto);
+
+      showMessage(
+        profileMessage,
+        "Photo preview updated. Save Changes to save your profile details."
+      );
+    };
+
+    reader.onerror = () => {
+      showMessage(
+        profileMessage,
+        "Unable to read this image. Please choose another."
+      );
+    };
+
+    reader.readAsDataURL(file);
+  });
+
+  // ==========================================
+  // SAVE PROFILE DETAILS TO FIRESTORE
+  // ==========================================
+
+  profileForm?.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    if (!currentUser) {
+      showMessage(
+        profileMessage,
+        "Please login to save your profile."
+      );
+      return;
+    }
+
+    const details = readForm(profileForm);
+
+    const fullName = (details.fullName || "").trim();
+    const username = (details.username || "").trim();
+
+    if (!fullName || !username) {
+      showMessage(
+        profileMessage,
+        "Full name and username are required."
+      );
+      return;
+    }
+
+    const saveButton = profileForm.querySelector(
+      'button[type="submit"]'
+    );
+
+    try {
+
+      if (saveButton) {
+        saveButton.disabled = true;
+        saveButton.textContent = "Saving...";
+      }
+
+      await updateProfile(currentUser, {
+        displayName: fullName
+      });
+
+      const userRef = doc(db, "users", currentUser.uid);
+
+      await setDoc(userRef, {
+        uid: currentUser.uid,
+        fullName: fullName,
+        username: username,
+        email: currentUser.email || "",
+        phone: (details.phone || "").trim(),
+        city: (details.city || "").trim(),
+        state: (details.state || "").trim(),
+        bio: (details.bio || "").trim(),
+        updatedAt: serverTimestamp()
+      }, { merge: true });
+
+      updateSidebar(fullName, username);
+
+      showMessage(
+        profileMessage,
+        "Profile updated successfully!"
+      );
+
+    } catch (error) {
+
+      console.error("Profile saving error:", error);
+
+      showMessage(
+        profileMessage,
+        "Unable to save your profile. Please try again."
+      );
+
+    } finally {
+
+      if (saveButton) {
+        saveButton.disabled = false;
+        saveButton.textContent = "Save Changes";
+      }
+
+    }
+  });
+
+  // ==========================================
+  // RESET PROFILE FORM
+  // ==========================================
+
+  profileForm?.addEventListener("reset", () => {
+
+    setTimeout(() => {
+
+      if (currentUser) {
+        loadUserProfile(currentUser);
+      }
+
+      if (photoInput) {
+        photoInput.value = "";
+      }
+
+      selectedPhoto = "";
+
+    }, 0);
+  });
+
+  // ==========================================
+  // SAVE TRAVEL PREFERENCES TO FIRESTORE
+  // ==========================================
+
+  travelForm?.addEventListener("submit", async (event) => {
+
+    event.preventDefault();
+
+    if (!currentUser) {
+      showMessage(
+        travelMessage,
+        "Please login to save your travel preferences."
+      );
+      return;
+    }
+
+    const saveButton = travelForm.querySelector(
+      'button[type="submit"]'
+    );
+
+    try {
+
+      if (saveButton) {
+        saveButton.disabled = true;
+      }
+
+      const preferences = readForm(travelForm);
+
+      await setDoc(
+        doc(db, "users", currentUser.uid),
+        {
+          travelPreferences: preferences,
+          updatedAt: serverTimestamp()
+        },
+        { merge: true }
+      );
+
+      showMessage(
+        travelMessage,
+        "Travel preferences saved successfully!"
+      );
+
+    } catch (error) {
+
+      console.error("Travel preferences error:", error);
+
+      showMessage(
+        travelMessage,
+        "Unable to save travel preferences. Please try again."
+      );
+
+    } finally {
+
+      if (saveButton) {
+        saveButton.disabled = false;
+      }
+
+    }
+  });
+
+  // ==========================================
+  // FIREBASE PASSWORD RESET EMAIL
+  // ==========================================
+
+  resetPasswordBtn?.addEventListener("click", async () => {
+
+    if (!currentUser || !currentUser.email) {
+      showMessage(
+        securityMessage,
+        "Registered email address not found."
+      );
+      return;
+    }
+
+    try {
+
+      resetPasswordBtn.disabled = true;
+      showMessage(
+        securityMessage,
+        "Sending password reset email..."
+      );
+
+      await sendPasswordResetEmail(
+        auth,
+        currentUser.email
+      );
+
+      showMessage(
+        securityMessage,
+        "Password reset email sent. Please check your inbox and spam folder."
+      );
+
+    } catch (error) {
+
+      console.error("Password reset error:", error);
+
+      showMessage(
+        securityMessage,
+        "Unable to send password reset email. Please try again later."
+      );
+
+    } finally {
+
+      resetPasswordBtn.disabled = false;
+
+    }
+  });
+
 });
-
-travelForm.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  try {
-    localStorage.setItem(TRAVEL_KEY, JSON.stringify(readForm(travelForm)));
-    showMessage(travelMessage, "Travel preferences saved in this browser.");
-  } catch {
-    showMessage(travelMessage, "Unable to save preferences in this browser.");
-  }
-});
-
-document.getElementById("resetPasswordBtn").addEventListener("click", () => {
-  showMessage(
-    securityMessage,
-    "Password reset is not connected yet. Connect Firebase Authentication or your backend to send a secure reset email."
-  );
-});
-
-loadDemoData();
