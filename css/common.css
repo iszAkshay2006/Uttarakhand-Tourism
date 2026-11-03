@@ -902,3 +902,32 @@ body.ue-menu-open .ue-sidebar {
     height: 230px;
   }
 }
+
+.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #E1306C;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.instagram-link:hover {
+  color: #fff;
+  background: linear-gradient(
+    45deg,
+    #feda75,
+    #fa7e1e,
+    #d62976,
+    #962fbf,
+    #4f5bd5
+  );
+  transform: translateY(-3px);
+}
+
+.instagram-link svg {
+  display: block;
+}
