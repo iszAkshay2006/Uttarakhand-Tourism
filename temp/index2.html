@@ -1,0 +1,647 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore Uttarakhand's beautiful destinations, mountains, temples, adventures and culture.">
+  <title>Uttarakhand Explorer</title>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Mobile menu -->
+  <button class="mobile-menu-button" id="menuToggle" aria-label="Open menu">
+    ☰
+  </button>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <a href="#home" class="sidebar-brand">Uttarakhand Explorer</a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#destinations">Destinations</a>
+      <a href="#adventure">Adventure</a>
+      <a href="#food">Local Food</a>
+      <a href="#hotels">Hotels & Stays</a>
+      <a href="#events">Events & Festivals</a>
+      <a href="#spiritual">Spiritual Places</a>
+      <a href="#weather">Weather</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#planner">Trip Planner</a>
+      <a href="#emergency">Emergency Help</a>
+    </nav>
+  </aside>
+
+  <!-- Top navigation -->
+  <header class="top-bar">
+    <a href="#home" class="mobile-brand">
+      <span class="mobile-brand-text">Uttarakhand Explorer</span>
+    </a>
+
+    <form class="top-search" id="topSearchForm">
+      <input id="topSearchInput" type="search"
+        placeholder="Search destinations..." aria-label="Search destinations">
+      <button type="submit" aria-label="Search">⌕</button>
+    </form>
+
+    <button class="account-control" id="accountButton" type="button">
+      <span class="account-avatar">U</span>
+      <span class="account-info">Account</span>
+    </button>
+  </header>
+
+  <main class="main-content">
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">DISCOVER THE LAND OF GODS</span>
+        <h1>Explore<br>Uttarakhand</h1>
+        <p class="hero-description">
+          Discover Himalayan landscapes, peaceful lakes, ancient temples,
+          unforgettable adventures and the warm culture of the mountains.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn" href="#destinations">Explore Destinations</a>
+          <a class="btn" href="#planner">Plan Your Trip</a>
+        </div>
+
+        <form class="hero-search" id="heroSearchForm">
+          <input id="heroSearchInput" type="search"
+            placeholder="Where do you want to go?"
+            aria-label="Find a destination">
+          <button type="submit">Explore</button>
+        </form>
+      </div>
+      <div class="hero-location">UTTARAKHAND, INDIA</div>
+    </section>
+
+    <!-- Destinations: all six cards -->
+    <section class="section" id="destinations">
+      <div class="section-heading">
+        <span class="eyebrow">FIND YOUR ESCAPE</span>
+        <h2>Where will you go?</h2>
+        <p class="section-description">
+          From peaceful hill stations to dramatic Himalayan valleys,
+          discover a destination for every kind of traveller.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+
+        <a class="feature-card" href="#planner"
+          style="--card-image: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85')">
+          <span class="card-number">01</span>
+          <div class="feature-card-content">
+            <small>THE LAKE DISTRICT</small>
+            <h3>Nainital</h3>
+            <p>Enjoy the beautiful lake, forested hills and peaceful mountain views.</p>
+          </div>
+        </a>
+
+        <a class="feature-card" href="#planner"
+          style="--card-image: url('https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1000&q=85')">
+          <span class="card-number">02</span>
+          <div class="feature-card-content">
+            <small>THE YOGA CAPITAL</small>
+            <h3>Rishikesh</h3>
+            <p>Experience riverside serenity, yoga, rafting and the Ganga Aarti.</p>
+          </div>
+        </a>
+
+        <a class="feature-card" href="#planner"
+          style="--card-image: url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=85')">
+          <span class="card-number">03</span>
+          <div class="feature-card-content">
+            <small>THE QUEEN OF HILLS</small>
+            <h3>Mussoorie</h3>
+            <p>Explore misty mountain roads, scenic viewpoints and charming cafes.</p>
+          </div>
+        </a>
+
+        <a class="feature-card" href="#planner"
+          style="--card-image: url('https://images.unsplash.com/photo-1464278533981-50106e6176b1?auto=format&fit=crop&w=1000&q=85')">
+          <span class="card-number">04</span>
+          <div class="feature-card-content">
+            <small>HIMALAYAN ADVENTURE</small>
+            <h3>Auli</h3>
+            <p>Discover snow-covered slopes, mountain meadows and panoramic peaks.</p>
+          </div>
+        </a>
+
+        <a class="feature-card" href="#planner"
+          style="--card-image: url('https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1000&q=85')">
+          <span class="card-number">05</span>
+          <div class="feature-card-content">
+            <small>WILDERNESS ESCAPE</small>
+            <h3>Jim Corbett</h3>
+            <p>Explore forest landscapes and learn about the region's wildlife.</p>
+          </div>
+        </a>
+
+        <a class="feature-card" href="#planner"
+          style="--card-image: url('https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=85')">
+          <span class="card-number">06</span>
+          <div class="feature-card-content">
+            <small>VALLEY OF FLOWERS</small>
+            <h3>Valley of Flowers</h3>
+            <p>Discover alpine meadows, seasonal wildflowers and Himalayan scenery.</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Adventure -->
+    <section class="section" id="adventure">
+      <div class="section-heading">
+        <span class="eyebrow">FEEL THE THRILL</span>
+        <h2>Adventure Awaits</h2>
+        <p class="section-description">
+          Discover trekking trails, river adventures and unforgettable mountain experiences.
+        </p>
+      </div>
+      <div class="card-grid">
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Mountain Trekking</h3>
+            <p>Explore scenic Himalayan trails with suitable preparation and local guidance.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>River Rafting</h3>
+            <p>Experience the rapids around Rishikesh with authorised rafting operators.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Camping</h3>
+            <p>Spend time in nature at designated campsites and follow local safety rules.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Food -->
+    <section class="section" id="food">
+      <div class="section-heading">
+        <span class="eyebrow">TASTE THE MOUNTAINS</span>
+        <h2>Local Food</h2>
+        <p class="section-description">Discover the distinctive flavours of Uttarakhand.</p>
+      </div>
+      <div class="card-grid">
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Kafuli</h3>
+            <p>A traditional green-leaf dish enjoyed in the Kumaon and Garhwal regions.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Bhatt ki Churkani</h3>
+            <p>A hearty Kumaoni preparation made with black soybeans.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Bal Mithai</h3>
+            <p>A much-loved regional sweet associated with Almora.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Hotels -->
+    <section class="section" id="hotels">
+      <div class="section-heading">
+        <span class="eyebrow">REST & RECHARGE</span>
+        <h2>Hotels & Stays</h2>
+        <p class="section-description">Choose accommodation that suits your route and budget.</p>
+      </div>
+      <div class="card-grid">
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Mountain Resorts</h3>
+            <p>Relax with scenic views and comfortable amenities.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Homestays</h3>
+            <p>Experience local hospitality and regional food.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Camping Stays</h3>
+            <p>Consider registered campsites and check seasonal conditions.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Scenic routes -->
+    <section class="section journey-section" id="journey">
+      <div class="section-heading">
+        <span class="eyebrow">THE JOURNEY MATTERS</span>
+        <h2>Understand the Journey</h2>
+        <p class="section-description">
+          Plan travel times carefully, particularly on winding mountain roads.
+        </p>
+      </div>
+      <div class="distance-grid">
+        <article class="distance-card">
+          <div class="distance-content">
+            <h3>Dehradun</h3>
+            <p>A convenient gateway for many Garhwal journeys.</p>
+          </div>
+        </article>
+        <article class="distance-card">
+          <div class="distance-content">
+            <h3>Haridwar</h3>
+            <p>A major pilgrimage destination on the Ganga.</p>
+          </div>
+        </article>
+        <article class="distance-card">
+          <div class="distance-content">
+            <h3>Kathgodam</h3>
+            <p>A useful rail gateway for journeys into Kumaon.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Travel tips -->
+    <section class="section travel-info-section" id="travel-tips">
+      <div class="section-heading">
+        <span class="eyebrow">TRAVEL SMART</span>
+        <h2>Know Before You Travel</h2>
+      </div>
+      <div class="card-grid">
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Check the Weather</h3>
+            <p>Mountain weather can change quickly. Check forecasts before leaving.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Travel Prepared</h3>
+            <p>Carry suitable layers, water, essential medicines and charged devices.</p>
+          </div>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card-content">
+            <h3>Respect Nature</h3>
+            <p>Follow local guidance, avoid littering and protect fragile environments.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section class="section events-showcase" id="events">
+      <div class="section-heading">
+        <span class="eyebrow">CULTURE & TRADITION</span>
+        <h2>Events & Festivals</h2>
+      </div>
+      <div class="event-grid">
+        <article class="event-card">
+          <div class="event-content">
+            <span class="event-number">01 / FESTIVAL</span>
+            <h3>Harela</h3>
+            <p>A traditional festival celebrating greenery, nature and renewal.</p>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="event-content">
+            <span class="event-number">02 / PILGRIMAGE</span>
+            <h3>Ganga Aarti</h3>
+            <p>Experience the devotional evening rituals on the banks of the Ganga.</p>
+          </div>
+        </article>
+        <article class="event-card">
+          <div class="event-content">
+            <span class="event-number">03 / CULTURE</span>
+            <h3>Local Fairs</h3>
+            <p>Explore regional traditions, music, crafts and seasonal celebrations.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Spiritual destinations -->
+    <section class="section spiritual-showcase" id="spiritual">
+      <div class="section-heading">
+        <span class="eyebrow">A JOURNEY OF FAITH</span>
+        <h2>Spiritual Uttarakhand</h2>
+      </div>
+
+      <div class="spiritual-group">
+        <div class="spiritual-group-heading">
+          <div>
+            <span class="spiritual-kicker">THE SACRED FOUR</span>
+            <h3>Char Dham</h3>
+            <p>Check seasonal opening dates and route conditions before visiting.</p>
+          </div>
+          <span class="spiritual-count">04</span>
+        </div>
+        <div class="spiritual-grid char-dham-grid">
+          <article class="spiritual-card"><div class="spiritual-content"><h4>Yamunotri</h4><p>Source region of the Yamuna pilgrimage.</p></div></article>
+          <article class="spiritual-card"><div class="spiritual-content"><h4>Gangotri</h4><p>A sacred Himalayan pilgrimage destination.</p></div></article>
+          <article class="spiritual-card"><div class="spiritual-content"><h4>Kedarnath</h4><p>A revered Shiva temple in the mountains.</p></div></article>
+          <article class="spiritual-card"><div class="spiritual-content"><h4>Badrinath</h4><p>An important shrine dedicated to Lord Vishnu.</p></div></article>
+        </div>
+      </div>
+
+      <div class="spiritual-group">
+        <div class="spiritual-group-heading">
+          <div>
+            <span class="spiritual-kicker">SACRED SHIVA SHRINES</span>
+            <h3>Panch Kedar</h3>
+          </div>
+          <span class="spiritual-count">05</span>
+        </div>
+        <div class="spiritual-grid panch-kedar-grid">
+          <article class="spiritual-mini-card"><div class="spiritual-mini-content"><h4>Kedarnath</h4></div></article>
+          <article class="spiritual-mini-card"><div class="spiritual-mini-content"><h4>Tungnath</h4></div></article>
+          <article class="spiritual-mini-card"><div class="spiritual-mini-content"><h4>Rudranath</h4></div></article>
+          <article class="spiritual-mini-card"><div class="spiritual-mini-content"><h4>Madhyamaheshwar</h4></div></article>
+          <article class="spiritual-mini-card"><div class="spiritual-mini-content"><h4>Kalpeshwar</h4></div></article>
+        </div>
+      </div>
+
+      <div class="spiritual-group">
+        <div class="spiritual-group-heading">
+          <div>
+            <span class="spiritual-kicker">CONFLUENCES OF RIVERS</span>
+            <h3>Panch Prayag</h3>
+          </div>
+          <span class="spiritual-count">05</span>
+        </div>
+        <div class="prayag-grid">
+          <article class="prayag-card"><div class="prayag-content"><h4>Vishnuprayag</h4></div></article>
+          <article class="prayag-card"><div class="prayag-content"><h4>Nandaprayag</h4></div></article>
+          <article class="prayag-card"><div class="prayag-content"><h4>Karnaprayag</h4></div></article>
+          <article class="prayag-card"><div class="prayag-content"><h4>Rudraprayag</h4></div></article>
+          <article class="prayag-card"><div class="prayag-content"><h4>Devprayag</h4></div></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Weather -->
+    <section class="section" id="weather">
+      <div class="section-heading">
+        <span class="eyebrow">MOUNTAIN CONDITIONS</span>
+        <h2>Weather Dashboard</h2>
+        <p class="section-description">Check a reliable local forecast before travelling.</p>
+      </div>
+      <div class="weather-dashboard">
+        <article class="weather-card weather-card-main">
+          <span class="weather-location">Uttarakhand</span>
+          <div class="weather-temperature">--°</div>
+          <p class="weather-condition">Check live local forecast</p>
+        </article>
+        <article class="weather-card"><h3>Before You Go</h3><p>Check rain, snow and road advisories.</p></article>
+        <article class="weather-card"><h3>Mountain Safety</h3><p>Carry layers and prepare for sudden weather changes.</p></article>
+      </div>
+    </section>
+
+    <!-- Live updates -->
+    <section class="section" id="updates">
+      <div class="section-heading">
+        <span class="eyebrow">TRAVEL INFORMATION</span>
+        <h2>Live Updates</h2>
+      </div>
+      <div class="update-list">
+        <article class="update-item"><span class="update-status"></span><div><strong>Check road conditions</strong><p>Verify current routes and local travel advisories before departure.</p></div></article>
+        <article class="update-item"><span class="update-status"></span><div><strong>Confirm temple schedules</strong><p>Seasonal access and opening dates may change.</p></div></article>
+        <article class="update-item"><span class="update-status"></span><div><strong>Plan for weather</strong><p>Check official forecasts and alerts for your destination.</p></div></article>
+      </div>
+    </section>
+
+    <!-- Planner -->
+    <section class="section" id="planner">
+      <div class="section-heading">
+        <span class="eyebrow">YOUR NEXT ADVENTURE</span>
+        <h2>Plan Your Trip</h2>
+      </div>
+      <div class="planner-card">
+        <form class="planner-form" id="plannerForm">
+          <div class="form-field">
+            <label for="destination">Destination</label>
+            <select id="destination" name="destination" required>
+              <option value="">Choose destination</option>
+              <option>Nainital</option><option>Rishikesh</option>
+              <option>Mussoorie</option><option>Auli</option>
+              <option>Jim Corbett</option><option>Valley of Flowers</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="travelDate">Travel date</label>
+            <input id="travelDate" name="travelDate" type="date" required>
+          </div>
+          <div class="form-field">
+            <label for="travellers">Travellers</label>
+            <select id="travellers" name="travellers">
+              <option>1</option><option selected>2</option>
+              <option>3</option><option>4</option><option>5+</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="tripStyle">Trip style</label>
+            <select id="tripStyle" name="tripStyle">
+              <option>Nature</option><option>Adventure</option>
+              <option>Spiritual</option><option>Family</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="tripNotes">Additional notes</label>
+            <textarea id="tripNotes" name="tripNotes" placeholder="Your preferences..."></textarea>
+          </div>
+          <button class="btn" type="submit">Create Trip Plan</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" id="gallery">
+      <div class="section-heading">
+        <span class="eyebrow">MOMENTS IN THE MOUNTAINS</span>
+        <h2>Photo Gallery</h2>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80" alt="Himalayan mountains" loading="lazy"><figcaption class="gallery-caption">Himalayan Peaks</figcaption></figure>
+        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80" alt="Mountain landscape" loading="lazy"><figcaption class="gallery-caption">Mountain Escapes</figcaption></figure>
+        <figure class="gallery-item"><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80" alt="Lake and mountains" loading="lazy"><figcaption class="gallery-caption">Peaceful Lakes</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- Emergency -->
+    <section class="section" id="emergency">
+      <div class="emergency-card">
+        <h3>Travel Safety & Emergency Help</h3>
+        <p>For emergencies in India, call 112. Check local authority advisories and keep essential contacts available while travelling.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Uttarakhand Explorer</h3>
+        <p>Your guide to Himalayan destinations, local culture, spiritual journeys and mountain adventures.</p>
+      </div>
+      <div class="footer-column">
+        <h4>Explore</h4>
+        <a href="#destinations">Destinations</a>
+        <a href="#adventure">Adventure</a>
+        <a href="#food">Local Food</a>
+      </div>
+      <div class="footer-column">
+        <h4>Discover</h4>
+        <a href="#events">Festivals</a>
+        <a href="#spiritual">Spiritual Places</a>
+        <a href="#gallery">Gallery</a>
+      </div>
+      <div class="footer-column">
+        <h4>Plan</h4>
+        <a href="#planner">Trip Planner</a>
+        <a href="#weather">Weather</a>
+        <a href="#emergency">Safety</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Uttarakhand Explorer</span>
+      <span>Explore responsibly. Leave no trace.</span>
+    </div>
+  </footer>
+
+  <!-- Account modal -->
+  <div class="modal" id="accountModal" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="loginTitle">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close">×</button>
+      <h2 id="loginTitle">Welcome</h2>
+      <p>Sign-in demo form</p>
+      <form class="login-form" id="loginForm">
+        <div class="form-field">
+          <label for="loginEmail">Email</label>
+          <input id="loginEmail" type="email" placeholder="you@example.com" required>
+        </div>
+        <div class="form-field">
+          <label for="loginPassword">Password</label>
+          <input id="loginPassword" type="password" placeholder="Password" required>
+        </div>
+        <button type="submit">Continue</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="ue-toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/script.js"></script>
+
+  <!-- Basic interactions so the page remains usable without extra JS -->
+  <script>
+    (() => {
+      const $ = (selector) => document.querySelector(selector);
+      const toast = (message) => {
+        const el = $("#toast");
+        if (!el) return;
+        el.textContent = message;
+        el.classList.add("show");
+        window.setTimeout(() => el.classList.remove("show"), 3000);
+      };
+
+      const sidebar = $(".sidebar");
+      const toggle = $("#menuToggle");
+      const overlay = $("#sidebarOverlay");
+
+      function closeSidebar() {
+        document.body.classList.remove("sidebar-open");
+      }
+
+      toggle?.addEventListener("click", () => {
+        document.body.classList.toggle("sidebar-open");
+      });
+      overlay?.addEventListener("click", closeSidebar);
+      sidebar?.querySelectorAll("a").forEach(link =>
+        link.addEventListener("click", closeSidebar)
+      );
+
+      function searchDestination(query) {
+        const value = query.trim().toLowerCase();
+        if (!value) {
+          toast("Please enter a destination to search.");
+          return;
+        }
+        const cards = [...document.querySelectorAll("#destinations .feature-card")];
+        const match = cards.find(card => card.textContent.toLowerCase().includes(value));
+        if (match) {
+          match.scrollIntoView({ behavior: "smooth", block: "center" });
+          match.focus({ preventScroll: true });
+          match.style.outline = "2px solid #d8b66b";
+          window.setTimeout(() => match.style.outline = "", 2000);
+        } else {
+          toast("No matching destination found. Try Nainital, Rishikesh or Auli.");
+        }
+      }
+
+      $("#heroSearchForm")?.addEventListener("submit", event => {
+        event.preventDefault();
+        searchDestination($("#heroSearchInput").value);
+      });
+      $("#topSearchForm")?.addEventListener("submit", event => {
+        event.preventDefault();
+        searchDestination($("#topSearchInput").value);
+      });
+
+      const modal = $("#accountModal");
+      $("#accountButton")?.addEventListener("click", () => {
+        modal?.classList.add("active");
+        modal?.setAttribute("aria-hidden", "false");
+      });
+      function closeModal() {
+        modal?.classList.remove("active");
+        modal?.setAttribute("aria-hidden", "true");
+      }
+      $("#modalClose")?.addEventListener("click", closeModal);
+      $("#modalBackdrop")?.addEventListener("click", closeModal);
+
+      $("#plannerForm")?.addEventListener("submit", event => {
+        event.preventDefault();
+        const destination = $("#destination").value;
+        const date = $("#travelDate").value;
+        if (!destination || !date) {
+          toast("Please choose a destination and travel date.");
+          return;
+        }
+        toast("Your trip details are ready to review. Booking is not connected.");
+      });
+
+      $("#loginForm")?.addEventListener("submit", event => {
+        event.preventDefault();
+        toast("This is a demo login form; authentication is not connected.");
+        closeModal();
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          closeSidebar();
+          closeModal();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

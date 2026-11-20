@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Explore Places | Uttarakhand Explorer</title>
+
+    <meta
+        name="description"
+        content="Explore the mountains, valleys, spiritual towns and hidden destinations of Uttarakhand."
+    >
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+
+<body class="inner-page">
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+
+            <a
+                href="../index.html"
+                class="brand-logo"
+                aria-label="Uttarakhand Explorer Home"
+            >
+                
+            </a>
+
+            <div class="brand-text">
+                <strong>Uttarakhand</strong>
+                <span>Explorer</span>
+            </div>
+
+        </div>
+
+
+        <nav
+            class="main-navigation"
+            aria-label="Main Navigation"
+        >
+
+            <a
+                href="../index.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">⌂</span>
+                <span class="nav-label">Home</span>
+            </a>
+
+
+            <a
+                href="explore.html"
+                class="nav-link active"
+            >
+                <span class="nav-icon">◈</span>
+                <span class="nav-label">Explore Places</span>
+            </a>
+
+
+            <a
+                href="adventure.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">⌁</span>
+                <span class="nav-label">Adventure</span>
+            </a>
+
+
+            <a
+                href="weather.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">☼</span>
+                <span class="nav-label">Weather &amp; Conditions</span>
+            </a>
+
+
+            <a
+                href="live-updates.html"
+                class="nav-link"
+            >
+                <span class="nav-icon live-icon">●</span>
+                <span class="nav-label">Live Updates</span>
+            </a>
+
+
+            <a
+                href="trip-planner.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">⌖</span>
+                <span class="nav-label">Plan Your Journey</span>
+            </a>
+
+
+            <a
+                href="gallery.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">▧</span>
+                <span class="nav-label">Gallery</span>
+            </a>
+
+
+            <a
+                href="saved-places.html"
+                class="nav-link protected-link"
+                data-requires-login
+            >
+                <span class="nav-icon">♡</span>
+                <span class="nav-label">Saved Places</span>
+                <span class="nav-lock">•</span>
+            </a>
+
+
+            <a
+                href="account.html"
+                class="nav-link protected-link"
+                data-requires-login
+            >
+                <span class="nav-icon">○</span>
+                <span class="nav-label">My Account</span>
+                <span class="nav-lock">•</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-note">
+
+                <span class="note-dot"></span>
+
+                <div>
+                    <strong>Travel Responsibly</strong>
+                    <small>Respect the mountains.</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <div
+        class="sidebar-overlay"
+        aria-hidden="true"
+    ></div>
+
+
+
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
+
+    <header class="top-bar">
+
+        <div class="mobile-brand">
+
+            <a href="../index.html">
+                Uttarakhand Explorer
+            </a>
+
+        </div>
+
+
+        <div class="top-search">
+
+            <span class="search-icon">⌕</span>
+
+            <input
+                type="search"
+                id="globalSearch"
+                placeholder="Search places, experiences, routes..."
+                autocomplete="off"
+            >
+
+            <span class="search-shortcut">/</span>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="account-control"
+            id="openAccountModal"
+            aria-label="Open account"
+        >
+
+            <span class="account-avatar">
+                U
+            </span>
+
+            <span class="account-info">
+
+                <span class="account-label">
+                    My Account
+                </span>
+
+                <span class="account-subtitle">
+                    Sign in to continue
+                </span>
+
+            </span>
+
+        </button>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="page-main">
+
+
+        <!-- =================================================
+             PAGE HERO
+        ================================================== -->
+
+        <section
+            class="page-hero"
+            style="
+                background-image:
+                linear-gradient(
+                    90deg,
+                    rgba(4,16,13,.92),
+                    rgba(4,16,13,.48),
+                    rgba(4,16,13,.18)
+                ),
+                url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=2200&q=90');
+            "
+        >
+
+            <div class="page-hero-content">
+
+                <p class="eyebrow">
+                    DISCOVER UTTARAKHAND
+                </p>
+
+                <h1>
+                    Find your place
+                    <br>
+                    in the mountains.
+                </h1>
+
+                <p class="page-hero-description">
+                    From quiet Himalayan villages to sacred valleys,
+                    discover destinations worth slowing down for.
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             INTRO
+        ================================================== -->
+
+        <section class="section explore-intro">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        EXPLORE BY EXPERIENCE
+                    </p>
+
+                    <h2>
+                        There is a different
+                        <br>
+                        Uttarakhand for everyone.
+                    </h2>
+
+                </div>
+
+
+                <p class="section-description">
+
+                    Choose a destination by the feeling
+                    you want to take home with you.
+
+                </p>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 DESTINATION GRID
+            ============================================== -->
+
+            <div class="explore-grid">
+
+
+                <!-- DEHRADUN -->
+
+                <a
+                    href="place.html?place=dehradun"
+                    class="explore-card"
+                    style="
+                        --card-image:url(
+                            'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1400&q=90'
+                        );
+                    "
+                >
+
+                    <div class="explore-card-overlay"></div>
+
+                    <div class="explore-card-content">
+
+                        <small>
+                            GATEWAY
+                        </small>
+
+                        <h3>
+                            Dehradun
+                        </h3>
+
+                        <p>
+                            A relaxed valley city surrounded by forested hills.
+                        </p>
+
+                        <span>
+                            Explore place →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- MUSSOORIE -->
+
+                <a
+                    href="place.html?place=mussoorie"
+                    class="explore-card"
+                    style="
+                        --card-image:url(
+                            'https://images.unsplash.com/photo-1597074866923-dc0589150358?auto=format&fit=crop&w=1400&q=90'
+                        );
+                    "
+                >
+
+                    <div class="explore-card-overlay"></div>
+
+                    <div class="explore-card-content">
+
+                        <small>
+                            HILL STATION
+                        </small>
+
+                        <h3>
+                            Mussoorie
+                        </h3>
+
+                        <p>
+                            Colonial charm, pine forests and sweeping valley views.
+                        </p>
+
+                        <span>
+                            Explore place →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- RISHIKESH -->
+
+                <a
+                    href="place.html?place=rishikesh"
+                    class="explore-card"
+                    style="
+                        --card-image:url(
+                            'https://images.unsplash.com/photo-1605640840605-14ac1855827b?auto=format&fit=crop&w=1400&q=90'
+                        );
+                    "
+                >
+
+                    <div class="explore-card-overlay"></div>
+
+                    <div class="explore-card-content">
+
+                        <small>
+                            RIVER &amp; SPIRIT
+                        </small>
+
+                        <h3>
+                            Rishikesh
+                        </h3>
+
+                        <p>
+                            Where the Ganga, yoga and adventure meet.
+                        </p>
+
+                        <span>
+                            Explore place →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- AULI -->
+
+                <a
+                    href="place.html?place=auli"
+                    class="explore-card"
+                    style="
+                        --card-image:url(
+                            'https://images.unsplash.com/photo-1548777123-e216912df7d8?auto=format&fit=crop&w=1400&q=90'
+                        );
+                    "
+                >
+
+                    <div class="explore-card-overlay"></div>
+
+                    <div class="explore-card-content">
+
+                        <small>
+                            HIGH HIMALAYAS
+                        </small>
+
+                        <h3>
+                            Auli
+                        </h3>
+
+                        <p>
+                            Alpine landscapes, skiing and spectacular mountain views.
+                        </p>
+
+                        <span>
+                            Explore place →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- NAINITAL -->
+
+                <a
+                    href="place.html?place=nainital"
+                    class="explore-card"
+                    style="
+                        --card-image:url(
+                            'https://images.unsplash.com/photo-1609947017136-9daf32a5eb16?auto=format&fit=crop&w=1400&q=90'
+                        );
+                    "
+                >
+
+                    <div class="explore-card-overlay"></div>
+
+                    <div class="explore-card-content">
+
+                        <small>
+                            LAKE DISTRICT
+                        </small>
+
+                        <h3>
+                            Nainital
+                        </h3>
+
+                        <p>
+                            A mountain lake wrapped in forests and old-world charm.
+                        </p>
+
+                        <span>
+                            Explore place →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- JIM CORBETT -->
+
+                <a
+                    href="place.html?place=corbett"
+                    class="explore-card"
+                    style="
+                        --card-image:url(
+                            'https://images.unsplash.com/photo-1549366021-9f761d450615?auto=format&fit=crop&w=1400&q=90'
+                        );
+                    "
+                >
+
+                    <div class="explore-card-overlay"></div>
+
+                    <div class="explore-card-content">
+
+                        <small>
+                            WILDERNESS
+                        </small>
+
+                        <h3>
+                            Jim Corbett
+                        </h3>
+
+                        <p>
+                            Forest trails, wildlife and the thrill of the wild.
+                        </p>
+
+                        <span>
+                            Explore place →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- KEDARNATH -->
+
+                <a
+                    href="place.html?place=kedarnath"
+                    class="explore-card"
+                    style="
+                        --card-image:url(
+                            'https://upload.wikimedia.org/wikipedia/commons/5/56/Kedarnath_Temple_in_Rainy_season.jpg'
+                        );
+                    "
+                >
+
+                    <div class="explore-card-overlay"></div>
+
+                    <div class="explore-card-content">
+
+                        <small>
+                            SACRED HIMALAYAS
+                        </small>
+
+                        <h3>
+                            Kedarnath
+                        </h3>
+
+                        <p>
+                            A powerful pilgrimage journey beneath the high Himalayas.
+                        </p>
+
+                        <span>
+                            Explore place →
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <!-- MUNSIYARI -->
+
+                <a
+                    href="place.html?place=munsiyari"
+                    class="explore-card"
+                    style="
+                        --card-image:url(
+                            'https://images.unsplash.com/photo-1486911278844-a81c5267e227?auto=format&fit=crop&w=1400&q=90'
+                        );
+                    "
+                >
+
+                    <div class="explore-card-overlay"></div>
+
+                    <div class="explore-card-content">
+
+                        <small>
+                            REMOTE ESCAPE
+                        </small>
+
+                        <h3>
+                            Munsiyari
+                        </h3>
+
+                        <p>
+                            Remote valleys, dramatic peaks and slower mountain days.
+                        </p>
+
+                        <span>
+                            Explore place →
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             EXPERIENCE STRIP
+        ================================================== -->
+
+        <section class="section explore-experience">
+
+            <div class="section-heading compact">
+
+                <div>
+
+                    <p class="eyebrow">
+                        FIND YOUR WAY
+                    </p>
+
+                    <h2>
+                        What are you
+                        <br>
+                        looking for?
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="experience-grid">
+
+
+                <a
+                    href="adventure.html"
+                    class="experience-card"
+                >
+
+                    <span class="experience-icon">
+                        ⛰
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Adventure
+                        </h3>
+
+                        <p>
+                            Trekking, rafting, camping and more.
+                        </p>
+
+                    </div>
+
+                    <span class="experience-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="spiritual.html"
+                    class="experience-card"
+                >
+
+                    <span class="experience-icon">
+                        ◌
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Spiritual
+                        </h3>
+
+                        <p>
+                            Temples, pilgrimages and sacred valleys.
+                        </p>
+
+                    </div>
+
+                    <span class="experience-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="hotels.html"
+                    class="experience-card"
+                >
+
+                    <span class="experience-icon">
+                        ◇
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Stay
+                        </h3>
+
+                        <p>
+                            Mountain hotels, retreats and quiet escapes.
+                        </p>
+
+                    </div>
+
+                    <span class="experience-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+
+                <a
+                    href="food.html"
+                    class="experience-card"
+                >
+
+                    <span class="experience-icon">
+                        ◉
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Food
+                        </h3>
+
+                        <p>
+                            Discover the flavours of the hills.
+                        </p>
+
+                    </div>
+
+                    <span class="experience-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             HIDDEN GEM CTA
+        ================================================== -->
+
+        <section class="section explore-cta">
+
+            <div
+                class="explore-cta-inner"
+                style="
+                    background-image:
+                    linear-gradient(
+                        90deg,
+                        rgba(4,16,13,.95),
+                        rgba(4,16,13,.55),
+                        rgba(4,16,13,.28)
+                    ),
+                    url('https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=2000&q=90');
+                "
+            >
+
+                <div class="explore-cta-content">
+
+                    <p class="eyebrow">
+                        GO BEYOND THE OBVIOUS
+                    </p>
+
+                    <h2>
+                        The best journeys
+                        <br>
+                        are rarely crowded.
+                    </h2>
+
+                    <p>
+                        Discover hidden villages, quiet viewpoints
+                        and roads that take you somewhere unexpected.
+                    </p>
+
+                    <a
+                        href="hidden-gems.html"
+                        class="btn btn-primary"
+                    >
+                        Discover Hidden Gems
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         LOGIN MODAL
+    ====================================================== -->
+
+    <div
+        class="modal-overlay"
+        id="accountModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="modal login-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="loginModalTitle"
+        >
+
+            <button
+                type="button"
+                class="modal-close"
+                data-close-modal
+                aria-label="Close"
+            >
+                ×
+            </button>
+
+
+            <div class="modal-header">
+
+                <p class="eyebrow">
+                    WELCOME BACK
+                </p>
+
+                <h2 id="loginModalTitle">
+                    Sign in to continue.
+                </h2>
+
+                <p>
+                    Save places, build journeys and keep
+                    your Uttarakhand discoveries together.
+                </p>
+
+            </div>
+
+
+            <form
+                id="loginForm"
+                class="login-form"
+            >
+
+                <label for="loginEmail">
+                    Email address
+                </label>
+
+                <input
+                    type="email"
+                    id="loginEmail"
+                    name="email"
+                    placeholder="you@example.com"
+                    required
+                >
+
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="loginPassword"
+                    name="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+
+                <div class="captcha-row">
+
+                    <div class="captcha-box">
+                        <span id="captchaQuestion">
+                            4 + 7 =
+                        </span>
+
+                        <input
+                            type="text"
+                            id="captchaAnswer"
+                            inputmode="numeric"
+                            placeholder="?"
+                            required
+                        >
+                    </div>
+
+                    <button
+                        type="button"
+                        id="refreshCaptcha"
+                        class="captcha-refresh"
+                        aria-label="Refresh captcha"
+                    >
+                        ↻
+                    </button>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn btn-primary login-submit"
+                >
+                    Sign In
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         TOAST
+    ====================================================== -->
+
+    <div
+        class="toast"
+        id="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-inner">
+
+            <div class="footer-brand">
+
+                <strong>
+                    Uttarakhand Explorer
+                </strong>
+
+                <p>
+                    A thoughtful guide to the mountains,
+                    valleys and stories of Uttarakhand.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="explore.html">
+                    Explore
+                </a>
+
+                <a href="adventure.html">
+                    Adventure
+                </a>
+
+                <a href="trip-planner.html">
+                    Plan Your Journey
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Uttarakhand Explorer
+            </span>
+
+            <span>
+                Travel responsibly.
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- MAIN JAVASCRIPT -->
+
+    <script src="../js/script.js"></script>
+
+</body>
+</html>

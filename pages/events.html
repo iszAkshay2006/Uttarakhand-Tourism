@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Uttarakhand Artists | Uttarakhand Explorer</title>
+<style>
+:root{--bg:#061a13;--card:#0c281f;--gold:#d9b76a;--text:#f8f5ed;--muted:#b7c5bc;--line:#294438}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+header{padding:20px 5%;display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap;background:#06150f;border-bottom:1px solid var(--line)}
+.logo{font-weight:bold;font-size:20px}.logo span{color:var(--gold)}
+nav{display:flex;gap:18px;flex-wrap:wrap}
+nav a{color:var(--muted);text-decoration:none;font-size:13px}
+nav a:hover{color:var(--gold)}
+.hero{padding:65px 6% 45px;background:radial-gradient(ellipse at top right,#1c4937,transparent 65%)}
+.eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase;font-weight:bold}
+h1,h2,h3{font-family:Georgia,serif}
+h1{font-size:clamp(44px,7vw,78px);line-height:1.02;margin:20px 0;letter-spacing:-2px}
+.gold{color:var(--gold)}
+.hero p{max-width:690px;color:var(--muted);line-height:1.8}
+main{padding:30px 5% 65px}
+.heading{margin:15px 0 25px}
+.heading h2{font-size:clamp(30px,4vw,44px);margin:12px 0}
+.heading p{color:var(--muted);font-size:14px;line-height:1.7}
+.controls{display:grid;grid-template-columns:1fr 220px;gap:12px;margin:25px 0 16px}
+input,select{padding:14px;background:var(--card);color:white;border:1px solid var(--line);border-radius:8px;min-width:0}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:25px}
+.filters button{padding:10px 15px;border:1px solid var(--line);border-radius:30px;background:transparent;color:var(--muted);cursor:pointer}
+.filters button.active,.filters button:hover{background:var(--gold);color:#102017}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.artist{background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;transition:.2s}
+.artist:hover{transform:translateY(-4px);border-color:var(--gold)}
+.photo{height:260px;position:relative;background:linear-gradient(135deg,#24523d,#091b13);overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,rgba(2,12,8,.7));pointer-events:none}
+.tag{position:absolute;z-index:2;top:13px;left:13px;background:#061a13e8;color:var(--gold);border:1px solid #8d7847;padding:7px 10px;border-radius:20px;font-size:10px;text-transform:uppercase}
+.body{padding:19px}
+.body h3{font-size:24px;margin:0 0 8px}
+.profession{font-size:12px;color:var(--gold);font-weight:bold}
+.bio{color:var(--muted);font-size:13px;line-height:1.7;min-height:65px}
+.meta{border-top:1px solid var(--line);padding-top:13px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.meta small{display:block;color:var(--muted);margin-bottom:6px}
+.meta strong{font-size:12px}
+.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+.links a{color:var(--gold);text-decoration:none;border:1px solid var(--line);border-radius:6px;padding:9px;font-size:11px}
+.links a:hover{background:var(--gold);color:#102017}
+.empty{display:none;color:var(--muted);padding:25px 0}
+.updates{margin-top:70px;border:1px solid var(--line);border-radius:14px;padding:28px;background:linear-gradient(120deg,#103326,#071a13)}
+.updates h2{font-size:38px}
+.updategrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.update{padding:20px;background:#071811;border:1px solid var(--line);border-radius:10px}
+.update small{color:var(--gold);letter-spacing:1px}
+.update p{font-size:13px;color:var(--muted);line-height:1.7}
+.update a{font-size:12px;color:var(--gold)}
+.note{margin-top:20px;padding:15px;border-left:3px solid var(--gold);background:#071811;color:var(--muted);font-size:12px;line-height:1.8}
+footer{padding:25px 5%;border-top:1px solid var(--line);color:var(--muted);font-size:12px}
+@media(max-width:950px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.updategrid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.grid,.updategrid,.controls{grid-template-columns:1fr}.photo{height:280px}header{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">Uttarakhand <span>Explorer</span></div>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="food.html">Local Food</a>
+    <a href="hotel.html">Hotels</a>
+    <a href="#artists">Artists</a>
+    <a href="#updates">Latest Updates</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">People • Music • Cinema • Culture</div>
+  <h1>The Stars of<br><span class="gold">Uttarakhand.</span></h1>
+  <p>Discover the folk legends, singers, actors, bands and rappers connected with Uttarakhand. Explore their professions, career milestones and news sources.</p>
+</section>
+
+<main>
+<section id="artists">
+  <div class="heading">
+    <div class="eyebrow">Discover local talent</div>
+    <h2>Artists & Personalities</h2>
+    <p>Search by name, profession or location. Click a profile link to learn more.</p>
+  </div>
+  <div class="controls">
+    <input id="search" type="search" placeholder="Search artists, songs, cities...">
+    <select id="city"><option value="all">All locations</option></select>
+  </div>
+  <div class="filters">
+    <button class="active" data-type="all">All Artists</button>
+    <button data-type="Singer">Singers</button>
+    <button data-type="Actor">Actors</button>
+    <button data-type="Band">Bands</button>
+    <button data-type="Rapper">Rappers</button>
+  </div>
+  <div class="grid" id="grid"></div>
+  <p class="empty" id="empty">No artists found. Try a different search.</p>
+</section>
+
+<section class="updates" id="updates">
+  <div class="eyebrow">News desk</div>
+  <h2>Latest <span class="gold">Updates.</span></h2>
+  <div class="updategrid">
+    <article class="update">
+      <small>21 OCTOBER 2026 · MUSIC NEWS</small>
+      <h3>Daler Mehndi's Uttarakhand event</h3>
+      <p>Reports covered a controversy following Daler Mehndi's performance at the Kunjapuri Mela in Tehri and reactions from other entertainers.</p>
+      <a href="https://indianexpress.com/article/entertainment/music/mika-badshah-kapil-sharma-back-daler-mehndi-over-public-humiliation-at-uttarakhand-event-10929739/" target="_blank" rel="noopener">Read news report ↗</a>
+    </article>
+    <article class="update">
+      <small>ARTIST · OFFICIAL SOURCE</small>
+      <h3>Pandavaas</h3>
+      <p>Explore the Uttarakhand folk-fusion group's work and announcements through its official website.</p>
+      <a href="https://pandavaas.com/landing_page" target="_blank" rel="noopener">Visit website ↗</a>
+    </article>
+    <article class="update">
+      <small>FOLK MUSIC · HERITAGE</small>
+      <h3>Narendra Singh Negi</h3>
+      <p>Read the Sangeet Natak Akademi profile of the celebrated Uttarakhand folk singer.</p>
+      <a href="https://www.sangeetnatak.gov.in/public/uploads/1649250360427.SNA-Citation_compressed_compressed.pdf" target="_blank" rel="noopener">Read profile ↗</a>
+    </article>
+  </div>
+  <div class="note"><strong>Important:</strong> News cards are curated links, not an automatic live feed. The displayed report date belongs to the linked article. For automatic updates, connect an RSS feed or news API.</div>
+</section>
+</main>
+
+<footer>© 2026 Uttarakhand Explorer · Celebrating the people and culture of the mountains.</footer>
+
+<script>
+const artists = [
+{
+name:"Narendra Singh Negi",type:"Singer",city:"Pauri Garhwal",initials:"NN",
+career:"Garhwali folk singer, writer & composer",start:"Career began with Garhwali Geetmala",
+bio:"A celebrated folk artist whose songs preserve the language, stories and social life of the Garhwal hills.",
+image:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=85",
+source:"https://www.sangeetnatak.gov.in/public/uploads/1649250360427.SNA-Citation_compressed_compressed.pdf"
+},
+{
+name:"Jubin Nautiyal",type:"Singer",city:"Dehradun",initials:"JN",
+career:"Hindi playback singer",start:"Film playback breakthrough: 2014",
+bio:"A Dehradun-raised singer known for Hindi film songs and romantic playback music.",
+image:"https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85",
+source:"https://en.wikipedia.org/wiki/Jubin_Nautiyal"
+},
+{
+name:"Pawandeep Rajan",type:"Singer",city:"Champawat",initials:"PR",
+career:"Singer & musician",start:"Indian Idol Season 12 winner: 2021",
+bio:"Singer and multi-instrumentalist from Uttarakhand who became widely known after winning Indian Idol Season 12.",
+image:"https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85",
+source:"https://en.wikipedia.org/wiki/Pawandeep_Rajan"
+},
+{
+name:"Pritam Bhartwan",type:"Singer",city:"Garhwal",initials:"PB",
+career:"Jagar & folk singer",start:"Career date not confirmed",
+bio:"Padma Shri awardee known for his contribution to preserving traditional Jagar and Uttarakhand folk heritage.",
+image:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=85",
+source:"https://governoruk.gov.in/10-09-2025-governor-meets-padma-shri-awardee-folk-singer-pritam-bharatwan-lauds-his-contribution-to-preserving-uttarakhand-cultural-heritage/"
+},
+{
+name:"Meena Rana",type:"Singer",city:"Uttarakhand",initials:"MR",
+career:"Garhwali & Kumaoni singer",start:"Career date not confirmed",
+bio:"A well-known regional singer whose work includes Garhwali and Kumaoni folk music.",
+image:"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85",
+source:"https://www.google.com/search?q=Meena+Rana+Uttarakhand+folk+singer"
+},
+{
+name:"Priyanka Meher",type:"Singer",city:"Uttarakhand",initials:"PM",
+career:"Contemporary folk singer",start:"Career date not confirmed",
+bio:"A modern regional voice helping introduce Uttarakhand's musical traditions to younger listeners.",
+image:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=85",
+source:"https://www.google.com/search?q=Priyanka+Meher+Uttarakhand+singer"
+},
+{
+name:"Kamla Devi",type:"Singer",city:"Bageshwar",initials:"KD",
+career:"Kumaoni folk singer",start:"Coke Studio Bharat invitation reported in 2024",
+bio:"A traditional Kumaoni folk singer from Lakhani village, Bageshwar, recognised for preserving local singing traditions.",
+image:"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85",
+source:"https://timesofindia.indiatimes.com/city/dehradun/kamla-devi-50-year-old-kumaoni-folk-singer-invited-to-coke-studio-bharat/articleshow/107737050.cms"
+},
+{
+name:"Pandavaas",type:"Band",city:"Garhwal",initials:"PV",
+career:"Folk-fusion music group",start:"Group history: see official website",
+bio:"A Uttarakhand music collective blending regional folk sounds with modern arrangements and production.",
+image:"https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85",
+source:"https://pandavaas.com/landing_page"
+},
+{
+name:"Dakait",type:"Rapper",city:"Dehradun",initials:"DK",
+career:"Hip-hop rapper",start:"Career milestone dates vary by source",
+bio:"A Dehradun-associated hip-hop artist known for rap and independent music projects.",
+image:"https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=900&q=85",
+source:"https://www.evoforlife.com/dakait"
+},
+{
+name:"Anushka Baduwal",type:"Rapper",city:"Rishikesh",initials:"AB",
+career:"Rapper & singer-songwriter",start:"MTV Hustle 5: 2025–26",
+bio:"A Rishikesh-linked emerging artist combining rap, hip-hop, melody and personal storytelling.",
+image:"https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85",
+source:"https://www.ofuttarakhand.com/rapper-singer-anushka-baduwal-rishikesh-mtv-hustle/"
+},
+{
+name:"Raghav Juyal",type:"Actor",city:"Dehradun",initials:"RJ",
+career:"Actor, dancer & television host",start:"Television breakthrough: 2012",
+bio:"Performer known for his distinctive dance style, hosting and film roles.",
+image:"https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85",
+source:"https://en.wikipedia.org/wiki/Raghav_Juyal"
+},
+{
+name:"Urvashi Rautela",type:"Actor",city:"Haridwar",initials:"UR",
+career:"Actor & model",start:"Hindi film debut: 2013",
+bio:"Actor and model born in Haridwar who has appeared in Hindi films and music videos.",
+image:"https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85",
+source:"https://en.wikipedia.org/wiki/Urvashi_Rautela"
+},
+{
+name:"Himani Shivpuri",type:"Actor",city:"Dehradun",initials:"HS",
+career:"Film, television & theatre actor",start:"Film career began in the 1980s",
+bio:"Veteran actor associated with Hindi cinema and television, with roots in Dehradun.",
+image:"https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=900&q=85",
+source:"https://en.wikipedia.org/wiki/Himani_Shivpuri"
+},
+{
+name:"Amit Sagar",type:"Singer",city:"Srinagar Garhwal",initials:"AS",
+career:"Singer & music producer",start:"Regional breakthrough: 2011",
+bio:"Known for modern interpretations of Garhwali music, including the song Chaitwali.",
+image:"https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=900&q=85",
+source:"https://www.google.com/search?q=Amit+Sagar+Chaitwali+Uttarakhand"
+},
+{
+name:"Kishan Mahipal",type:"Singer",city:"Garhwal",initials:"KM",
+career:"Garhwali singer & performer",start:"Career dates vary by source",
+bio:"Regional singer associated with contemporary Garhwali songs and music videos.",
+image:"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=900&q=85",
+source:"https://www.google.com/search?q=Kishan+Mahipal+Uttarakhand+singer"
+},
+{
+name:"Gajendra Rana",type:"Singer",city:"Garhwal",initials:"GR",
+career:"Garhwali folk singer",start:"Career date not confirmed",
+bio:"Popular regional artist associated with Garhwali folk and contemporary Pahadi music.",
+image:"https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=900&q=85",
+source:"https://www.google.com/search?q=Gajendra+Rana+Garhwali+singer"
+}
+];
+
+const grid=document.getElementById("grid");
+const search=document.getElementById("search");
+const city=document.getElementById("city");
+const empty=document.getElementById("empty");
+let activeType="all";
+
+[...new Set(artists.map(a=>a.city))].sort().forEach(c=>{
+ const o=document.createElement("option");
+ o.value=c;o.textContent=c;city.appendChild(o);
+});
+
+function esc(s){
+ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+}
+
+function render(){
+ const term=search.value.toLowerCase().trim();
+ const selectedCity=city.value;
+ const results=artists.filter(a=>{
+   const matchesType=activeType==="all"||a.type===activeType;
+   const matchesCity=selectedCity==="all"||a.city===selectedCity;
+   return matchesType&&matchesCity&&
+   [a.name,a.type,a.city,a.career,a.bio].join(" ").toLowerCase().includes(term);
+ });
+ grid.innerHTML=results.map(a=>`
+ <article class="artist">
+   <div class="photo">
+     <img src="${esc(a.image)}" alt="${esc(a.name)}" loading="lazy"
+       onerror="this.style.display='none';this.parentElement.style.background='#163d2d'">
+     <span class="tag">${esc(a.type)}</span>
+   </div>
+   <div class="body">
+     <h3>${esc(a.name)}</h3>
+     <div class="profession">${esc(a.career)}</div>
+     <p class="bio">${esc(a.bio)}</p>
+     <div class="meta">
+       <div><small>Location</small><strong>${esc(a.city)}</strong></div>
+       <div><small>Career milestone</small><strong>${esc(a.start)}</strong></div>
+     </div>
+     <div class="links">
+       <a href="${esc(a.source)}" target="_blank" rel="noopener">Biography / Source ↗</a>
+       <a href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(a.name+" Uttarakhand artist")}" target="_blank" rel="noopener">More Photos ↗</a>
+       <a href="https://news.google.com/search?q=${encodeURIComponent(a.name+" Uttarakhand")}" target="_blank" rel="noopener">News ↗</a>
+     </div>
+   </div>
+ </article>`).join("");
+ empty.style.display=results.length?"none":"block";
+}
+
+document.querySelectorAll(".filters button").forEach(b=>{
+ b.addEventListener("click",()=>{
+  document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active");activeType=b.dataset.type;render();
+ });
+});
+search.addEventListener("input",render);
+city.addEventListener("change",render);
+render();
+</script>
+</body>
+</html>
